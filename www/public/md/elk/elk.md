@@ -175,6 +175,16 @@ filter {
 }
 ```
 
+* 이미지 제거
+```
+filter {
+    if [message] =~ "^#|\.(css|js|ico|png|xml|jpg|JPG|gif|jpeg|eot\?) " {
+        drop {}
+    }
+}
+```
+
+
 ### Kibana
 * 질의어 문법(query syntax)
 
