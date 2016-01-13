@@ -139,8 +139,46 @@ bin/logstash -f logconf/nginx.conf
 ### 시각화
   * 테이블
   * 차트
+  
 
 ### 대시보드 만들기
+
+
+
+## part 2
+
+### Logstash
+* 파라미터 필드 만들기
+```
+filter {
+    mutate {
+        add_field => {
+            "tmp" => "%{request}"
+        }
+    }
+    if [tmp] =~ "\?" {
+        mutate {
+            split => [
+                "tmp", "?"
+            ]
+            add_field => {
+                "params" => "%{[tmp][1]}"
+            }
+        }
+        kv {
+            field_split => "&"
+            source => "params"
+            include_keys => [ "category", "utm_source" ]
+            prefix => "param_"
+        }
+    }
+}
+```
+
+### Kibana
+* 질의어 문법(query syntax)
+
+* request: "uri"
 
 
 ## Filebeat
