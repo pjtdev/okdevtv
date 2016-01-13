@@ -225,3 +225,10 @@ cd filebeat-1.0.1-x86_64
 * ELK 프로그래밍 방송 영상
   * http://bit.ly/okdevtv-elk
 
+* Logstash Configuration
+  * https://www.elastic.co/guide/en/logstash/current/event-dependent-configuration.html
+
+* Elasticsearch(Lucene) Query Syntax
+  * https://lucene.apache.org/core/2_9_4/queryparsersyntax.html
+  
+
