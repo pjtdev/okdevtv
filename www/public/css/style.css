@@ -1017,3 +1017,7 @@
 			body.touch .poptrox-popup .closer {
 				opacity: 1.0 !important;
 			}
+ol {
+    margin-left: 20px;
+    list-style: initial;
+}
