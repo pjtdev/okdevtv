@@ -55,6 +55,7 @@ echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
 ## Elasticsearch 설치
 
 ```
+mkdir ~/local
 cd ~/local
 wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.tar.gz
 tar xvfz elasticsearch-2.1.1.tar.gz
