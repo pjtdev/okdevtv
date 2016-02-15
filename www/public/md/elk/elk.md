@@ -207,6 +207,9 @@ cd filebeat-1.0.1-x86_64
 ```
 
 ## 참고
+* Logstash grok patterns
+  * https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns
+
 * ELKR (ElasticSearch + Logstash + Kibana + Redis) 를 이용한 로그분석 환경 구축하기
   * http://brantiffy.axisj.com/archives/418
 
