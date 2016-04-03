@@ -209,6 +209,7 @@ cd ~/local/logstash-2.3.0
 ```
 
 * filebeat 설치
+
 ```
 cd ~/local
 wget https://download.elastic.co/beats/filebeat/filebeat-1.2.0-x86_64.tar.gz
@@ -224,7 +225,9 @@ cd filebeat-1.2.0-x86_64
 # filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
 ```
 
+
 * logconf/nginx.conf 파일 변경
+
 ```
 input {
   beats {
@@ -233,7 +236,10 @@ input {
 }
 filter {
     grok {
-        match => { "message" => "%{COMBINEDAPACHELOG}"}
+        match => [
+            "message", "%{COMBINEDAPACHELOG}",
+            "message", "%{COMMONAPACHELOG}"
+        ]
     }
     geoip {
         source => "clientip"
