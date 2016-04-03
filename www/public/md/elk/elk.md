@@ -48,7 +48,7 @@ echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
 * Kibana
 * Logstash (FluentD로 대치 가능)
 
-* 버전을 맞춰서 작업하는 것이 좋지만, 최신 버전으로 작업해도 동작함(2015/10/20 현재)
+* 버전을 맞춰서 작업하는 것이 좋지만, 최신 버전으로 작업해도 동작함(2016/04/03 현재)
 * 설치 위치 /opt/ 또는 ~/local/ 권장
 
 
@@ -57,12 +57,14 @@ echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
 ```
 mkdir ~/local
 cd ~/local
-wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.2.0.tar.gz
-tar xvfz elasticsearch-2.2.0.tar.gz
-cd elasticsearch-2.2.0
+wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.3.0.tar.gz
+tar xvfz elasticsearch-2.3.0.tar.gz
+cd elasticsearch-2.3.0
 vi config/elasticsearch.yml
-`# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
-bin/elasticsearch
+  # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
+  # 모든 IP에서 접근 가능
+bin/elasticsearch -d
+  # 데몬(백그라운드)로 실행. 옵션 -d를 빼면 터미널 접속해 있는 동안만 실행
 ```
 
 * 실행 확인
@@ -74,12 +76,12 @@ curl -i http://localhost:9200/
 
 ```
 cd ~/local
-wget https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz
-tar xvfz kibana-4.4.0-linux-x64.tar.gz
-cd kibana-4.4.0-linux-x64
+wget https://download.elastic.co/kibana/kibana/kibana-4.5.0-linux-x64.tar.gz
+tar xvfz kibana-4.5.0-linux-x64.tar.gz
+cd kibana-4.5.0-linux-x64
 ```
 
-* elasticsearch 연결
+* elasticsearch 연결(optioanl)
   * `config/kibana.yml` 파일을 열어서 `elasticsearch_url` 값을 맞춰줌
 
 ```
@@ -87,16 +89,16 @@ bin/kibana
 ```
 
 * 실행 확인
-http://yourhost.com:5601
+http://아이피:5601
 
 
 ## Logstash 설치
 
 ```
 cd ~/local
-wget https://download.elastic.co/logstash/logstash/logstash-2.2.0.tar.gz
-tar xvfz logstash-2.2.0.tar.gz
-cd logstash-2.2.0
+wget https://download.elastic.co/logstash/logstash/logstash-2.3.0.tar.gz
+tar xvfz logstash-2.3.0.tar.gz
+cd logstash-2.3.0
 ```
 
 * conf 파일 생성
@@ -130,22 +132,25 @@ output {
 
 * logstash 실행 
 ```
-# test
-bin/logstash -f logconf/nginx.conf -t
+# debug
+bin/logstash -f logconf/nginx.conf --debug
 # run
 bin/logstash -f logconf/nginx.conf
+# background run
+nohup bin/logstash -f logconf/nginx.conf &
 ```
 
 
 ## Kibana 통계
 
-### 시각화
-  * 테이블
-  * 차트
+### 시각화(Visualize)
+  * Terms(request.raw, clientip.raw, ...) 또는 Filters(request: "/hello.html", ...) 이용해서 차트 생성
+  * 테이블, 라인차트, 파이차트, 지도 등 가능
+  * 만들어진 차트는 저장 가능
   
 
 ### 대시보드 만들기
-
+  * 저장된 차트를 한 화면에서 볼 수 있도록 추가, 레이아웃 가능
 
 
 ## part 2
@@ -190,21 +195,67 @@ filter {
 
 ### Kibana
 * 질의어 문법(query syntax)
-
+  * Lucene 검색 엔진의 문법 그대로 사용(https://lucene.apache.org/core/2_9_4/queryparsersyntax.html)
 * request: "uri"
 
 
-## Filebeat
+## Filebeat with logstash
 * (Optional)
-* logstash forwarder 의 경량(lightweight) 버전
+* logstash forwarder(deprecated) 의 경량(lightweight) 버전
+* logstash plugin 설치
+```
+cd ~/local/logstash-2.3.0
+./bin/logstash-plugin install logstash-input-beats
+```
 
+* filebeat 설치
 ```
 cd ~/local
-wget https://download.elastic.co/beats/filebeat/filebeat-1.0.1-x86_64.tar.gz
-tar xvfz filebeat-1.0.1-x86_64.tar.gz
-cd filebeat-1.0.1-x86_64
+wget https://download.elastic.co/beats/filebeat/filebeat-1.2.0-x86_64.tar.gz
+tar xvfz filebeat-1.2.0-x86_64.tar.gz
+cd filebeat-1.2.0-x86_64
+# elasticsearch 부분 #으로 주석 처리
+  # elasticsearch:
+    #hosts: ["localhost:9200"]
+# logstash 부분 # 주석 해제
+  logstash:
+    hosts: ["localhost:5044"]
+
+# filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
+```
+
+* logconf/nginx.conf 파일 변경
+```
+input {
+  beats {
+    port => 5044
+  }
+}
+filter {
+    grok {
+        match => { "message" => "%{COMBINEDAPACHELOG}"}
+    }
+    geoip {
+        source => "clientip"
+    }
+}
+output {
+  elasticsearch {
+    hosts => "localhost:9200"
+    manage_template => false
+    index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
+    document_type => "%{[@metadata][type]}"
+  }
+}
+```
+
+
+```
 ./filebeat -e -c filebeat.yml
 ```
+
+
+
 
 ## 참고
 * Logstash grok patterns
