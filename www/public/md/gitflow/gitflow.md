@@ -1,1 +1,17 @@
 # gitflow
+* branch strategy 브랜치 전략
+* git은 브랜치를 맘대로 빠르게 누구도 모르게 딸 수 있다.
+* 로컬에서 브랜치를 맘대로
+* 리모트로 공유도 가능, 삭제도 가능
+
+## branch
+* 목록
+  * `git branch`
+  * `git branch -v`
+* 생성
+  * `git checkout -b branchname`
+* 삭제
+* 브랜치 머지
+* 리모트 공유
+* 리모트 삭제
+
