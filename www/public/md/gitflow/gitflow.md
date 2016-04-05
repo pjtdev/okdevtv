@@ -13,6 +13,10 @@
 * 삭제
   * `git branch -d branchname`
 * 브랜치 머지
+  * master, develop 두 브랜치가 있다면
+  * master로 checkout, 베이스가 master 브랜치임
+  * `git checkout master`
+  * `git merge develop`
 * 리모트 공유
 * 리모트 삭제
 
