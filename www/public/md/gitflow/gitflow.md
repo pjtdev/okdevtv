@@ -11,6 +11,7 @@
 * 생성
   * `git checkout -b branchname`
 * 삭제
+  * `git branch -d branchname`
 * 브랜치 머지
 * 리모트 공유
 * 리모트 삭제
