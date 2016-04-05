@@ -25,3 +25,8 @@
 
 ## git flow
 
+
+## References
+* http://nvie.com/posts/a-successful-git-branching-model/
+* https://github.com/nvie/gitflow
+
