@@ -18,5 +18,10 @@
   * `git checkout master`
   * `git merge develop`
 * 리모트 공유
+  * `git push origin develop`
 * 리모트 삭제
+  * `git push origin :develop`
+
+
+## git flow
 
