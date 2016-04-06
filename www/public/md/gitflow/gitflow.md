@@ -25,9 +25,14 @@
   * `git checkout -b develop origin/develop`
 
 ## git flow
-* `git flow init`
-* `git flow feature start iss51`
-* `git flow feature finish iss51`
+
+### 기본 명령
+* git flow 시작
+  * `git flow init`
+* feature/iss51 브랜치 따기 
+  * `git flow feature start okfeature11`
+* feature/iss51 브랜치 종료하고 부모 브랜치에 머지
+  * `git flow feature finish okfeature11`
 
 
 ## References
