@@ -25,6 +25,9 @@
   * `git checkout -b develop origin/develop`
 
 ## git flow
+* `git flow init`
+* `git flow feature start iss51`
+* `git flow feature finish iss51`
 
 
 ## References
@@ -32,4 +35,7 @@
 * https://github.com/nvie/gitflow
 * Git 브랜치 - 리모트 브랜치
   * https://git-scm.com/book/ko/v1/Git-브랜치-리모트-브랜치
-
+* git flow
+  * http://ohgyun.com/402
+  
+  
