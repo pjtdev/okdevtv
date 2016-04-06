@@ -21,7 +21,8 @@
   * `git push origin develop`
 * 리모트 삭제
   * `git push origin :develop`
-
+* 리모트 로컬 브랜치로 가져오기
+  * `git checkout -b develop origin/develop`
 
 ## git flow
 
@@ -29,4 +30,6 @@
 ## References
 * http://nvie.com/posts/a-successful-git-branching-model/
 * https://github.com/nvie/gitflow
+* Git 브랜치 - 리모트 브랜치
+  * https://git-scm.com/book/ko/v1/Git-브랜치-리모트-브랜치
 
