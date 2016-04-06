@@ -37,6 +37,7 @@
 
 ## References
 * http://nvie.com/posts/a-successful-git-branching-model/
+  * 번역 http://hundredin.net/2014/04/06/a-successful-git-branching-model/
 * https://github.com/nvie/gitflow
 * Git 브랜치 - 리모트 브랜치
   * https://git-scm.com/book/ko/v1/Git-브랜치-리모트-브랜치
