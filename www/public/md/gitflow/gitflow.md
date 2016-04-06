@@ -21,7 +21,7 @@
   * `git push origin develop`
 * 리모트 삭제
   * `git push origin :develop`
-* 리모트 로컬 브랜치로 가져오기
+* 리모트 브랜치를 로컬로 가져오기
   * `git checkout -b develop origin/develop`
 
 ## git flow
