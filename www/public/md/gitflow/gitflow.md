@@ -25,13 +25,17 @@
   * `git checkout -b develop origin/develop`
 
 ## git flow
+* Vincent Driessen 블로그와 GitHub
+* 2010 created
+* 브랜치를 알아야 사용할 수 있는 기술
+
 
 ### 기본 명령
 * git flow 시작
   * `git flow init`
-* feature/iss51 브랜치 따기 
+* feature/okfeature11 브랜치 따기 
   * `git flow feature start okfeature11`
-* feature/iss51 브랜치 종료하고 부모 브랜치에 머지
+* feature/okfeature11 브랜치 종료하고 부모 브랜치에 머지
   * `git flow feature finish okfeature11`
 
 
