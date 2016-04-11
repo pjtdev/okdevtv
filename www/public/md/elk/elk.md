@@ -35,6 +35,29 @@ echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
 * http://아이피/
 * http://아이피/hello.html
 
+### nginx (Optional)
+
+* CentOS는 `yum install nginx` 전에 `yum install epel-release` 필요
+* CentOS 7.x에서 service는 systemctl로 바뀜  
+
+```
+### CentOS 7.x
+[root@elk1 local]# service nginx start
+Redirecting to /bin/systemctl start  nginx.service
+[root@elk1 local]# systemctl start nginx
+[root@elk1 local]# systemctl stop nginx
+[root@elk1 local]# ps -ef | grep nginx
+root     17933  9025  0 20:47 pts/0    00:00:00 grep --color=auto nginx
+
+[root@elk1 local]# systemctl start nginx
+[root@elk1 local]# ps -ef | grep nginx
+root     17952     1  0 20:48 ?        00:00:00 nginx: master process /usr/sbinnginx
+nginx    17953 17952  0 20:48 ?        00:00:00 nginx: worker process
+nginx    17954 17952  0 20:48 ?        00:00:00 nginx: worker process
+root     17956  9025  0 20:48 pts/0    00:00:00 grep --color=auto nginx
+[root@elk1 local]# 
+```
+
 ## AWS 포트 설정
 * EC2 Security Groups
 * 외부 접근 포트 추가(inbound)
