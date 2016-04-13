@@ -9,8 +9,11 @@
 * https://www.docker.com/products/docker-toolbox
 * docker quick start terminal 실행
 * `docker run hello-world`
-
-
+  * docker : 시스템에 있는 docker 사용
+  * run : 서브명령, 컨테이너 실행
+  * hello-world : 컨테이너에 실을 이미지 이름
+  
+ 
 * Docker 창시자 발표 https://youtu.be/Q5POuMHxW-0
 
 ```
