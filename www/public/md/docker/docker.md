@@ -12,7 +12,8 @@
   * docker : 시스템에 있는 docker 사용
   * run : 서브명령, 컨테이너 실행
   * hello-world : 컨테이너에 실을 이미지 이름
-  
+* 컨테이너는 아무것도 꾸미지 않은 버전의 리눅스 운영체제
+
  
 * Docker 창시자 발표 https://youtu.be/Q5POuMHxW-0
 
