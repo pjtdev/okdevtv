@@ -45,3 +45,5 @@ https://index.docker.io
 * Getting Started for non-technical
   * https://docs.docker.com/mac/
 * https://docs.docker.com/mac/step_three/
+* docker/whalesay
+  * https://hub.docker.com/r/docker/whalesay/
