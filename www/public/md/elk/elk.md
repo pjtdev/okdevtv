@@ -215,6 +215,13 @@ filter {
 }
 ```
 
+* useragent 파싱
+```
+    useragent {
+        source => "agent"
+    }
+```
+
 
 ### Kibana
 * 질의어 문법(query syntax)
