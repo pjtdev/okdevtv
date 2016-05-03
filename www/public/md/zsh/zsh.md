@@ -10,6 +10,7 @@
 
 * `brew install zsh zsh-completions`
 * `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+<img src="images/zsh-installed.png" alt="zsh installed">
 
 * 정상적으로 설치되었다면 cmd+N 으로 zsh로 실행됨
 * 만약 그대로라면 `chsh -s /usr/local/bin/zsh` 명령으로 shell 변경 가능
