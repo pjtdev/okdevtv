@@ -28,7 +28,9 @@
 * Vincent Driessen 블로그와 GitHub
 * 2010 created
 * 브랜치를 알아야 사용할 수 있는 기술
-
+* git flow vs. github flow
+  * https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/
+  * http://scottchacon.com/2011/08/31/github-flow.html
 
 ### 기본 명령
 * git flow 시작
