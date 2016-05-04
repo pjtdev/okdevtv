@@ -108,6 +108,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 
 ## 참고
+* 설치 동영상
+  * https://youtu.be/sWl8W0ILUmE
 * Let's Encrypt를 적용시켜 보았다
   * https://blog.korsnack.kr/entry/lets-encrypt-with-nginx
 * Lets' Encrypt로 무료로 HTTPS 지원하기 - by Outsider
