@@ -17,3 +17,5 @@
 
 ## 참고
 * http://sourabhbajaj.com/mac-setup/iTerm/zsh.html
+* 터미널 초보의 필수품인 Oh My ZSH!를 사용하자
+  * https://nolboo.github.io/blog/2015/08/21/oh-my-zsh/
