@@ -31,7 +31,7 @@ adduser dev
 passwd dev
 
 # nginx 설치, 시작
-yum install epel-release
+yum install epel-release #centos7.*
 yum install nginx -y
 service nginx start #centos6.*
 systemctl start nginx #centos7.*
@@ -43,6 +43,24 @@ chown -R dev:dev /var/log/nginx /usr/share/nginx/html
 # html 파일 생성
 su - dev
 echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
+```
+## centos6.* 경우
+* epel의 ngninx 버전이 1.0.*로 낮음
+* ssl_stapling 옵션 지원 안됨.
+```
+nginx           x86_64           1.0.15-12.el6           @epel           1.1 M
+```
+* nginx repo 지정 후 설치
+```
+vi /etc/yum.repos.d/nginx.repo
+```
+
+```
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/6/$basearch/
+gpgcheck=0
+enabled=1
 ```
 
 ## letencrypt 설치
@@ -78,10 +96,11 @@ cert.pem  chain.pem  fullchain.pem  privkey.pem
 
 ## nginx 설정
 ```
-cd /etc/nginx
-vi nginx.conf
+vi /etc/nginx/nginx.conf
+#또는
+vi /etc/nginx/conf.d/default.conf
 ```
-
+* `listen 80;` 라인 밑에 추가
 ```
         listen 443 ssl;
         ssl_certificate /etc/letsencrypt/live/okdevtest.com/cert.pem;
