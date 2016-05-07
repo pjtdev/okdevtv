@@ -23,40 +23,8 @@
 * Java 1.7 이상(esp. logstash는 1.8이상 필요)
 
 ## nginx 설치(샘플용)
+* [nginx 설치](./nginx/nginx.md)
 
-```
-sudo yum install nginx -y
-sudo service nginx start
-curl -i http://localhost
-sudo chown -R ec2-user:ec2-user /var/log/nginx /usr/share/nginx/html
-echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
-```
-
-* http://아이피/
-* http://아이피/hello.html
-
-### nginx (Optional)
-
-* CentOS는 `yum install nginx` 전에 `yum install epel-release` 필요
-* CentOS 7.x에서 service는 systemctl로 바뀜  
-
-```
-### CentOS 7.x
-[root@elk1 local]# service nginx start
-Redirecting to /bin/systemctl start  nginx.service
-[root@elk1 local]# systemctl start nginx
-[root@elk1 local]# systemctl stop nginx
-[root@elk1 local]# ps -ef | grep nginx
-root     17933  9025  0 20:47 pts/0    00:00:00 grep --color=auto nginx
-
-[root@elk1 local]# systemctl start nginx
-[root@elk1 local]# ps -ef | grep nginx
-root     17952     1  0 20:48 ?        00:00:00 nginx: master process /usr/sbinnginx
-nginx    17953 17952  0 20:48 ?        00:00:00 nginx: worker process
-nginx    17954 17952  0 20:48 ?        00:00:00 nginx: worker process
-root     17956  9025  0 20:48 pts/0    00:00:00 grep --color=auto nginx
-[root@elk1 local]# 
-```
 
 ## AWS 포트 설정
 * EC2 Security Groups
@@ -72,6 +40,7 @@ root     17956  9025  0 20:48 pts/0    00:00:00 grep --color=auto nginx
 * Logstash (FluentD로 대치 가능)
 
 * 버전을 맞춰서 작업하는 것이 좋지만, 최신 버전으로 작업해도 동작함(2016/04/03 현재)
+* Elasticsearch와 Kibana는 권장 버전을 맞춰야 함
 * 설치 위치 /opt/ 또는 ~/local/ 권장
 
 
