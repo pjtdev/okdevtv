@@ -148,6 +148,40 @@ nohup bin/logstash -f logconf/nginx.conf &
 ## part 2
 
 ### Logstash
+* 필드 추가
+```
+field{
+    mutate {
+        add_field => {
+            "reqs" => "%{request}"
+        }
+    }
+}
+```
+
+* 분리
+```
+field{
+    mutate {
+        split => ["reqs", "?"]
+        add_field => { "uri" => "%{reqs[0]}" }
+        add_field => { "req_uri" => "%{reqs[0]}" }
+        add_field => { "querystring" => "%{reqs[1]}" }
+    }
+}
+```
+
+* 필드 제거
+```
+    mutate {
+        remove_field => [
+            "reqs",
+            "uri"
+        ]
+    }
+```
+
+
 * 파라미터 필드 만들기
 ```
 filter {
@@ -190,7 +224,6 @@ filter {
         source => "agent"
     }
 ```
-
 
 ### Kibana
 * 질의어 문법(query syntax)
