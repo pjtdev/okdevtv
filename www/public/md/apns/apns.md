@@ -12,6 +12,9 @@
 * 실제 디바이스에서 테스트 가능
 * Simulator에서는 테스트 불가
 
+## Enabling Push Notification
+* App Settings -> General, Bundle Identifier
+* 
 
 
 ## 참고
