@@ -27,10 +27,9 @@
 ## letencrypt 설치
 ```
 su
-git clone https://github.com/letsencrypt/letsencrypt
-cd letsencrypt
-./letsencrypt-auto \
-  --help
+git clone https://github.com/certbot/certbot
+cd certbot
+./certbot-auto --help
 ```
 
 
@@ -88,6 +87,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 
 ## 참고
+* SSL Test
+  * https://www.ssllabs.com/ssltest/analyze.html
 * 설치 동영상
   * https://youtu.be/sWl8W0ILUmE
 * Let's Encrypt를 적용시켜 보았다
