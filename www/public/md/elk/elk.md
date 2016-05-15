@@ -78,6 +78,8 @@ cd kibana-4.5.0-linux-x64
 
 ```
 bin/kibana
+# background run
+nohup bin/kibana &
 ```
 
 * 실행 확인
