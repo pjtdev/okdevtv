@@ -242,6 +242,12 @@ filter {
 * request: "uri"
 
 
+### elasticsearch
+* 데이터 지우기
+  * `curl -XDELETE http://localhost:9200/logstash*`
+
+
+
 ## Filebeat with logstash
 * (Optional)
 * logstash forwarder(deprecated) 의 경량(lightweight) 버전
