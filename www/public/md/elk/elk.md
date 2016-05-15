@@ -225,6 +225,15 @@ filter {
     }
 ```
 
+* timestamp 조정(apache log)
+```
+    date {
+        match => [ "timestamp", "dd/MMM/yyyy:HH:mm:ss Z" ]
+    }
+```
+* https://www.elastic.co/guide/en/logstash/current/plugins-filters-date.html
+
+
 ### Kibana
 * 질의어 문법(query syntax)
   * Lucene 검색 엔진의 문법 그대로 사용(https://lucene.apache.org/core/2_9_4/queryparsersyntax.html)
