@@ -235,6 +235,14 @@ filter {
 ```
 * https://www.elastic.co/guide/en/logstash/current/plugins-filters-date.html
 
+* urldecode
+```
+   urldecode {
+       field => "params"
+   }
+```
+
+
 
 ### Kibana
 * 질의어 문법(query syntax)
