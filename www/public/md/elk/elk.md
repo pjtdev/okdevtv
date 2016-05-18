@@ -21,6 +21,13 @@
   * 윈도우에서 git bash 추천(http://git-scm.com). putty 접속보다 쉬움
 * 리눅스 서버 CentOS 또는 Ubuntu
 * Java 1.7 이상(esp. logstash는 1.8이상 필요)
+* ubuntu 에서는 jdk 설치 필요
+```
+sudo add-apt-repository ppa:openjdk-r/ppa
+
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk -y
+```
 
 ## nginx 설치(샘플용)
 * [nginx 설치](./nginx/nginx.md)
