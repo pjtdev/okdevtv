@@ -37,7 +37,7 @@ root     17956  9025  0 20:48 pts/0    00:00:00 grep --color=auto nginx
 
 ### Ubuntu 14.x ngnix 설치
 ```
-sudo apt-get install nginx
+sudo apt-get install nginx -y
   404  Not Found [IP: 54.179.105.228 80]
 Err http://ap-northeast-2.ec2.archive.ubuntu.com/ubuntu/ trusty-updates/main nginx-core amd64 1.4.6-1ubuntu3.3
 # 위 에러를 만나면
@@ -47,7 +47,7 @@ sudo apt-get update
 from: http://www.develople.com/blog/archives/108
 
 ```
-sudo apt-get install nginx
+sudo apt-get install nginx -y
 sudo service nginx start
 curl -i http://localhost
 sudo chown -R ubuntu:ubuntu /var/log/nginx /usr/share/nginx/html
