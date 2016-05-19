@@ -325,8 +325,13 @@ output {
 ./filebeat -e -c filebeat.yml
 ```
 
-### todo
-%EB%B0%87
+* start shell
+
+```
+echo "nohup ./filebeat -e -c filebeat.yml &" > start.sh
+chmod +x start.sh
+./start.sh
+```
 
 
 ## 참고
