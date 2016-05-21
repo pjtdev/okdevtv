@@ -219,6 +219,21 @@ filter {
 }
 ```
 
+* 또는
+
+```
+    # params
+    if [request] =~ "\?" {
+        kv {
+            field_split => "&"
+            source => "querystring"
+            include_keys => [ "query", "redirectUrl" ]
+            prefix => "param_"
+        }
+    }
+    
+```
+
 * 이미지 제거
 ```
 filter {
