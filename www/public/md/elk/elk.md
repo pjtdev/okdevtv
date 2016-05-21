@@ -57,9 +57,9 @@ sudo apt-get install openjdk-8-jdk -y
 ```
 mkdir ~/local
 cd ~/local
-wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.3.0.tar.gz
-tar xvfz elasticsearch-2.3.0.tar.gz
-cd elasticsearch-2.3.0
+wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.3.3.tar.gz
+tar xvfz elasticsearch-2.3.3.tar.gz
+cd elasticsearch-2.3.3
 vi config/elasticsearch.yml
   # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
   # 모든 IP에서 접근 가능
@@ -76,9 +76,9 @@ curl -i http://localhost:9200/
 
 ```
 cd ~/local
-wget https://download.elastic.co/kibana/kibana/kibana-4.5.0-linux-x64.tar.gz
-tar xvfz kibana-4.5.0-linux-x64.tar.gz
-cd kibana-4.5.0-linux-x64
+wget https://download.elastic.co/kibana/kibana/kibana-4.5.1-linux-x64.tar.gz
+tar xvfz kibana-4.5.1-linux-x64.tar.gz
+cd kibana-4.5.1-linux-x64
 ```
 
 * elasticsearch 연결(optioanl)
@@ -98,9 +98,9 @@ http://아이피:5601
 
 ```
 cd ~/local
-wget https://download.elastic.co/logstash/logstash/logstash-2.3.0.tar.gz
-tar xvfz logstash-2.3.0.tar.gz
-cd logstash-2.3.0
+wget https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz
+tar xvfz logstash-2.3.2.tar.gz
+cd logstash-2.3.2
 ```
 
 * conf 파일 생성
