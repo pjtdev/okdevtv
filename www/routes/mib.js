@@ -9,8 +9,14 @@ router.all('*', function(req, res, next) {
     var mdPath = path.slice(2).join('/');
     fs.readFile('./public/md/' + mdPath + '.md', function(err, data){
         if (err) throw err;
-        res.send(marked(data.toString()));
+        var html = setBody(marked(data.toString()), path[2]);
+        res.send(html);
     });
 });
+
+function setBody(data, group) {
+    var folder = '/md/' + group + '/';
+    return data.replace(/img src="images/g, 'img src="' + folder + 'images');
+}
 
 module.exports = router;
