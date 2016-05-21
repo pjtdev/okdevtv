@@ -59,7 +59,8 @@ mkdir ~/local
 cd ~/local
 wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.3.3.tar.gz
 tar xvfz elasticsearch-2.3.3.tar.gz
-cd elasticsearch-2.3.3
+ln -s elasticsearch-2.3.3 elasticsearch
+cd elasticsearch
 vi config/elasticsearch.yml
   # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
   # 모든 IP에서 접근 가능
@@ -78,7 +79,8 @@ curl -i http://localhost:9200/
 cd ~/local
 wget https://download.elastic.co/kibana/kibana/kibana-4.5.1-linux-x64.tar.gz
 tar xvfz kibana-4.5.1-linux-x64.tar.gz
-cd kibana-4.5.1-linux-x64
+ln -s kibana-4.5.1-linux-x64 kibana
+cd kibana
 ```
 
 * elasticsearch 연결(optioanl)
@@ -100,7 +102,8 @@ http://아이피:5601
 cd ~/local
 wget https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz
 tar xvfz logstash-2.3.2.tar.gz
-cd logstash-2.3.2
+ln -s logstash-2.3.2 logstash
+cd logstash
 ```
 
 * conf 파일 생성
@@ -284,7 +287,7 @@ filter {
 * logstash forwarder(deprecated) 의 경량(lightweight) 버전
 * logstash plugin 설치
 ```
-cd ~/local/logstash-2.3.0
+cd ~/local/logstash
 ./bin/logstash-plugin install logstash-input-beats
 ```
 
@@ -292,9 +295,10 @@ cd ~/local/logstash-2.3.0
 
 ```
 cd ~/local
-wget https://download.elastic.co/beats/filebeat/filebeat-1.2.0-x86_64.tar.gz
-tar xvfz filebeat-1.2.0-x86_64.tar.gz
-cd filebeat-1.2.0-x86_64
+wget https://download.elastic.co/beats/filebeat/filebeat-1.2.3-x86_64.tar.gz
+tar xvfz filebeat-1.2.3-x86_64.tar.gz
+ln -s filebeat-1.2.0-x86_64 filebeat
+cd filebeat
 # elasticsearch 부분 #으로 주석 처리
   # elasticsearch:
     #hosts: ["localhost:9200"]
