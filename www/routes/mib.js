@@ -9,19 +9,19 @@ router.all('*', function(req, res, next) {
     var mdPath = path.slice(2).join('/');
     fs.readFile('./public/md/' + mdPath + '.md', function(err, data){
         if (err) throw err;
-        var html = setBody(marked(data.toString()), path[2]);
+        var html = setBody(marked(data.toString()), path);
         res.send(html);
     });
 });
 
-function setBody(data, group) {
-    var folder = '/md/' + group + '/';
+function setBody(data, path) {
+    var folder = '/md/' + path[2] + '/';
     var html = data.replace(/img src="images/g, 'img src="' + folder + 'images');
     html = '<!DOCTYPE html>\
 <html lang="ko">\
 \
 <head>\
-    <title>관심 사항</title>\
+    <title>' + path[3] + '</title>\
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
     <link rel="stylesheet" href="/css/style-md.css">\
 </head><body>' + html + "\
