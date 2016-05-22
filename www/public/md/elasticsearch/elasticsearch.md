@@ -15,6 +15,7 @@
   * http://localhost:9200/_plugin/head
 
 ## 데이터 구조 및 입출력
+* 데이터 구조
 
 | RDB | Elasticsearch |
 |----|----|
@@ -23,6 +24,8 @@
 | Record | Document |
 | Column | Field |
 | Schema | Mapping |
+
+* 데이터 입출력
 
 | HTTP method | Elasticsearch |
 |----|----|
