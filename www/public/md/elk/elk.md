@@ -360,7 +360,10 @@ chmod +x start.sh
 * ELKR (ElasticSearch + Logstash + Kibana + Redis) 를 이용한 로그분석 환경 구축하기
   * http://brantiffy.axisj.com/archives/418
 
-* EMOCON 2015 F/W ELK 스택을 사용한 서울시 지하철 대시보드 만들기 *추천*
+* 2016 ELK 스택으로 서울시 지하철 대시보드 만들기 *추천*
+  * https://youtu.be/xPjNtd8xUZo
+
+* EMOCON 2015 F/W ELK 스택을 사용한 서울시 지하철 대시보드 만들기
   * https://youtu.be/ec-XzM6_CgU
 
 * ELK 구축하기 1 – LOGSTASH

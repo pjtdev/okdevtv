@@ -70,6 +70,23 @@ curl -XPOST http://localhost:9200/books/book/1 -d '
 curl -XDELETE http://localhost:9200/books/book/1
 ```
 
+## 데이터 배치 입력(_bulk API)
+* data.txt
+
+```
+{ "delete" : { "_index" : "books", "_type" : "book", "_id" : "1" } }
+{ "update" : { "_index" : "books", "_type" : "book", "_id" : "2" } }
+{ "doc" : { "date" : "2014-05-01" } }
+{ "create" : { "_index" : "books", "_type" : "book", "_id" : "3" } }
+{ "title" : "Elasticsearch Guide II", "author" : "Park", "pages" : 400 }
+```
+
+* 파일 입력
+
+```
+curl -XPOST http://localhost:9200/_bulk?pretty --data-binary @data.txt
+```
+
 
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
