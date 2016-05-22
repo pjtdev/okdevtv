@@ -16,7 +16,32 @@ router.all('*', function(req, res, next) {
 
 function setBody(data, group) {
     var folder = '/md/' + group + '/';
-    return data.replace(/img src="images/g, 'img src="' + folder + 'images');
+    var html = data.replace(/img src="images/g, 'img src="' + folder + 'images');
+    html = '<!DOCTYPE html>\
+<html lang="ko">\
+\
+<head>\
+    <title>관심 사항</title>\
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
+    <link rel="stylesheet" href="/css/style-md.css">\
+</head><body>' + html + "\
+    <script>\
+        (function (i, s, o, g, r, a, m) {\
+            i['GoogleAnalyticsObject'] = r;\
+            i[r] = i[r] || function () {\
+                (i[r].q = i[r].q || []).push(arguments)\
+            }, i[r].l = 1 * new Date();\
+            a = s.createElement(o),\
+                m = s.getElementsByTagName(o)[0];\
+            a.async = 1;\
+            a.src = g;\
+            m.parentNode.insertBefore(a, m\
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');\
+\
+        ga('create', 'UA-49100336-1', 'auto');\
+        ga('send', 'pageview');\
+</body></html>";
+    return html;
 }
 
 module.exports = router;

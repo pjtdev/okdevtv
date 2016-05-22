@@ -1,24 +1,20 @@
-# ElasticSearch
+# Elasticsearch
 
 * Shay Banon
 * http://elastic.co
-
-* Lecene 라이브러리 사용
-
+* [Lucene](http://lucene.apache.org) 라이브러리 사용
+* Lucene 검색 엔진을 잘 이용하는 제품입니다.
 * 경쟁제품 Solr, Tica
-
 * Java 7 이상 필요
 
-* Lucene 검색 엔진을 잘 이용하는 제품입니다.
-
-* [설치 및 실행](/mib/elk/elk)
+* [설치 및 실행](http://okdevtv.com/mib/elk/elk)
 
 ## 플러그인 설치
 * `bin/plugin install {org}/{user/component}/{version}`
 * head : `bin/plugin install mobz/elasticsearch-head`
   * http://localhost:9200/_plugin/head
 
-## 데이터 구조
+## 데이터 구조 및 입출력
 
 | RDB | Elasticsearch |
 |----|----|
@@ -37,7 +33,7 @@
 
 ## 데이터 입력
 ```
-curl -XPOST http://localhost:9200/book/books/1 -d '
+curl -XPOST http://localhost:9200/books/book/1 -d '
 {
   "title" : "elasticsearch guide",
   "author" : "Kim",
@@ -49,14 +45,14 @@ curl -XPOST http://localhost:9200/book/books/1 -d '
 
 ## 데이터 조회
 ```
-curl -XGET http://localhost:9200/book/books/1
+curl -XGET http://localhost:9200/books/book/1
 # 또는
-curl -XGET http://localhost:9200/book/books/1\?pretty
+curl -XGET http://localhost:9200/books/book/1\?pretty
 ```
 
 ## 데이터 갱신
 ```
-curl -XPOST http://localhost:9200/book/books/1 -d '
+curl -XPOST http://localhost:9200/books/book/1 -d '
 {
   "title" : "elasticsearch guide",
   "author" : ["Kim", "Heo"],
@@ -68,7 +64,7 @@ curl -XPOST http://localhost:9200/book/books/1 -d '
 
 ## 데이터 삭제
 ```
-curl -XDELETE http://localhost:9200/book/books/1
+curl -XDELETE http://localhost:9200/books/book/1
 ```
 
 
