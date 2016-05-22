@@ -95,3 +95,5 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
   * https://blog.korsnack.kr/entry/lets-encrypt-with-nginx
 * Lets' Encrypt로 무료로 HTTPS 지원하기 - by Outsider
   * https://blog.outsider.ne.kr/1178
+* https://danpalmer.me/blog/ssl-labs-grade-a
+* https://www.gypthecat.com/how-to-install-a-ssl-certificate-on-nginx
