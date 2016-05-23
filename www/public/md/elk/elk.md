@@ -31,7 +31,7 @@ sudo apt-get install openjdk-8-jdk -y
 ```
 
 ## nginx 설치(샘플용)
-* [nginx 설치](./nginx/nginx.md)
+* [nginx 설치](http://okdevtv.com/mib/nginx/nginx)
 
 
 ## AWS 포트 설정
