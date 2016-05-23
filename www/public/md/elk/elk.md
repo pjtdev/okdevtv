@@ -297,7 +297,7 @@ cd ~/local/logstash
 cd ~/local
 wget https://download.elastic.co/beats/filebeat/filebeat-1.2.3-x86_64.tar.gz
 tar xvfz filebeat-1.2.3-x86_64.tar.gz
-ln -s filebeat-1.2.0-x86_64 filebeat
+ln -s filebeat-1.2.3-x86_64 filebeat
 cd filebeat
 # elasticsearch 부분 #으로 주석 처리
   # elasticsearch:
