@@ -57,7 +57,7 @@ sudo apt-get install openjdk-8-jdk -y
 ```
 mkdir ~/local
 cd ~/local
-wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.3.3.tar.gz
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz
 tar xvfz elasticsearch-2.3.3.tar.gz
 ln -s elasticsearch-2.3.3 elasticsearch
 cd elasticsearch
