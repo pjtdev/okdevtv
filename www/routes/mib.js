@@ -23,7 +23,7 @@ function setBody(data, path) {
 <head>\
     <title>' + path[3] + '</title>\
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
-    <meta property="og:url" content="http://okdevtv.com/' + path.join('/') + '" />\
+    <meta property="og:url" content="http://okdevtv.com' + path.join('/') + '" />\
     <link rel="stylesheet" href="/css/style-md.css">\
 </head><body>' + html + "\
     <script>\
