@@ -88,6 +88,43 @@ curl -XPOST http://localhost:9200/_bulk?pretty --data-binary @data.txt
 ```
 
 
+## 검색
+* query방식은 2가지
+  * URI방식 : REST API
+  * request body방식 : http 데이터
+* index/type 검색, index 검색, multi index 검색
+
+## 검색 API
+* `curl localhost:9200/books/book/_search?q=keyword`
+* q 파라미터
+* index/type 단위로 검색, 또는 index로 검색 가능
+* 결과는 hits 필드에 배열로 표시
+* url 자체를 문자열처럼 '로 감싸서 조회 가능
+  * "took" : 검색 소요시간 밀리초 단위
+* multi tenancy
+  * `curl 'localhost:9200/books,magazines/_search?q=time&pretty'`
+  * `curl 'localhost:9200/_all/_search?q=time&pretty'`
+  * `curl 'localhost:9200/_search?q=time&pretty'`
+* URI 검색
+  * `q`
+    * 필드명:질의어
+      * `curl 'localhost:9200/_search?q=title:time&pretty'`
+    * 공백 처리
+      * `curl 'localhost:9200/_search?q=title:time%20AND%machine&pretty'`
+  * `df`(default field)
+    * `curl 'localhost:9200/_search?q=time&df=title&pretty'`
+  * `default_operator`
+    * `curl 'localhost:9200/_search?q=time%20machine&default_operator=AND&pretty'`
+  * `explain`
+    * 상세 점수 표시
+    * 점수가 높을수록 상위에 표시
+    * `curl 'localhost:9200/_search?q=title:time&explain&pretty'`
+  * `_source`
+    * 기본값은 true
+    * false로 설정한 경우 메타 정보만 출력
+    * `curl 'localhost:9200/_search?q=title:time&_source=false&pretty'`
+
+  
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
   * https://github.com/wikibook/elasticsearch
