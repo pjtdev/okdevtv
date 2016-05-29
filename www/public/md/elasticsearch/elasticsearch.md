@@ -95,7 +95,7 @@ curl -XPOST http://localhost:9200/_bulk?pretty --data-binary @data.txt
 * index/type 검색, index 검색, multi index 검색
 * 시작하세요! 엘라스틱서치 예제
 * downloads
-  * `curl -O https://github.com/wikibook/elasticsearch/archive/master.zip`
+  * `curl -O https://codeload.github.com/wikibook/elasticsearch/zip/master`
   * `git clone https://github.com/wikibook/elasticsearch`
 ```
 #데이터 적재
