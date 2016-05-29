@@ -353,6 +353,21 @@ chmod +x start.sh
 ```
 
 
+## ELK with PM2
+* 2G짜리 메모리의 인스턴스에서 ELK를 돌리면 OutOfMemory 때문에 종종 Elasticsearch 또는 Kibana가 죽습니다. 
+* 고육지책으로 Kibana는 node 기반이기 때문에 pm2로 Kibana가 죽으면 자동으로 살리는 방법입니다.
+
+* download from http://nodejs.org and install node.js
+```
+npm install -g pm2
+cd ~/local/kibana
+pm2 start bin/cli
+```
+* check kibana status with `pm2 list`
+* pm2 logs path is placed in ~/.pm2/logs
+
+
+
 ## 참고
 * Logstash grok patterns
   * https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns

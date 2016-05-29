@@ -93,6 +93,16 @@ curl -XPOST http://localhost:9200/_bulk?pretty --data-binary @data.txt
   * URI방식 : REST API
   * request body방식 : http 데이터
 * index/type 검색, index 검색, multi index 검색
+* 시작하세요! 엘라스틱서치 예제
+* downloads
+  * `curl -O https://github.com/wikibook/elasticsearch/archive/master.zip`
+  * `git clone https://github.com/wikibook/elasticsearch`
+```
+#데이터 적재
+cd elasticsearch/cd 05.검색
+curl -XPOST http://localhost:9200/_bulk --data-binary @5_1_books.json
+curl -XPOST http://localhost:9200/_bulk --data-binary @5_2_magazines.json
+```
 
 ## 검색 API
 * `curl localhost:9200/books/book/_search?q=keyword`
@@ -110,7 +120,7 @@ curl -XPOST http://localhost:9200/_bulk?pretty --data-binary @data.txt
     * 필드명:질의어
       * `curl 'localhost:9200/_search?q=title:time&pretty'`
     * 공백 처리
-      * `curl 'localhost:9200/_search?q=title:time%20AND%machine&pretty'`
+      * `curl 'localhost:9200/_search?q=title:time%20AND%20machine&pretty'`
   * `df`(default field)
     * `curl 'localhost:9200/_search?q=time&df=title&pretty'`
   * `default_operator`
@@ -121,7 +131,7 @@ curl -XPOST http://localhost:9200/_bulk?pretty --data-binary @data.txt
     * `curl 'localhost:9200/_search?q=title:time&explain&pretty'`
   * `_source`
     * 기본값은 true
-    * false로 설정한 경우 메타 정보만 출력
+    * false로 설정한 경우 hit와 score같은 메타 정보만 출력
     * `curl 'localhost:9200/_search?q=title:time&_source=false&pretty'`
 
   
