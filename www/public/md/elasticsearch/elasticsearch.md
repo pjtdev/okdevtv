@@ -126,15 +126,121 @@ curl -XPOST http://localhost:9200/_bulk --data-binary @5_2_magazines.json
   * `default_operator`
     * `curl 'localhost:9200/_search?q=time%20machine&default_operator=AND&pretty'`
   * `explain`
-    * 상세 점수 표시
+    * 상세 점수(score) 표시
+    * score : 검색어에 해당하는 데이터의 정확도
     * 점수가 높을수록 상위에 표시
     * `curl 'localhost:9200/_search?q=title:time&explain&pretty'`
   * `_source`
     * 기본값은 true
     * false로 설정한 경우 hit와 score같은 메타 정보만 출력
     * `curl 'localhost:9200/_search?q=title:time&_source=false&pretty'`
+  * `fields`
+    * 출력 결과에 해당 지정된 필드만 표시
+    * `curl 'localhost:9200/_search?q=title:time&fields=title,author,category&pretty'`
+  * `sort`
+    * `curl 'localhost:9200/_search?q=author:jules&sort=pages&pretty'`
+    * `curl 'localhost:9200/_search?q=author:jules&sort=pages:desc&pretty'`
+    * `curl 'localhost:9200/_search?q=author:jules&fields=author,title&sort=title&pretty'`
+    * `curl 'localhost:9200/_search?q=author:jules&fields=author,title&sort=title:desc&pretty'`
+    * 값 전체로 정렬하려면 데이터 색인 전에 title 필드를 `not_analyzed`로 매핑(mapping)해야 함(8장 참고)
+  * `from`
+    * 몇 번째부터 출력할지 지정, 기본값 0
+    * `curl 'localhost:9200/_search?q=author:jules&fields=author,title&from=1&pretty'`
+* 리퀘스트 바디 검색
+  * JSON 형태의 질의
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "term" : { "author" : "william" }
+  }
+}'
+# 또는
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  'query' : {
+    'term' : { "author" : "william" }
+  }
+}'
+```
 
-  
+  * 옵션
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  from : 1,
+  size : 2,
+  fields : ["title", "category"],
+  "query" : {
+    "term" : { "author" : "william" }
+  }
+}'
+```
+
+  * `sort`
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  fields : ["title", "author", "category", "pages"],
+  sort : [{"category":"desc"}, "pages", "title"],
+  "query" : {
+    "term" : { "author" : "william" }
+  }
+}'
+```
+
+  * `_source`
+    * false
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "_source" : false,
+  "query" : {
+    "term" : { "author" : "william" }
+  }
+}'
+```
+    * fields
+```
+curl 'localhost:9200/magazines/_search?pretty' -d '
+{
+  "_source" : [ "title", "c*" ]
+}'
+```
+
+    * `include`, `exclude`
+```
+curl 'localhost:9200/magazines/_search?pretty' -d '
+{
+  "_source" : {
+    "include" : "c*"
+  }
+}'
+# exclude
+curl 'localhost:9200/magazines/_search?pretty' -d '
+{
+  "_source" : {
+    "include" : "c*",
+    "exclude" : "*ry"
+  }
+}'
+```
+
+## 페이셋(facet)
+* 시작하세요! 엘라스틱서치 6장
+* 검색시 입력한 조건에 대해 각 결과의 갯수 확인 가능
+
+### 통계 facet
+
+### 위치, 거리 facet
+
+## 어그리케이션(aggregation)
+
+### 최소, 최대, 합, 평균, 개수 aggs
+
+
+
+
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
   * https://github.com/wikibook/elasticsearch
