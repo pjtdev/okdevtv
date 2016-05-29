@@ -401,5 +401,6 @@ pm2 start bin/cli
 
 * Elasticsearch(Lucene) Query Syntax
   * https://lucene.apache.org/core/2_9_4/queryparsersyntax.html
-  
 
+* ELK Kibana 사용법
+  * https://dl.dropboxusercontent.com/u/2385737/Kibana-basic.pdf
