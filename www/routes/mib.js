@@ -25,7 +25,13 @@ function setBody(data, path) {
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
     <meta property="og:url" content="http://okdevtv.com' + path.join('/') + '" />\
     <link rel="stylesheet" href="/css/style-md.css">\
-</head><body>' + html + "\
+</head><body>\
+    <!-- Header -->\
+    <header id="header">\
+        <!-- Logo -->\
+        <h1 id="logo"><a href="/"><img \
+        src="../images/logo.png" style="width: 36px; margin-right: 6px; margin-bottom: -6px;">OKdevTV</a></h1>\
+    </header>' + html + "\
     <script>\
         (function (i, s, o, g, r, a, m) {\
             i['GoogleAnalyticsObject'] = r;\
