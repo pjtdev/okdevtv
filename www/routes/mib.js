@@ -30,7 +30,7 @@ function setBody(data, path) {
     <header id="header">\
         <!-- Logo -->\
         <h1 id="logo"><a href="/"><img \
-        src="../images/logo.png" style="width: 36px; margin-right: 6px; margin-bottom: -6px;">OKdevTV</a></h1>\
+        src="/images/logo.png" style="width: 36px; margin-right: 6px; margin-bottom: -6px;">OKdevTV</a></h1>\
     </header>' + html + "\
     <script>\
         (function (i, s, o, g, r, a, m) {\
