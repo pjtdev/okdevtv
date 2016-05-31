@@ -19,7 +19,6 @@ function setBody(data, path) {
     var html = data.replace(/img src="images/g, 'img src="' + folder + 'images');
     html = '<!DOCTYPE html>\
 <html lang="ko">\
-\
 <head>\
     <title>' + path[3] + '</title>\
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
