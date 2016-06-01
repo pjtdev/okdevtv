@@ -226,9 +226,11 @@ curl 'localhost:9200/magazines/_search?pretty' -d '
 }'
 ```
 
-## 페이셋(facet)
+## 페이셋(facet)/'fæsəts/
 * 시작하세요! 엘라스틱서치 6장
 * 검색시 입력한 조건에 대해 각 결과의 갯수 확인 가능
+
+* 카운트, 합계 등을 다루는 기술
 
 ### 통계 facet
 
