@@ -45,7 +45,7 @@ function setBody(data, path) {
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');\
 \
         ga('create', 'UA-49100336-1', 'auto');\
-        ga('send', 'pageview');\
+        ga('send', 'pageview');</script>\
 </body></html>";
     return html;
 }
