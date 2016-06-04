@@ -334,6 +334,28 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 ```
 
 
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_stats" : {
+      "value_stats" : { "field" : "price" }
+    }
+  }
+}'
+```
+
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_ex_stats" : {
+      "extended_stats" : { "field" : "price" }
+    }
+  }
+}'
+```
 ### 최소, 최대, 합, 평균, 개수 aggs
 
 ### 통계
