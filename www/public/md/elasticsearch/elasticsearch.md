@@ -229,16 +229,59 @@ curl 'localhost:9200/magazines/_search?pretty' -d '
 ## 페이셋(facet)/'fæsəts/
 * 시작하세요! 엘라스틱서치 6장
 * 검색시 입력한 조건에 대해 각 결과의 갯수 확인 가능
-
+* 1.0부터 페이셋의 단점을 보완한 어그리게이션(aggregation) 모듈 추가
+* 2.0에서 삭제됨 `unknown search element [facets]`
 * 카운트, 합계 등을 다루는 기술
 
-### 통계 facet
+* 6장 index mapping
+```
+curl -XPUT http://localhost:9200/hotels/ -d '
+{
+  "mappings" : {
+    "hotel" : {
+      "properties" : {
+        "name" : { "type" : "string"},
+        "stars" : { "type" : "long"},
+        "rooms" : { "type" : "long"},
+        "location" : { "type" : "geo_point"},
+        "city" : { "type" : "string"},
+        "address" : { "type" : "string"},
+        "internet" : { "type" : "boolean"},
+        "service" : { "type" : "string", "index" : "not_analyzed"},
+        "checkin" : { "type" : "date", "format" : "dateOptionalTime"}
+      }
+    }
+  }
+}'
+```
 
-### 위치, 거리 facet
+* 매핑 적용한 후에 데이터 적재
+  * `curl -XPOST localhost:9200/_bulk --data-binary @6_1_hotels.json`
+
+
+* Term facet
+  * 검색 결과를 Term 별로 구분해서 표시
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "query" : {
+    "term" : { "name" : "seoul" }
+  },
+  "facets" : {
+    "term_service" : {
+      "field" : "service"
+    }
+  }
+}'
+```
 
 ## 어그리케이션(aggregation)
 
 ### 최소, 최대, 합, 평균, 개수 aggs
+
+### 통계
+
+### 위치, 거리
 
 
 
