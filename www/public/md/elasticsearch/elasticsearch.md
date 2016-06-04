@@ -261,6 +261,7 @@ curl -XPUT http://localhost:9200/hotels/ -d '
 
 * Term facet
   * 검색 결과를 Term 별로 구분해서 표시
+  * 2.0 이상에서는 절대 따라하지 마시오. `unknown search element [facets]`
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -275,7 +276,63 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
-## 어그리케이션(aggregation)
+## 어그리게이션(aggregation)
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_min" : {
+      "min" : { "field" : "price" }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_max" : {
+      "max" : { "field" : "price" }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_sum" : {
+      "sum" : { "field" : "price" }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_avg" : {
+      "avg" : { "field" : "price" }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "price_cnt" : {
+      "value_count" : { "field" : "price" }
+    }
+  }
+}'
+```
+
 
 ### 최소, 최대, 합, 평균, 개수 aggs
 
