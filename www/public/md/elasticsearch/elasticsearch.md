@@ -278,6 +278,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 
 ## 어그리게이션(aggregation)
 
+* 최소값
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -289,6 +290,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
+* 최대값
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -300,6 +302,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
+* 합
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -311,6 +314,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
+* 평균
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -322,6 +326,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
+* 카운트
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -333,7 +338,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
-
+* 기본 통계 정보
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -345,7 +350,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
-
+* 확장된 통계 정보
 ```
 curl 'localhost:9200/hotels/_search?pretty' -d '
 {
@@ -356,6 +361,52 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
   }
 }'
 ```
+
+### 글로벌 어그리게이션
+* 생성된 버킷에서 다시 하위 어그리게이션 적용
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "query" : {
+    "term" : { "name" : "seoul" }
+  },
+  "aggs" : {
+    "avg_price" : {
+      "avg" : { "field" : "price" }
+    }
+  }
+}'
+```
+
+* 글로벌 and 하위
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "query" : {
+    "term" : { "name" : "seoul" }
+  },
+  "aggs" : {
+    "all_price" : {
+      "global" : {},
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
+
+
+### 필터, 누락(missing) 어그리게이션
+* 주어진 필터에 해당하는 도큐먼트를 담는 버킷 생성
+
+### 텀 어그리게이션
+* 검색된 텀별로 버킷 생성
+
+### 범위, 날짜 범위 어그리게이션
+
 ### 최소, 최대, 합, 평균, 개수 aggs
 
 ### 통계
