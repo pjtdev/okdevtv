@@ -399,20 +399,226 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 ```
 
 
-### 필터, 누락(missing) 어그리게이션
+### 필터 어그리게이션
 * 주어진 필터에 해당하는 도큐먼트를 담는 버킷 생성
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "filter_name" : {
+      "filter" : {
+        "term" : { "name" : "seoul" }
+      },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
+
+### 누락(missing) 어그리게이션
+* 지정한 필드가 없거나 필드 값이 null인 도큐먼트를 담는 버킷 생성
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "missing_service" : {
+      "missing" : { "field" : "service" },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
 
 ### 텀 어그리게이션
 * 검색된 텀별로 버킷 생성
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "term_stars" : {
+      "terms" : { "field" : "stars" },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
+
+* 오름차순, 내림차순
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "term_stars" : {
+      "terms" : {
+        "field" : "stars",
+        "order" : { "_term" : "desc" }
+      },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "term_stars" : {
+      "terms" : {
+        "field" : "stars",
+        "order" : { "avg_price" : "asc" }
+      },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
+
 
 ### 범위, 날짜 범위 어그리게이션
 
-### 최소, 최대, 합, 평균, 개수 aggs
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "range_room" : {
+      "range" : {
+        "field" : "rooms",
+        "ranges" : [{"to":500}, {"from":500, "to":1000}, {"from":1000}]
+      },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
 
-### 통계
+* `keyed`
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "range_room" : {
+      "range" : {
+        "field" : "rooms",
+        "keyed" : true,
+        "ranges" : [{"to":500}, {"from":500, "to":1000}, {"from":1000}]
+      },
+      "aggs" : {
+        "avg_price" : {
+          "avg" : { "field" : "price" }
+        }
+      }
+    }
+  }
+}'
+```
+
+* 날짜
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "date_r_checkin" : {
+      "date_range" : {
+        "field" : "checkin",
+        "format" : "yyyy-MM-dd",
+        "ranges" : [{"to": "now-4M"}, {"from": "now-4M"}]
+      }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "date_r_checkin" : {
+      "date_range" : {
+        "field" : "checkin",
+        "format" : "yyyy-MM-dd hh:mm:ss",
+        "ranges" : [{"to": "2014-03-05 12:30:45"}, {"from": "2014-03-05 12:30:45"}]
+      }
+    }
+  }
+}'
+```
+
+
+### 히스토그램
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "histo_rooms" : {
+      "histogram" : {
+        "field" : "rooms",
+        "interval" : 500
+      }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "histo_rooms" : {
+      "histogram" : {
+        "field" : "rooms",
+        "interval" : 300,
+        "min_doc_count" : 0
+      }
+    }
+  }
+}'
+```
+
 
 ### 위치, 거리
-
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "aggs" : {
+    "geo_location" : {
+      "geo_distance" : {
+        "field" : "location",
+        "origin" : "37.52, 126.98",
+        "distance_type" : "plane",
+        "unit" : "km",
+        "ranges" : [{"to":3},{"from":3, "to":6},{"from":6, "to":9},{"from":9}]
+      }
+    }
+  }
+}'
+```
 
 
 
