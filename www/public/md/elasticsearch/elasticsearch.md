@@ -620,7 +620,39 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 }'
 ```
 
+## 질의(QueryDSL)
+* Query
+  * 전문 검색(full text search)
+  * scoring
+  * 결과 캐싱 안함
+  * 응답속도 느림
+* Filter
+  * Y/N조건의 바이너리 구분
+  * no scoring
+  * 결과 캐싱됨
+  * 응답속도 빠름
 
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "term" : {
+      "title" : "prince"
+    }
+  }
+}
+```
+
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "term" : {
+      "title" : "prince"
+    }
+  }
+}
+```
 
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
