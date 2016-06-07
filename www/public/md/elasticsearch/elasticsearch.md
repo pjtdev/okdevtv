@@ -344,7 +344,7 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
 {
   "aggs" : {
     "price_stats" : {
-      "value_stats" : { "field" : "price" }
+      "stats" : { "field" : "price" }
     }
   }
 }'
