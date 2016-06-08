@@ -262,10 +262,10 @@ video {
   margin: 0;
   padding: 10px 16px;
   overflow: auto;
-  -webkit-transition: margin 0.2s ease-in-out;
-  -moz-transition: margin 0.2s ease-in-out;
-  -o-transition: margin 0.2s ease-in-out;
-  transition: margin 0.2s ease-in-out;
+  -webkit-transition: margin 0.04s ease-in-out;
+  -moz-transition: margin 0.04s ease-in-out;
+  -o-transition: margin 0.04s ease-in-out;
+  transition: margin 0.04s ease-in-out;
 }
 .sidebar.invisible {
   margin-left: -400px;
@@ -567,7 +567,7 @@ menu {
   height: 75px;
   border: 1px solid black;
   margin-right: 10px;
-  -webkit-transition: -webkit-transform 0.2s ease-in, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
+  -webkit-transition: -webkit-transform 0.04s ease-in, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
   -moz-transition: -moz-transform 1s ease-in-out, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
   -o-transition: -o-transform 1s ease-in-out, margin-left 1s ease-in-out, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
   transition: transform 1s ease-in-out, margin-left 1s ease-in-out, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;

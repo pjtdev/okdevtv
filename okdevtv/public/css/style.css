@@ -58,11 +58,11 @@
 	a {
 		color: #98c593;
 
-		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-		-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		-moz-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+		-webkit-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+		-o-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+		-ms-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+		transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
 	}
 
 	sub {
@@ -281,11 +281,11 @@
 				-ms-appearance: none;
 				appearance: none;
 
-				-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				-moz-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+				-webkit-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+				-o-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+				-ms-transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
+				transition: all 0.04s ease-in-out, color 0.04s ease-in-out;
 			}
 
 				form input[type="text"]:hover,
@@ -394,11 +394,11 @@
 			-ms-appearance: none;
 			appearance: none;
 
-			-moz-transition: all 0.2s ease-in-out;
-			-webkit-transition: all 0.2s ease-in-out;
-			-o-transition: all 0.2s ease-in-out;
-			-ms-transition: all 0.2s ease-in-out;
-			transition: all 0.2s ease-in-out;
+			-moz-transition: all 0.04s ease-in-out;
+			-webkit-transition: all 0.04s ease-in-out;
+			-o-transition: all 0.04s ease-in-out;
+			-ms-transition: all 0.04s ease-in-out;
+			transition: all 0.04s ease-in-out;
 		}
 
 			.button.down {
@@ -899,11 +899,11 @@
 			opacity: 0;
 			cursor: pointer;
 			background: rgba(0,0,0,0.01);
-			-moz-transition: opacity 0.2s ease-in-out;
-			-webkit-transition: opacity 0.2s ease-in-out;
-			-o-transition: opacity 0.2s ease-in-out;
-			-ms-transition: opacity 0.2s ease-in-out;
-			transition: opacity 0.2s ease-in-out;
+			-moz-transition: opacity 0.04s ease-in-out;
+			-webkit-transition: opacity 0.04s ease-in-out;
+			-o-transition: opacity 0.04s ease-in-out;
+			-ms-transition: opacity 0.04s ease-in-out;
+			transition: opacity 0.04s ease-in-out;
 			-webkit-tap-highlight-color: rgba(255,255,255,0);
 		}
 
@@ -968,11 +968,11 @@
 			text-indent: -9999px;
 			z-index: 2;
 			opacity: 0;
-			-moz-transition: opacity 0.2s ease-in-out;
-			-webkit-transition: opacity 0.2s ease-in-out;
-			-o-transition: opacity 0.2s ease-in-out;
-			-ms-transition: opacity 0.2s ease-in-out;
-			transition: opacity 0.2s ease-in-out;
+			-moz-transition: opacity 0.04s ease-in-out;
+			-webkit-transition: opacity 0.04s ease-in-out;
+			-o-transition: opacity 0.04s ease-in-out;
+			-ms-transition: opacity 0.04s ease-in-out;
+			transition: opacity 0.04s ease-in-out;
 			-webkit-tap-highlight-color: rgba(255,255,255,0);
 		}
 		
