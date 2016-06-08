@@ -482,11 +482,11 @@
 				.main.style1 .content {
 					opacity: 1.0;
 
-					-moz-transition: all 0.3s ease;
-					-webkit-transition: all 0.3s ease;
-					-o-transition: all 0.3s ease;
-					-ms-transition: all 0.3s ease;
-					transition: all 0.3s ease;
+					-moz-transition: all 0.06s ease;
+					-webkit-transition: all 0.06s ease;
+					-o-transition: all 0.06s ease;
+					-ms-transition: all 0.06s ease;
+					transition: all 0.06s ease;
 
 					-moz-transform: translateZ(0);
 					-webkit-transform: translateZ(0);
@@ -511,11 +511,11 @@
 					position: relative;
 					width: 35%;
 
-					-moz-transition: all 0.3s ease;
-					-webkit-transition: all 0.3s ease;
-					-o-transition: all 0.3s ease;
-					-ms-transition: all 0.3s ease;
-					transition: all 0.3s ease;
+					-moz-transition: all 0.06s ease;
+					-webkit-transition: all 0.06s ease;
+					-o-transition: all 0.06s ease;
+					-ms-transition: all 0.06s ease;
+					transition: all 0.06s ease;
 
 					-moz-transform: translateZ(0);
 					-webkit-transform: translateZ(0);
@@ -734,11 +734,11 @@
 				left: 0;
 				opacity: 1.0;
 
-				-moz-transition: all 0.3s ease;
-				-webkit-transition: all 0.3s ease;
-				-o-transition: all 0.3s ease;
-				-ms-transition: all 0.3s ease;
-				transition: all 0.3s ease;
+				-moz-transition: all 0.06s ease;
+				-webkit-transition: all 0.06s ease;
+				-o-transition: all 0.06s ease;
+				-ms-transition: all 0.06s ease;
+				transition: all 0.06s ease;
 
 				-moz-transform: translateZ(0);
 				-webkit-transform: translateZ(0);
@@ -775,11 +775,11 @@
 			position: relative;
 			bottom: 0;
 
-			-moz-transition: all 0.3s ease;
-			-webkit-transition: all 0.3s ease;
-			-o-transition: all 0.3s ease;
-			-ms-transition: all 0.3s ease;
-			transition: all 0.3s ease;
+			-moz-transition: all 0.06s ease;
+			-webkit-transition: all 0.06s ease;
+			-o-transition: all 0.06s ease;
+			-ms-transition: all 0.06s ease;
+			transition: all 0.06s ease;
 
 			-moz-transform: translateZ(0);
 			-webkit-transform: translateZ(0);
