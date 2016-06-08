@@ -11,7 +11,7 @@
 			useSectionTransitions: true,
 
 		// Fade in speed (in ms)
-			fadeInSpeed: 1000,
+			fadeInSpeed: 100,
 
 		// skel
 			skel: {
@@ -163,7 +163,7 @@
 										// Work
 											$('#work')
 												.scrollwatch({
-													delay:		25,
+													delay:		0.51,
 													range:		0.6,
 													anchor:		'center',
 													init:		function(t) { t.find('.row.images').addClass('inactive'); },
@@ -196,7 +196,7 @@
 										// Contact
 											$('#contact')
 												.scrollwatch({
-													delay:		25,
+													delay:		0.51,
 													range:		0.5,
 													anchor:		'center',
 													init:		function(t) { t.addClass('inactive'); },
@@ -279,7 +279,7 @@
 								window.setTimeout(function() {
 									$body.removeClass('loading');
 									$window.trigger('scroll');
-								}, 1000);
+								}, 200);
 
 						}, 100);
 
