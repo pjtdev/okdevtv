@@ -12,19 +12,19 @@
   -o-transform: scale(0.8);
 
   -webkit-transition-property: margin, -webkit-transform, opacity;
-  -webkit-transition-duration: 0.3s, 0.3s, 0.3s;
+  -webkit-transition-duration: 0.06s, 0.06s, 0.06s;
   -webkit-transition-timing-function: ease-in-out;
 
   -moz-transition-property: margin, -moz-transform, opacity;
-  -moz-transition-duration: 0.3s, 0.3s, 0.3s;
+  -moz-transition-duration: 0.06s, 0.06s, 0.06s;
   -moz-transition-timing-function: ease-in-out;
 
   -o-transition-property: margin, -o-transform, opacity;
-  -o-transition-duration: 0.3s, 0.3s, 0.3s;
+  -o-transition-duration: 0.06s, 0.06s, 0.06s;
   -o-transition-timing-function: ease-in-out;
 
   /* NOTE(slightlyoff): simpler animations for slower boxes */
-  /* @mixin transition(margin, 0.3s, ease-in-out;) */
+  /* @mixin transition(margin, 0.06s, ease-in-out;) */
   &.current {
     @mixin transformSingle(scale, 1.0);
     opacity: 1.0;
