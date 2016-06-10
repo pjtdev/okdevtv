@@ -659,7 +659,8 @@ curl 'localhost:9200/books/_search?pretty' -d '
 
 ### Filter
 
-
+### 부분삭제 
+* filter 된 목록 삭제
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
   * https://github.com/wikibook/elasticsearch
