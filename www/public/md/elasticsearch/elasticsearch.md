@@ -925,8 +925,107 @@ curl 'localhost:9200/books/_search?pretty' -d '
 }'
 ```
 * range filter
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "range" : {
+      "pages" : { "gte" : 50, "lt" : 150 }
+    }
+  }
+}'
+```
+* and, or, not filter
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "not" : {
+      "range" : {
+        "pages" : { "gte" : 50, "lt" : 150 }
+      }
+    }
+  }
+}'
+```
 
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "and" : {
+      "range" : {
+        "pages" : { "gte" : 50, "lt" : 150 }
+      }
+    },
+    {
+      "term" : { "title" : "the" }
+    }
+  }
+}'
+```
 
+* Bool filter
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "bool" : {
+      "must" : {
+        "term" : { "title" : "the" }
+      },
+      "must_not" : {
+        "term" : { "plot" : "prince" }
+      },
+      "should" : {
+        "term" : { "title" : "time" },
+        "term" : { "title" : "world" }
+      },
+    }
+  }
+}'
+```
+
+* geo filter
+  * geo_bounding_box
+```
+curl 'localhost:9200/hotels/_search?pretty' - '
+{
+  "filter" : {
+    "geo_bounding_box" : {
+      "location" : {
+        "top_left" : { "lat" : 38.00, "lon" : 126.00 },
+        "bottom_right" : { "lat" : 37.00, "lon" : 127.00 }
+      }
+    }
+  }
+}'
+```
+  * geo_distance
+```
+curl 'localhost:9200/hotels/_search?pretty' - '
+{
+  "filter" : {
+    "geo_distance" : {
+      "distance" : "5km",
+      "location" : { "lat" : 37.52, "lon" : 126.98 }
+    }
+  }
+}'
+```
+  * geo_distance_range
+```
+curl 'localhost:9200/hotels/_search?pretty' - '
+{
+  "filter" : {
+    "geo_distance_range" : {
+      "from" : "5km",
+      "to" : "10km",
+      "location" : { "lat" : 37.52, "lon" : 126.98 }
+    }
+  }
+}'
+```
 
 ### 부분삭제 
 * query 된 목록 삭제
