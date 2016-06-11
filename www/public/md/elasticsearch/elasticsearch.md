@@ -660,7 +660,30 @@ curl 'localhost:9200/books/_search?pretty' -d '
 ### Filter
 
 ### 부분삭제 
-* filter 된 목록 삭제
+* query 된 목록 삭제
+* `delete-by-query` 플러그인 설치 후 elasticsearch 재시작 필요
+```
+./bin/plugin install delete-by-query
+```
+
+```
+curl -XDELETE 'http://localhost:9200/twitter/tweet/_query?q=user:kimchy'
+
+#or 
+curl -XDELETE 'http://localhost:9200/twitter/tweet/_query' -d '
+{
+  "query" : {
+    "term" : {
+      "user" : "kimchy"
+    }
+  }
+}'
+
+```
+
+
+
+
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
   * https://github.com/wikibook/elasticsearch
