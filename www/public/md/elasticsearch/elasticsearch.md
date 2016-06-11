@@ -655,6 +655,114 @@ curl 'localhost:9200/books/_search?pretty' -d '
 ```
 
 ### Query
+* 형태소 분석
+  * The Prince and the Pauper → the, prince, and, pauper
+  * 모두 소문자로, 중복 삭제
+  * the, prince, and, pauper 같은 토큰을 텀term 이라고 함
+
+* 소문자로 검색
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "term" : {
+      "title" : "prince"
+    }
+  }
+}'
+```
+* terms query : 2개 이상의 term 검색
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "terms" : {
+      "title" : ["prince", "king"]
+    }
+  }
+}'
+```
+
+* minimum_should_match
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "terms" : {
+      "title" : ["the", "and", "of"],
+      "minimum_should_match" : 2
+    }
+  }
+}'
+```
+
+* 매치, 다중 매치(multi match) 쿼리
+  * 질의문을 형태소 분석한 뒤에 term 검색
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "match" : {
+      "title" : "The And"
+    }
+  }
+}'
+```
+  * operator 사용
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "match" : {
+      "title" : {
+        "query" : "The And",
+        "operator" : "and"
+      }
+    }
+  }
+}'
+```
+  * analyzer 사용
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "match" : {
+      "title" : {
+        "query" : "prince king",
+        "analyzer" : "whitespace"
+      }
+    }
+  }
+}'
+```
+  * type:phrase
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "match" : {
+      "title" : {
+        "query" : "and the",
+        "type" : "phrase"
+      }
+    }
+  }
+}'
+```
+  * multi match
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "multi_match" : {
+      "fields" : [ "title", "plot" ],
+      "query" : "prince king"
+    }
+  }
+}'
+```
+  
 
 
 ### Filter
