@@ -763,9 +763,170 @@ curl 'localhost:9200/books/_search?pretty' -d '
 }'
 ```
   
+* Bool query
+  * `must`, `must_not`, `should`
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "bool" : {
+      "must" : {
+        "term" : { "title" : "the" }
+      },
+      "must_not" : {
+        "term" : { "plot" : "prince" }
+      },
+      "should" : {
+        "term" : { "title" : "time" },
+        "term" : { "title" : "world" }
+      },
+    }
+  }
+}'
+```
+
+* String query
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "query_string" : {
+      "query" : "title:prince"
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "query_string" : {
+      "query" : "pringce king",
+      "default_field" : "plot",
+      "default_operator" : "and"
+    }
+  }
+}'
+```
+
+* prefix query
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "prefix" : {
+      "title" : "prin"
+    }
+  }
+}'
+```
+
+* range query
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "range" : {
+      "pages" : { "gte" : 50, "lt" : 150 }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "range" : {
+      "written" : {
+        "gte" : "1600-01-01",
+        "le" : "1699-12-31"
+      }
+    }
+  }
+}'
+```
+
+
+* match_all query
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "match_all" : {}
+  }
+}'
+```
+
+
+* fuzzy query
+  * 레벤슈타인 거리(Levenshtein distance) 알고리즘 기반
+  * `tree`로 검색시 `three` 포함
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "fuzzy" : {
+      "title" : "tree"
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "fuzzy" : {
+      "pages" : {
+        "value" : 100,
+        "fuzziness" : 20
+      }
+    }
+  }
+}'
+```
 
 
 ### Filter
+* term filter
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "term" : {
+      "title" : "prince"
+    }
+  }
+}'
+```
+* terms filter
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "filter" : {
+    "terms" : {
+      "title" : ["prince", "king"]
+    }
+  }
+}'
+```
+  * execution option
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "field" : {
+    "terms" : {
+      "title" : ["and", "the"],
+      "execution" : "and"
+    }
+  }
+}'
+```
+* range filter
+
+
 
 ### 부분삭제 
 * query 된 목록 삭제
