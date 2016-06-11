@@ -1026,6 +1026,101 @@ curl 'localhost:9200/hotels/_search?pretty' - '
   }
 }'
 ```
+  * geo_polygon
+```
+curl 'localhost:9200/hotels/_search?pretty' - '
+{
+  "filter" : {
+    "geo_polygon" : {
+      "location" : {
+        "points" : { "lat" : 38.00, "lon" : 127.00 },
+        "points" : { "lat" : 37.00, "lon" : 127.00 },
+        "points" : { "lat" : 38.00, "lon" : 128.00 }
+      }
+    }
+  }
+}'
+```
+
+
+## 매핑
+* 데이터의 저장, 검색에 대한 명세
+* `_mapping` api 사용
+* PUT method
+* 한번 설정된 매핑에 필드를 추가할 수 있지만, 변경, 삭제는 불가능
+
+
+```
+curl 'localhost:9200/books/_mapping?pretty'
+```
+
+* mapping 추가
+```
+curl -XPUT 'http://localhost:9200/books/_mapping/book' -d '
+{
+  "book" : {
+    "properties" : {
+      "read" : { "type" : "boolean"}
+    }
+  }
+}'
+```
+
+### 내장필드
+* 도큐먼트 데이터의 스키마 구조를 정의
+
+* _id
+
+* _source
+
+* _all
+
+* _analyzer
+
+* _timestamp
+
+* _ttl(time to live)
+
+### 데이터 타입
+
+* 문자열
+
+* 숫자
+
+* 날짜
+
+* 불린
+
+* 바이너리
+
+* 객체
+
+* 중첩
+
+* 좌표
+
+* 위치 모형
+
+### 다중필드
+
+* 토큰 수
+
+### 필드 복사
+
+
+## 분석
+
+### 분석기
+
+### 토크나이저
+
+### 토큰필터
+
+### 한글 형태소 분석기
+
+
+
+
 
 ### 부분삭제 
 * query 된 목록 삭제
