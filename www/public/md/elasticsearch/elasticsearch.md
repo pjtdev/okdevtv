@@ -1070,20 +1070,175 @@ curl -XPUT 'http://localhost:9200/books/_mapping/book' -d '
 * 도큐먼트 데이터의 스키마 구조를 정의
 
 * _id
+  * 데이터의 특정 필드의 값이 도큐먼트 아이디로 저장되도록 설정 가능
+
+```
+curl -XDELETE 'http://localhost:9200/books'
+
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "_id" : { "path"  : "title" }
+    }
+  }
+}'
+
+curl -XPOST localhost:9200/_bulk --data-binary @5_1_books.json
+
+curl 'http://localhost:9200/books/_search?pretty'
+
+curl 'http://localhost:9200/books/book/King%20Lear?pretty'
+```
 
 * _source
+  * 원본 저장 여부 결정
+  
+```
+curl -XDELETE 'http://localhost:9200/books'
+
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "_source" : { "enabled"  : false }
+    }
+  }
+}'
+
+curl -XPOST localhost:9200/_bulk --data-binary @5_1_books.json
+
+curl 'http://localhost:9200/books/_search?q=prince&pretty'
+```
+  * 특정 필드만 원본으로 저장
+  
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "_source" : {
+        "includes" : ["title", "author", "category"]
+      }
+    }
+  }
+}'
+```
+  * 특정 필드 제외
+  
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "_source" : {
+        "excludes" : ["p*"]
+      }
+    }
+  }
+}'
+```
+  
 
 * _all
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "_all" : { "enabled" : true },
+      "properties" : {
+        "title" : {
+          "include_in_all" : true,
+          "type" : "string"
+        },
+        "plot" : {
+          "include_in_all" : false,
+          "type" : "string"
+        }
+      }
+    }
+  }
+}'
+```
+  
 
 * _analyzer
+  * 사용할 분석기 지정
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "_analyzer" : { "path" : "analyze_value" }
+    }
+  }
+}'
+```
+
 
 * _timestamp
-
+  * 색인 시점의 타임스탬프 저장
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "books" : {
+      "_timestamp" : {
+        "enabled" : true,
+        "sort" : true
+      }
+    }
+  }
+}'
+```
+  
 * _ttl(time to live)
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "books" : {
+      "_ttl" : {
+        "enabled" : true,
+        "default" : "2m"
+      }
+    }
+  }
+}'
+```
+
 
 ### 데이터 타입
 
 * 문자열
+  * 옵션  
+
+| 이름 | 설명 | 기본값 |
+|---|---|---|
+|store | 필드값 저장 여부 |  false 
+|index | 분석기 적용 여부 analyzed, not_analyzed, no | . 
+|boost | 필드 가중치 | 1.0
+|null_value | 필드 없는 경우 기본값 지정 | . 
+|analyzer | 분석기 지정 | . 
+|index_analyzer | 데이터 색인에 사용될 분석기 지정 | .
+|search_analyzer | 문자열 검색에 사용될 분석기 지정 | .
+|include_in_all | _all 매핑 필드 적용된 경우 색인 여부 지정 | . 
+|ignore_above | 지정값보다 큰 크기의 문자열 색인 제외 | .
+
+```
+curl -XPUT 'http://localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "properties" : {
+        "title" : { "type" : "string", "boost" : 2.0 },
+        "category" : { "type" : "string", "index" : "not_analyzed" }
+      }
+    }
+  }
+}'
+```
 
 * 숫자
 
