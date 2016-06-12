@@ -1033,9 +1033,11 @@ curl 'localhost:9200/hotels/_search?pretty' -d '
   "filter" : {
     "geo_polygon" : {
       "location" : {
-        "points" : { "lat" : 38.00, "lon" : 127.00 },
-        "points" : { "lat" : 37.00, "lon" : 127.00 },
-        "points" : { "lat" : 38.00, "lon" : 128.00 }
+        "points" : [
+          { "lat" : 38.00, "lon" : 127.00 },
+          { "lat" : 37.00, "lon" : 127.00 },
+          { "lat" : 38.00, "lon" : 128.00 }
+        ]
       }
     }
   }
