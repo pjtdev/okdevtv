@@ -1240,28 +1240,229 @@ curl -XPUT 'http://localhost:9200/books' -d '
 }'
 ```
 
+* `curl 'localhost:9200/books/_search?q=prince&pretty'`
+* `curl 'localhost:9200/books/_search?q=category:science&pretty'`
+* `curl 'localhost:9200/books/_search?q=category:Science%20Fiction&pretty'`
+
 * 숫자
+  * 정수: byte, short, integer, long
+  * 실수: float, double
+  * 자바의 자료형과 같은 범위
+
+```
+curl -XPUT 'localhost:9200/test_nums' -d '
+{
+  "mappings" : {
+    "test_num" : {
+      "properties" : {
+        "num_val" : { "type" : "integer", "ignore_malformed" : true }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPUT 'localhost:9200/test_nums/test_num/1' -d '
+{
+  "num_val": "hello"
+}'
+```
+
+```
+curl 'localhost:9200/test_nums/test_num/1'
+```
+
+```
+curl 'localhost:9200/test_nums/_search?pretty' -d '
+{
+  "aggs" : {
+    "num_stat" : {
+      "stats" : { "field" : "num_val" }
+    }
+  }
+}'
+```
+
 
 * 날짜
-
+  * 엔진 내부적으로는 long으로 저장
+  * `ignore_malformed`, `format` 옵션
+  
 * 불린
+  * `true`, `false`
 
 * 바이너리
+  * base64로 변환된 이미지 저장 가능
+  * 옵션
+    * `store`, `compress`, `compress_threshold`
 
 * 객체
+  * object type 저장 가능
+  * 색인 안 됨
 
 * 중첩
-
+  * 트리 형태가 아닌 독립 데이터로 저장
+  * `user.name`
+  * 색인 가능
+  
 * 좌표
+```
+curl -XPUT localhost:9200/test_geos/ -d '
+{
+  "mappings" : {
+    "test_geo" : {
+      "properties" : {
+        "name" : { "type" : "string" },
+        "location" : { "type" : "geo_point" }
+      }
+    }
+  }
+}'
+```
 
+```
+curl -XPUT 'localhost:9200/test_geos/test_geo/1' -d '
+{
+  "name" : "Conrad Seoul",
+  "location" : "37.525308, 126.926644"
+}'
+```
+
+
+```
+curl 'http://localhost:9200/test_geos/_search?pretty' -d '
+{
+  "filter" : {
+    "geo_bounding_box" : {
+      "location" : {
+        "top_left": { "lat" : 37.53, "lon" : 126.92 },
+        "bottom_right" : {"lat" : 37.52, "lon" : 126.93 }
+      }
+    }
+  }
+}'
+
+```
 * 위치 모형
+  * 선, 원, 사각형, 다각형 geo shape 타입의 필드
+  * 옵션
+    * precision : 1~12 표준정밀도 또는 1km 같은 길이값
+    * distance_error_pct
+```
+curl -XPUT localhost:9200/test_geos/ -d '
+{
+  "mappings" : {
+    "test_geo" : {
+      "properties" : {
+        "location" : {
+          "type" : "geo_shape",
+          "precision" : 10
+        }
+      }
+    }
+  }
+}'
+```
+
 
 ### 다중필드
+* 하나의 필드 값을 서로 다른 설정의 여러 필드에 자동 반복 저장
+* title 필드를 인덱싱하고 풀검색하도록 하는 경우
+```
+curl 'localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "properties" : {
+        "title" : {
+          "type" : "string", "index" : "analyzed",
+          "fields" : {
+            "raw" : { "type" : "string", "index" : "not_analyzed" }
+          }
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "query" : {
+    "term" : { "title.raw" : "The Prince and the Pauper" }
+  }
+}'
+```
+
 
 * 토큰 수
+```
+curl 'localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "properties" : {
+        "title" : {
+          "type" : "string", "index" : "analyzed",
+          "fields" : {
+            "tokens" : { 
+              "type" : "token_count",
+              "store" : true,
+              "analyzer" : "standard"
+            }
+          }
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl 'localhost:9200/books/_search?pretty' -d '
+{
+  "fields" : [ "title", "title.tokens" ],
+  "query" : {
+    "term" : { "title" : "the" }
+  }
+}'
+```
+
+
 
 ### 필드 복사
+* 다른 필드로 복사
+```
+curl 'localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "properties" : {
+        "title" : { "type" : "string", "copy_to" : "pk_data" },
+        "author" : { "type" : "string", "copy_to" : "pk_data" },
+        "pk_data" : { "type" : "string", "store" : true }
+      }
+    }
+  }
+}'
+```
 
+```
+curl 'localhost:9200/books' -d '
+{
+  "mappings" : {
+    "book" : {
+      "properties" : {
+        "title" : { "type" : "string", "copy_to" : ["title_1", "title_2"] },
+        "title_1" : { "type" : "string", "store" : true },
+        "title_2" : { "type" : "string", "store" : true }
+      }
+    }
+  }
+}'
+```
 
 ## 분석
 
