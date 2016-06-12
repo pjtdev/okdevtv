@@ -776,10 +776,10 @@ curl 'localhost:9200/books/_search?pretty' -d '
       "must_not" : {
         "term" : { "plot" : "prince" }
       },
-      "should" : {
-        "term" : { "title" : "time" },
-        "term" : { "title" : "world" }
-      },
+      "should" : [
+        {"term" : { "title" : "time" } },
+        {"term" : { "title" : "world" } }
+      ]
     }
   }
 }'
@@ -841,7 +841,7 @@ curl 'localhost:9200/books/_search?pretty' -d '
     "range" : {
       "written" : {
         "gte" : "1600-01-01",
-        "le" : "1699-12-31"
+        "lt" : "1699-12-31"
       }
     }
   }
@@ -977,10 +977,10 @@ curl 'localhost:9200/books/_search?pretty' -d '
       "must_not" : {
         "term" : { "plot" : "prince" }
       },
-      "should" : {
-        "term" : { "title" : "time" },
-        "term" : { "title" : "world" }
-      },
+      "should" : [
+        {"term" : { "title" : "time" } },
+        {"term" : { "title" : "world" } }
+      ]
     }
   }
 }'
@@ -989,7 +989,7 @@ curl 'localhost:9200/books/_search?pretty' -d '
 * geo filter
   * geo_bounding_box
 ```
-curl 'localhost:9200/hotels/_search?pretty' - '
+curl 'localhost:9200/hotels/_search?pretty' -d '
 {
   "filter" : {
     "geo_bounding_box" : {
@@ -1003,7 +1003,7 @@ curl 'localhost:9200/hotels/_search?pretty' - '
 ```
   * geo_distance
 ```
-curl 'localhost:9200/hotels/_search?pretty' - '
+curl 'localhost:9200/hotels/_search?pretty' -d '
 {
   "filter" : {
     "geo_distance" : {
@@ -1015,7 +1015,7 @@ curl 'localhost:9200/hotels/_search?pretty' - '
 ```
   * geo_distance_range
 ```
-curl 'localhost:9200/hotels/_search?pretty' - '
+curl 'localhost:9200/hotels/_search?pretty' -d '
 {
   "filter" : {
     "geo_distance_range" : {
@@ -1028,7 +1028,7 @@ curl 'localhost:9200/hotels/_search?pretty' - '
 ```
   * geo_polygon
 ```
-curl 'localhost:9200/hotels/_search?pretty' - '
+curl 'localhost:9200/hotels/_search?pretty' -d '
 {
   "filter" : {
     "geo_polygon" : {
