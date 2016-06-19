@@ -2204,6 +2204,7 @@ curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Arou
   * `curl -O http://tenet.dl.sourceforge.net/project/aoo-extensions/1470/1/en_us.oxt`
   * `mv en_us.oxt en_us.zip`
   * `unzip en_us.zip`
+
 ```
 mkdir -p $ELASTICSEARCH_HOME/config/hunspell/en_US
 cp en_US.* $ELASTICSEARCH_HOME/config/hunspell/en_US
