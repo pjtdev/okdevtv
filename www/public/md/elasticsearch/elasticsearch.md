@@ -2121,13 +2121,163 @@ curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'The 
 
 
 * 합성어 토큰필터
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "dictionary_decompounder",
+          "word_list" : ["base", "ball"]
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'I play baseball and basketball'
+```
+
+
 * reverse 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["reverse"]
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in Eighty Days'
+```
+
 * truncate 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "truncate",
+          "length" : 4
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in Eighty Days'
+```
+
 * trim 토큰필터
 * limit 토큰필터
 * hunspell 토큰필터
+  * `open http://extensions.openoffice.org/en/project/us-english-spell-checking-dictionary`
+  * `curl -O http://tenet.dl.sourceforge.net/project/aoo-extensions/1470/1/en_us.oxt`
+  * `mv en_us.oxt en_us.zip`
+  * `unzip en_us.zip`
+```
+mkdir -p $ELASTICSEARCH_HOME/config/hunspell/en_US
+cp en_US.* $ELASTICSEARCH_HOME/config/hunspell/en_US
+
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "hunspell",
+          "locale" : "en_US"
+        }
+      }
+    }
+  }
+}'
+```
+
 * cjk_bigram 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "cjk_bigram"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d '삼국지(三國志)'
+```
+
+
 * keep_words 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "keep",
+          "keep_words" : ["the","Eighty","Days"]
+        }
+      }
+    }
+  }
+}'
+```
 
 
 ### 한글 형태소 분석기
