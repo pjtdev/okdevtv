@@ -1467,11 +1467,199 @@ curl 'localhost:9200/books' -d '
 ```
 
 ## 분석
-
-### 분석기
 * 1개 이상의 토크나이저, 0개 이상의 토큰필터로 구성
 
+```
+curl -XPOST 'localhost:9200/_analyze?tokenizer=whitespace&pretty' -d 'Around the World in Eighty Days'
+
+curl -XPOST 'localhost:9200/_analyze?tokenizer=whitespace&filters=lowercase&pretty' -d 'Around the World in Eighty Days'
+
+curl -XPOST 'localhost:9200/_analyze?tokenizer=whitespace&filters=lowercase,stop&pretty' -d 'Around the World in Eighty Days'
+```
+
+* books 인덱스 삭제 후 분석기 설정
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "whitespace",
+          "filter" : [ "lowercase", "stop" ]
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?pretty' -d 'Around the World in Eighty Days'
+```
+
+
+### 분석기
+* standard 분석기
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "standard" : {
+          "type" : "standard",
+          "stopwords" : ["in", "the", "world"],
+          "max_token_length" : 512
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=standard&pretty' -d 'Around the World in Eighty Days'
+```
+
+* simple 분석기
+* whitespace 분석기
+* stop 분석기
+
+```
+echo 'in
+the
+world' > config/stopword_list.txt
+```
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "stop" : {
+          "type" : "stop",
+          "stopwords_path" : "stopword_list.txt"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=stop&pretty' -d 'Around the World in Eighty Days'
+```
+
+* keyword 분석기
+* pattern 분석기
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "pattern" : {
+          "type" : "pattern",
+          "lowercase" : false,
+          "pattern" : "[A-Z]"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=pattern&pretty' -d 'Around the World in Eighty Days'
+```
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "pattern" : {
+          "type" : "pattern",
+          "pattern" : "\\d"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=pattern&pretty' -d 'Around the World in 80 Days'
+```
+
+* 다국어 분석기
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "language" : {
+          "type" : "english"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=language&pretty' -d '삼국지(三國志)'
+```
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "language" : {
+          "type" : "cjk"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=language&pretty' -d '삼국지(三國志)'
+```
+
+* snowball 분석기
+  * days -> day
+  
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "snowball" : {
+          "type" : "snowball",
+          "pattern" : "english"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=snowball&pretty' -d 'Around the World in Eighty Days'
+```
+
 ### 토크나이저
+* standard 토크나이저
+* nGram 토크나이저
 
 ### 토큰필터
 
