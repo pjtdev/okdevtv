@@ -2279,6 +2279,11 @@ curl -XPUT 'localhost:9200/books' -d '
 }'
 ```
 
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in Eighty Days'
+```
+
+
 
 ### 한글 형태소 분석기
 * 2.x 에 맞춰진 것 찾지 못함
