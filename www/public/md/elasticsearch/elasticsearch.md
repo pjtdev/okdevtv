@@ -1469,14 +1469,39 @@ curl 'localhost:9200/books' -d '
 ## 분석
 
 ### 분석기
+* 1개 이상의 토크나이저, 0개 이상의 토큰필터로 구성
 
 ### 토크나이저
 
 ### 토큰필터
 
 ### 한글 형태소 분석기
+* 2.x 에 맞춰진 것 찾지 못함
 
+```
+bin/plugin -install chanil1218/elasticsearch-analysis-korean/1.3.0
+```
 
+```
+curl -XPUT localhost:9200/books -d '
+{
+  "settings":{
+    "index":{
+      "analysis":{
+        "analyzer":{
+          "korean_analyzer":{
+            "type":"kr_analyzer"
+          }
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=korean_analyzer&pretty' -d '동해물과 백두산이 마르고 닳도록'
+```
 
 
 
@@ -1510,3 +1535,5 @@ curl -XDELETE 'http://localhost:9200/twitter/tweet/_query' -d '
   * https://github.com/wikibook/elasticsearch
 * http://elastic.co
 
+* 은전한닢+elasticsearch
+  * http://blog.lyuwonkyung.com/elasticsearch/
