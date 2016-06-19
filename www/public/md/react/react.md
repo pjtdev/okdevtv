@@ -14,15 +14,15 @@ ReactDOM.render(<HelloMessage name="John" />, mountNode);
 
 ## render lifecycle
 * LIFECYCLE METHODS
-  * componentWillMount – Invoked once, on both client & server before rendering occurs.
-  * componentDidMount – Invoked once, only on the client, after rendering occurs.
-  * shouldComponentUpdate – Return value determines whether component should update.
-  * componentWillUnmount – Invoked prior to unmounting component.
+  * `componentWillMount` – 한 번 실행, 렌더링 전 클라이언트, 서버 양쪽에서
+  * `componentDidMount` – 한 번 실행, 렌더링 후, 클라이언트에서만
+  * `shouldComponentUpdate` – 리턴 값이 컴포넌트 업데이트 결정
+  * `componentWillUnmount` – 컴포넌트 언마운트 이전에 실행
 
 * SPECS
-  * getInitialState – Return value is the initial value for state.
-  * getDefaultProps – Sets fallback props values if props aren’t supplied.
-  * mixins – An array of objects, used to extend the current component’s functionality.
+  * `getInitialState` – state용 리턴 값의 초기 값
+  * `getDefaultProps` – props가 없을 경우 props 기본값 설정
+  * `mixins` – 객체 배열, 현재 컴포넌트 기능 확장에 사용됨
 
 * stateful
 ```
