@@ -1658,10 +1658,477 @@ curl -XPOST 'localhost:9200/books/_analyze?analyzer=snowball&pretty' -d 'Around 
 ```
 
 ### 토크나이저
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard"
+        }
+      }
+    }
+  }
+}'
+
+# 또는 
+
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "my_tokenizer"
+        }
+      },
+      "tokenizer" : {
+        "my_tokenizer" : {
+          "type" : "standard"
+        }
+      }
+    }
+  }
+}'
+```
+
+
 * standard 토크나이저
 * nGram 토크나이저
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "my_ngram"
+        }
+      },
+      "tokenizer" : {
+        "my_ngram" : {
+          "type" : "nGram",
+          "min_gram" : "2",
+          "max_gram" : "3",
+          "token_chars" : [ "letter", "digit" ]
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in 80 Days'
+```
+
+
+* edgeNGram 토크나이저
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "my_edgeNGram"
+        }
+      },
+      "tokenizer" : {
+        "my_edgeNGram" : {
+          "type" : "nGram",
+          "min_gram" : "2",
+          "max_gram" : "4",
+          "token_chars" : [ "letter", "digit" ]
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in 80 Days'
+```
+
+* keyword 토크나이저
+* letter 토크나이저
+* lowercase 토크나이저
+* whitespace 토크나이저
+* pattern 토크나이저
+* uax_url_email 토크나이저
+* path_hierarchy 토크나이저
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "my_hierarchy"
+        }
+      },
+      "tokenizer" : {
+        "my_hierarchy" : {
+          "type" : "path_hierarchy"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Program/Search/Elasticsearch'
+```
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "my_hierarchy"
+        }
+      },
+      "tokenizer" : {
+        "my_hierarchy" : {
+          "type" : "path_hierarchy",
+          "replacement" : "$",
+          "skip" : 1
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Program/Search/Elasticsearch'
+```
+
+* classic 토크나이저
 
 ### 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["standard"]
+        }
+      }
+    }
+  }
+}'
+
+# 또는 
+
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_tokenfilter"]
+        }
+      },
+      "filter" : {
+        "my_tokenfilter" : {
+          "type" : "standard"
+        }
+      }
+    }
+  }
+}'
+```
+
+* standard 토큰필터
+* asciifolding 토큰필터
+* length 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_tokenfilter"]
+        }
+      },
+      "filter" : {
+        "my_tokenfilter" : {
+          "type" : "length",
+          "min" : 3, "max" : 5
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in Eighty Days'
+```
+
+* lowercase 토큰필터
+* uppercase 토큰필터
+* nGram 토큰필터
+* edgeNGram 토큰필터
+* porter_stem 토큰필터
+* shingle 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["my_tokenfilter"]
+        }
+      },
+      "filter" : {
+        "my_tokenfilter" : {
+          "type" : "shingle",
+          "max_shingle_size" : 3,
+          "min_shingle_size" : 3
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in Eighty Days'
+```
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["stop", "my_tokenfilter"]
+        }
+      },
+      "filter" : {
+        "my_tokenfilter" : {
+          "type" : "shingle",
+          "max_shingle_size" : 3,
+          "min_shingle_size" : 3,
+          "output_unigrams" : false,
+          "token_separator" : "-",
+          "filler_token" : "*"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Around the World in Eighty Days'
+```
+
+
+* stop 토큰필터
+* word_delimiter 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "whitespace",
+          "filter" : ["my_tokenfilter"]
+        }
+      },
+      "filter" : {
+        "my_tokenfilter" : {
+          "type" : "word_delimiter"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d "Father's Wi-Fi SmartPhone, SD3000-12-Delux"
+```
+* stemmer 토큰필터
+* keyword_marker 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "whitespace",
+          "filter" : ["my_keyword", "my_stemmer"]
+        }
+      },
+      "filter" : {
+        "my_keyword" : {
+          "type" : "keyword_marker",
+          "keywords" : ["swimming"]
+        },
+        "my_stemmer" : {
+          "type" : "stemmer",
+          "name" : "english"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Birds are flying, fishes are swimming, children are playing'
+```
+
+* keyword_repeat 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["keyword_repeat", "my_stemmer"]
+        }
+      },
+      "filter" : {
+        "my_stemmer" : {
+          "type" : "stemmer",
+          "name" : "english"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Birds are flying, fishes are swimming, children are playing'
+```
+
+* unique 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["keyword_repeat", "my_stemmer", "my_unique"]
+        }
+      },
+      "filter" : {
+        "my_stemmer" : {
+          "type" : "stemmer",
+          "name" : "english"
+        },
+        "my_unique" : {
+          "type" : "unique"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Birds are flying, fishes are swimming, children are playing'
+```
+
+* snowball 토큰필터
+* synonym 토큰필터
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["snowball", "lowercase", "my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "synonym",
+          "synonyms" : ["quick, fast", "jump, hop => hop"]
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'The Quick Rabbit Jumped'
+```
+
+  * synonyms_path
+```
+echo 'quick, fast
+jump, hop => hop' > config/synonym.txt
+```
+
+```
+curl -XPUT 'localhost:9200/books' -d '
+{
+  "settings" : {
+    "analysis" : {
+      "analyzer" : {
+        "my_analyzer" : {
+          "tokenizer" : "standard",
+          "filter" : ["snowball", "lowercase", "my_filter"]
+        }
+      },
+      "filter" : {
+        "my_filter" : {
+          "type" : "synonym",
+          "synonyms_path" : "synonym.txt"
+        }
+      }
+    }
+  }
+}'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'The Quick Rabbit Jumped'
+```
+
+
+
+
+* 합성어 토큰필터
+* reverse 토큰필터
+* truncate 토큰필터
+* trim 토큰필터
+* limit 토큰필터
+* hunspell 토큰필터
+* cjk_bigram 토큰필터
+* keep_words 토큰필터
+
 
 ### 한글 형태소 분석기
 * 2.x 에 맞춰진 것 찾지 못함
