@@ -2202,12 +2202,15 @@ curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Arou
 * hunspell 토큰필터
   * `open http://extensions.openoffice.org/en/project/us-english-spell-checking-dictionary`
   * `curl -O http://tenet.dl.sourceforge.net/project/aoo-extensions/1470/1/en_us.oxt`
-  * `mv en_us.oxt en_us.zip`
-  * `unzip en_us.zip`
+  * `curl -O http://tenet.dl.sourceforge.net/project/aoo-extensions/5968/0/korean_spell-checker-0.5.6_ooo.oxt`
+  * `unzip en_us.oxt`
+  * `unzip korean_spell-checker-0.5.6_ooo.oxt`
 
 ```
 mkdir -p $ELASTICSEARCH_HOME/config/hunspell/en_US
 cp en_US.* $ELASTICSEARCH_HOME/config/hunspell/en_US
+mkdir -p $ELASTICSEARCH_HOME/config/hunspell/ko_KR
+cp ko_KR.* $ELASTICSEARCH_HOME/config/hunspell/ko_KR
 
 curl -XPUT 'localhost:9200/books' -d '
 {
@@ -2222,12 +2225,16 @@ curl -XPUT 'localhost:9200/books' -d '
       "filter" : {
         "my_filter" : {
           "type" : "hunspell",
-          "locale" : "en_US"
+          "locale" : "ko_KR"
         }
       }
     }
   }
 }'
+```
+
+```
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=korean_analyzer&pretty' -d '동해물과 백두산이 마르고 닳도록'
 ```
 
 * cjk_bigram 토큰필터
