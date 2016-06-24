@@ -366,7 +366,27 @@ pm2 start bin/cli
 * check kibana status with `pm2 list`
 * pm2 logs path is placed in ~/.pm2/logs
 
+## kibana 인증 with nginx
+```
+sudo vi /etc/nginx/nginx.conf
+```
+* `server_name:` 아래 kibana 프록시 설정
+```
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/htpasswd.users;
 
+        location / {
+                proxy_pass http://localhost:5601;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+```
+* nginx 재시작
+  * `sudo service nginx restart`
+* 5601 포트는 막고 80으로만 접속
 
 ## 참고
 * Logstash grok patterns
