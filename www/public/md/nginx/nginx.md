@@ -79,6 +79,35 @@ chown -R dev:dev /var/log/nginx /usr/share/nginx/html
 su - dev
 echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
 ```
+
+## htpasswd 설정
+```
+sudo yum install httpd-tools
+sudo htpasswd -c /etc/nginx/htpasswd.users kibanaadmin
+sudo vi /etc/nginx/nginx.conf
+```
+
+* `/server_name` 으로 검색해서 아래와 같이 수정
+
+```
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  localhost;
+        root         /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/htpasswd.users;
+```
+
+
+```
+sudo service nginx restart
+```
+
 ## centos6.* 경우
 * epel의 ngninx 버전이 1.0.*로 낮음
 * ssl_stapling 옵션 지원 안됨.
@@ -97,3 +126,7 @@ baseurl=http://nginx.org/packages/centos/6/$basearch/
 gpgcheck=0
 enabled=1
 ```
+
+
+## 참고
+* https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04
