@@ -83,9 +83,6 @@ ln -s kibana-4.5.1-linux-x64 kibana
 cd kibana
 ```
 
-* elasticsearch 연결(optioanl)
-  * `config/kibana.yml` 파일을 열어서 `elasticsearch_url` 값을 맞춰줌
-
 ```
 bin/kibana
 # background run
