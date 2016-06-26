@@ -2234,7 +2234,7 @@ curl -XPUT 'localhost:9200/books' -d '
 ```
 
 ```
-curl -XPOST 'localhost:9200/books/_analyze?analyzer=korean_analyzer&pretty' -d '동해물과 백두산이 마르고 닳도록'
+curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d '동해물과 백두산이 마르고 닳도록'
 ```
 
 * cjk_bigram 토큰필터
