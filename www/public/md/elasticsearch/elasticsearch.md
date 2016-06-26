@@ -2345,7 +2345,13 @@ curl -XDELETE 'http://localhost:9200/twitter/tweet/_query' -d '
 
 ```
 
+## cluster
+* head plugin 설치
+`bin/plugin install mobz/elasticsearch-head`
 
+* `cluster.name : my-application` in config/elasticsearch.yml
+* `bin/elasticsearch` 다른 터미널로 3번 실행
+* `http://localhost:9200/_plugin/head/`
 
 
 ## 참고

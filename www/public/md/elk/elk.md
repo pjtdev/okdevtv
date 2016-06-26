@@ -97,9 +97,9 @@ http://아이피:5601
 
 ```
 cd ~/local
-wget https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz
-tar xvfz logstash-2.3.2.tar.gz
-ln -s logstash-2.3.2 logstash
+wget https://download.elastic.co/logstash/logstash/logstash-2.3.3.tar.gz
+tar xvfz logstash-2.3.3.tar.gz
+ln -s logstash-2.3.3 logstash
 cd logstash
 ```
 
