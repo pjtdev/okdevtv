@@ -23,6 +23,13 @@
 
 ### 설치
 * https://www.rabbitmq.com/download.html
+* mac homebrew
+```
+brew update
+brew install rabbitmq
+# start server
+rabbitmq-server
+```
 
 
 ### tutorial 해설
