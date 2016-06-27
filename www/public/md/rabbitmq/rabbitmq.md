@@ -27,6 +27,10 @@
 ```
 brew update
 brew install rabbitmq
+
+# $PATH added in shell config
+PATH=$PATH:/usr/local/sbin
+
 # start server
 rabbitmq-server
 ```
@@ -35,6 +39,13 @@ rabbitmq-server
 ### tutorial 해설
 * http://www.rabbitmq.com/getstarted.html
 * Python | Java | Ruby | PHP | C# 언어 지원
+
+* for mac
+  * pika 설치
+```
+sudo easy_install pip
+sudo pip install pika
+```
 
 #### 1. Hello World
 * Producer, Consumer, Message Queue
