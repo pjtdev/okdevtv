@@ -2,10 +2,11 @@
 * page about https://api.slack.com
 
 ## Auto Invitation
-* https://github.com/kenu/slack-invitomation
-* https://api.slack.com/docs/oauth-test-tokens
-* https://heroku.com
-
+* you just adjust **config.js** file with **slack group name** and **oauth test token**.
+* you only need these links
+  * https://github.com/kenu/slack-invitomation
+  * https://api.slack.com/docs/oauth-test-tokens
+  * https://heroku.com
 * video tutorial
   * https://www.livecoding.tv/kenu/videos/9mjwd-4min-how-to-invite-slack-automatically-4
 
