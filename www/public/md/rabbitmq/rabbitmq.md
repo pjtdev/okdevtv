@@ -60,6 +60,9 @@ sudo pip install pika
 
 #### 3. Publish/Subscribe
 * exchange를 통해서 하나의 메시지를 여러 Queue에 보내는 법
+* producer
+* queue
+* consumer
 
 #### 4. Routing
 * exchange의 binding Key를 이용해 routing Key로 매칭시켜 보내는 법
