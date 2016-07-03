@@ -6,6 +6,9 @@ var fs = require('fs');
 
 router.all('*', function(req, res, next) {
     var path = req.baseUrl.split('/');
+    if (path.length < 4) {
+        path.push(path[2]);
+    };
     var mdPath = path.slice(2).join('/');
     fs.readFile('./public/md/' + mdPath + '.md', function(err, data){
         if (err) throw err;
@@ -22,6 +25,7 @@ function setBody(data, path) {
 <head>\
     <title>' + path[3] + '</title>\
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
+    <meta property="og:title" content="' + path[3] + '" />\
     <meta property="og:url" content="http://okdevtv.com' + path.join('/') + '" />\
     <link rel="stylesheet" href="/css/style-md.css">\
 </head><body>\
