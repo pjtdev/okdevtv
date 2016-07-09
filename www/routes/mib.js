@@ -50,6 +50,7 @@ function setBody(data, path) {
 \n\
         ga('create', 'UA-49100336-1', 'auto');\n\
         ga('send', 'pageview');</script>\n\
+<div id="whatelse"><a href="/mib/elasticsearch">What Else?</a></div>\
 </body></html>";
     return html;
 }
