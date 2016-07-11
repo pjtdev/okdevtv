@@ -80,6 +80,13 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 ```
 
+## nginx update expiry
+```
+service nginx stop
+./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.com -d www.okdevtest.com
+service nginx start
+```
+
 
 ## wireshark 패킷 테스트
 * http vs https
