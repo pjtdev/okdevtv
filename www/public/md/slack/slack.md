@@ -14,4 +14,4 @@
 * https://toolbelt.heroku.com
 * http://nodejs.org
 * http://git-scm.com
-
+* https://api.slack.com/custom-integrations
