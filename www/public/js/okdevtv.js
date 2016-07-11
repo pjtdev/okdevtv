@@ -3,7 +3,6 @@ $(function () {
         sendMessage();
         return false;
     });
-    getList();
 });
 
 function sendMessage() {
@@ -36,7 +35,7 @@ function sendMessage() {
     }
 }
 function getList() {
-    $.ajax({url: "http://okdevtv.com:3000/list", dataType : "jsonp"})
+    $.ajax({url: "//okdevtv.com/list", dataType : "jsonp"})
     .done(function(data){
         var list = data.list;
         for(var i in list) {
