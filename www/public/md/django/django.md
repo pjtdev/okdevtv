@@ -21,3 +21,7 @@ sudo pip install virtualenvwrapper
 virtualenv -p python3 .venv  # 환경 생성
 source .venv/bin/activate  # 환경 진입
 ```
+
+## 참고
+* django unittest
+  * https://docs.djangoproject.com/ja/1.9/topics/testing/overview/
