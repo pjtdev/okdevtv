@@ -132,5 +132,6 @@ enabled=1
 * letsencrypt https://okdevtv.com/mib/letsencrypt
 
 ## 참고
+* http://nginx.org/
 * https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04
 
