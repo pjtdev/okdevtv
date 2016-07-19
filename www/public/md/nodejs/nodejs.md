@@ -6,6 +6,11 @@
 * JavaScript
 * [JSON](http://www.json.org)
 
+## 설치
+* https://nodejs.org
+* LTS (Long Term Support) 버전 또는 Current
+* `node` and `npm`
+
 ## node.js 개요
 
 ```
@@ -19,7 +24,7 @@ that run across distributed devices.
 ```
 
 ### 특징
-* JavaScript 기반
+* JavaScript 기반 플랫폼
 * Server-side
 * Command Tool
 * Desktop Application
@@ -27,7 +32,7 @@ that run across distributed devices.
 ### 장점
 * 쉬운 시작
 * 안정적인 서비스 w/ pm2
-* 모듈 154,772 total packages
+* 모듈 248,062 total packages(2016/03/04)
 * 성능 개선
   * [linkedin 사례](http://highscalability.com/blog/2012/10/4/linkedin-moved-from-rails-to-node-27-servers-cut-and-up-to-2.html)
   * 서버 감축 Ruby + Mongrel 30대 -> node.js 3대
@@ -41,7 +46,6 @@ that run across distributed devices.
   * CPU과다 사용시 이슈
 * 예외처리 실수하면 서버 다운 (pm2로 자동 재시작 가능)
 * Callback Hell (Async로 커버 가능)
-
 
 
 ## 비동기 프로그래밍
