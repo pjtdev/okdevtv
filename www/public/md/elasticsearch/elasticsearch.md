@@ -2353,6 +2353,16 @@ curl -XDELETE 'http://localhost:9200/twitter/tweet/_query' -d '
 * `bin/elasticsearch` 다른 터미널로 3번 실행
 * `http://localhost:9200/_plugin/head/`
 
+## ubuntu plugin
+* ubuntu에서 플러그인 설치가 jdk SSLHandShake 이슈로 안 되는 경우
+```
+wget https://github.com/mobz/elasticsearch-head/archive/master.zip
+```
+* http://onlinemd5.com/ 에서 로컬에 다운로드받은 파일을 올려서 sha1 생성
+* 모든 문자열을 소문자로 바꾼 뒤에 master.zip.sha1 파일 내용으로 붙여넣기
+```
+bin/plugin install file:/path/to/master.zip
+```
 
 ## 참고
 * 시작하세요! 엘라스틱서치 by 김종민
