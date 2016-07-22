@@ -13,6 +13,7 @@ jQuery
 * JS TDD, QUnit
 
 Spring FrameWork(전부)
+* 스프링, MVC가 전부가 아니다!
 * 스프링 프레임워크 개요
 * 스프링 개발환경 STS
 * Inversion of Control / Dependency Injection
@@ -24,4 +25,3 @@ Spring FrameWork(전부)
 * Aspect Oriented Programming
 * Advice, Pointcut, Weaving
 * Portable Service Abstractions
-* 스프링 모듈 소개
