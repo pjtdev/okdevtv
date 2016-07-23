@@ -16,3 +16,5 @@
   * https://www.youtube.com/watch?v=P87NRdRtH4c
 * VirtualBox 외부 접속 IP 설정
   * https://www.youtube.com/watch?v=jbTHifYdkyA
+* Host-Onlyway 접속 설정
+  * http://rorlab.org/rblogs/25
