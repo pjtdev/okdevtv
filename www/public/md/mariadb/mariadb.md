@@ -3,12 +3,6 @@
 * MySQL과 동일한 API
 * https://www.mariadb.org
 
-## MariaDB + node.js
-* https://github.com/felixge/node-mysql
-* https://github.com/mscdex/node-mariasql
-* install MariaDB
-  * `vi /etc/yum.repos.d/MariaDB.repo`
-```
 # MariaDB 10.0 CentOS repository list - created 2015-06-10 04:26 UTC
 # http://mariadb.org/mariadb/repositories/
 [mariadb]
@@ -31,4 +25,11 @@ gpgcheck=1
 sudo apt-get install software-properties-common
 sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
 sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.kaist.ac.kr/mariadb/repo/10.1/ubuntu trusty main'
+```
+
+## MariaDB + node.js
+* https://github.com/felixge/node-mysql
+* https://github.com/mscdex/node-mariasql
+* install MariaDB
+  * `vi /etc/yum.repos.d/MariaDB.repo`
 ```
