@@ -1,4 +1,6 @@
 # MariaDB
+* Monty Widenius 2009/01/22
+* MySQL과 동일한 API
 * https://www.mariadb.org
 
 ## MariaDB + node.js
