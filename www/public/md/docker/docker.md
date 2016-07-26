@@ -6,6 +6,12 @@
 
 ## Install
 * Docker.dmg 엔진 다운받아 복사 후 실행
+```
+docker ps
+docker info
+docker images
+docker version
+```
 * Docker Toolbox 다운로드
 * https://www.docker.com/products/docker-toolbox
 * docker quick start terminal 실행
@@ -18,7 +24,7 @@
   * docker hub 이미지 정보
     * 포함한 소프트웨어 종류와 사용법
   * 우분투 OS
-* `docker run -d -p 80:80 name webserver nginx`
+* `docker run -d -p 80:80 --name webserver nginx`
 
 
  
