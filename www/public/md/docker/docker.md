@@ -5,6 +5,7 @@
 * 개발자와 시스템어드민을 위한 분산 애플리케이션용 오픈 플랫폼
 
 ## Install
+* Docker.dmg 엔진 다운받아 복사 후 실행
 * Docker Toolbox 다운로드
 * https://www.docker.com/products/docker-toolbox
 * docker quick start terminal 실행
