@@ -18,7 +18,8 @@
   * docker hub 이미지 정보
     * 포함한 소프트웨어 종류와 사용법
   * 우분투 OS
-* 
+* `docker run -d -p 80:80 name webserver nginx`
+
 
  
 * Docker 창시자 발표 https://youtu.be/Q5POuMHxW-0
@@ -49,6 +50,7 @@ https://index.docker.io
 ## 참고
 * Getting Started for non-technical
   * https://docs.docker.com/mac/
+  * https://docs.docker.com/docker-for-windows/
 * https://docs.docker.com/mac/step_three/
 * docker/whalesay
   * https://hub.docker.com/r/docker/whalesay/
