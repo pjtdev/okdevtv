@@ -25,7 +25,17 @@ docker version
     * 포함한 소프트웨어 종류와 사용법
   * 우분투 OS
 * `docker run -d -p 80:80 --name webserver nginx`
-
+* stop
+```
+➜  ~ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
+92d58318f84e        nginx               "nginx -g 'daemon off"   27 hours ago        Up 27 hours         0.0.0.0:80->80/tcp, 443/tcp   webserver
+0235bd537f03        nginx               "nginx -g 'daemon off"   27 hours ago        Up 27 hours         80/tcp, 443/tcp               boring_hypatia
+➜  ~ docker stop nginx
+Error response from daemon: No such container: nginx
+➜  ~ docker stop 92d58318f84e
+92d58318f84e
+```
 
  
 * Docker 창시자 발표 https://youtu.be/Q5POuMHxW-0
