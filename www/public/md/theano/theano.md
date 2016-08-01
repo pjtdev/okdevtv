@@ -114,6 +114,33 @@ array([[ 0.25      ,  0.19661193],
 * Computing the Jacobian
   * http://deeplearning.net/software/theano/tutorial/gradients.html#computing-the-jacobian
   
+```
+import theano
+import theano.tensor as T
+x = T.dvector('x')
+y = x ** 2
+J, updates = theano.scan(lambda i, y,x : T.grad(y[i], x), sequences=T.arange(y.shape[0]), non_sequences=[y,x])
+f = theano.function([x], J, updates=updates)
+f([4, 4])
+array([[ 8.,  0.],
+       [ 0.,  8.]])
+```
+
+
+* Computing the Hessian
+  * http://deeplearning.net/software/theano/tutorial/gradients.html#computing-the-hessian
+  
+```
+x = T.dvector('x')
+y = x ** 2
+cost = y.sum()
+gy = T.grad(cost, x)
+H, updates = theano.scan(lambda i, gy,x : T.grad(gy[i], x), sequences=T.arange(gy.shape[0]), non_sequences=[gy, x])
+f = theano.function([x], H, updates=updates)
+f([4, 4])
+array([[ 2.,  0.],
+       [ 0.,  2.]])
+```
 
 ## 참고
 * Theano basic tutorial
