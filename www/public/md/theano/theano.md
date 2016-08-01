@@ -73,6 +73,48 @@ from theano import *
 import theano.tensor as T
 ```
 
+### Derivatives in Theano
+* Computing Gradients
+  * http://deeplearning.net/software/theano/tutorial/gradients.html#computing-gradients
+
+```
+import numpy
+import theano
+import theano.tensor as T
+from theano import pp
+x = T.dscalar('x')
+y = x ** 2
+gy = T.grad(y, x)
+pp(gy)  # print out the gradient prior to optimization
+'((fill((x ** TensorConstant{2}), TensorConstant{1.0}) * TensorConstant{2}) * (x ** (TensorConstant{2} - TensorConstant{1})))'
+
+f = theano.function([x], gy)
+f(4)
+array(8.0)
+
+numpy.allclose(f(94.2), 188.4)
+True
+
+pp(f.maker.fgraph.outputs[0])
+'(TensorConstant{2.0} * x)'
+```
+
+  * the gradient of the logistic funtions
+
+```
+x = T.dmatrix('x')
+s = T.sum(1 / (1 + T.exp(-x)))
+gs = T.grad(s, x)
+dlogistic = theano.function([x], gs)
+dlogistic([[0, 1], [-1, -2]])
+array([[ 0.25      ,  0.19661193],
+       [ 0.19661193,  0.10499359]])
+```
+
+* Computing the Jacobian
+  * http://deeplearning.net/software/theano/tutorial/gradients.html#computing-the-jacobian
+  
+
 ## 참고
 * Theano basic tutorial
   * http://deeplearning.net/software/theano/tutorial/
