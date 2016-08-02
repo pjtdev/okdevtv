@@ -63,7 +63,7 @@ vi /etc/nginx/conf.d/default.conf
 * `listen 80;` 라인 밑에 추가
 ```
         listen 443 ssl;
-        ssl_certificate /etc/letsencrypt/live/okdevtest.com/cert.pem;
+        ssl_certificate /etc/letsencrypt/live/okdevtest.com/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/okdevtest.com/privkey.pem;
         ssl_stapling on;
         ssl_stapling_verify on;
