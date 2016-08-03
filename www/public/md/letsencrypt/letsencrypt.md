@@ -100,6 +100,21 @@ server {
 ```
 * https://bjornjohansen.no/redirect-to-https-with-nginx
 
+## apache2.2.15 on CentOS 6.8
+```
+yum update -y
+yum install git
+yum install httpd
+vi /etc/httpd/conf/httpd.conf
+service httpd restart
+sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+cd /opt/letsencrypt/
+yum install epel-release
+yum install -y python-pip
+pip install virtualenv
+./letsencrypt-auto --apache -d www.okdevtest.com
+```
+
 
 ## wireshark 패킷 테스트
 * http vs https
