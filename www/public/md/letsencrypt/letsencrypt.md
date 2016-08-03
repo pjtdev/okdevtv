@@ -86,6 +86,8 @@ service nginx stop
 ./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.com -d www.okdevtest.com
 service nginx start
 ```
+* 무중단 갱신 가능 : http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=80590
+  * thanks to @shjxenoside
 
 ## HTTP to HTTPS redirect
 ```
