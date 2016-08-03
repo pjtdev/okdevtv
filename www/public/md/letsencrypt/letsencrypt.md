@@ -87,6 +87,17 @@ service nginx stop
 service nginx start
 ```
 
+## HTTP to HTTPS redirect
+```
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+	return 301 https://$host$request_uri;
+}
+```
+* https://bjornjohansen.no/redirect-to-https-with-nginx
+
 
 ## wireshark 패킷 테스트
 * http vs https
