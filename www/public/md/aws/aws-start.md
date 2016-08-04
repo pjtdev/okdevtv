@@ -15,12 +15,18 @@
 * 로그인
 
 ## 2. 무료 서버 생성
+* EC2 (Elastic Compute Cloud)
+* Launch Instance
 * t2.micro 스펙
-* CPU 1, RAM 1G, SSD 8G
+  * CPU 1, RAM 1G, SSD 8G
+  * 한달 750시간 무료 1년간
+* key 생성 및 다운로드
+
 
 ## 3. 접속
-* ssh terminal
+* ssh terminal (http://git-scm.com > git bash)
 * key 있어야 되고, key 파일 공유 가능
+* ssh -i /path/to/key.pem ec2-user@ip
 
 ## 4. 웹서버 설치
 * nginx 웹서버 설치
