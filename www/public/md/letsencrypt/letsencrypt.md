@@ -63,7 +63,7 @@ vi /etc/nginx/conf.d/default.conf
 * `listen 80;` 라인 밑에 추가
 ```
         listen 443 ssl;
-        ssl_certificate /etc/letsencrypt/live/okdevtest.com/cert.pem;
+        ssl_certificate /etc/letsencrypt/live/okdevtest.com/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/okdevtest.com/privkey.pem;
         ssl_stapling on;
         ssl_stapling_verify on;
@@ -86,6 +86,34 @@ service nginx stop
 ./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.com -d www.okdevtest.com
 service nginx start
 ```
+* 무중단 갱신 가능 : http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=80590
+  * thanks to @shjxenoside
+
+## HTTP to HTTPS redirect
+```
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+	return 301 https://$host$request_uri;
+}
+```
+* https://bjornjohansen.no/redirect-to-https-with-nginx
+
+## apache2.2.15 on CentOS 6.8
+```
+yum update -y
+yum install git
+yum install httpd
+vi /etc/httpd/conf/httpd.conf
+service httpd restart
+sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+cd /opt/letsencrypt/
+yum install epel-release
+yum install -y python-pip
+pip install virtualenv
+./letsencrypt-auto --apache -d www.okdevtest.com
+```
 
 
 ## wireshark 패킷 테스트
@@ -104,3 +132,4 @@ service nginx start
   * https://blog.outsider.ne.kr/1178
 * https://danpalmer.me/blog/ssl-labs-grade-a
 * https://www.gypthecat.com/how-to-install-a-ssl-certificate-on-nginx
+* https://community.letsencrypt.org/t/getting-certbot-auto-to-include-the-x3-public-key/18472

@@ -26,7 +26,7 @@ Run and Manage Docker Containers
 Elastic Beanstalk
 Run and Manage Web Apps
  
-Lambda
+Lambda(Not in Seoul)
 Run Code in Response to Events
 
 ### Storage & Content Delivery
@@ -164,7 +164,7 @@ Push Notification Service
 
 ### Application Services
  
-API Gateway
+API Gateway(Not in Seoul)
 Build, Deploy and Manage APIs
  
 AppStream
