@@ -2,7 +2,10 @@
 * Monty Widenius 2009/01/22
 * MySQL과 동일한 API
 * https://www.mariadb.org
+* install MariaDB
+  * `vi /etc/yum.repos.d/MariaDB.repo`
 
+```
 # MariaDB 10.0 CentOS repository list - created 2015-06-10 04:26 UTC
 # http://mariadb.org/mariadb/repositories/
 [mariadb]
@@ -15,10 +18,13 @@ gpgcheck=1
 
  
 ```
-# yum install MariaDB-server MariaDB-client
-# service mysql start
-# mysql_secure_installation
+sudo yum install MariaDB-server MariaDB-client
+sudo service mysql start
+sudo mysql_secure_installation
 ```
+* login
+  * `mysql -uroot -p`
+
 # MariaDB on ubuntu
 * https://downloads.mariadb.org/mariadb/repositories/#mirror=kaist
 ```
@@ -30,6 +36,4 @@ sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.kaist.ac.kr/ma
 ## MariaDB + node.js
 * https://github.com/felixge/node-mysql
 * https://github.com/mscdex/node-mariasql
-* install MariaDB
-  * `vi /etc/yum.repos.d/MariaDB.repo`
-```
+
