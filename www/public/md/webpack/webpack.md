@@ -44,7 +44,6 @@ function loadTemplate(name) {
 }
 
 
-// ... and you can combine everything
 // ... 그리고, 모든 것을 한꺼번에
 function loadTemplateAsync(name, callback) {
 	require(["bundle?lazy!./templates/" + name + ".jade"], 
