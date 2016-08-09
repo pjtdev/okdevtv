@@ -8,3 +8,21 @@
 * BOSH is particularly well-suited for large distributed systems. 
 * In addition BOSH supports multiple Infrastructure as a Service (IaaS) providers like VMware vSphere, vCloud Director, Amazon Web Services EC2, and OpenStack. 
 * There is a Cloud Provider Interface (CPI) that enables users to extend BOSH to support additional IaaS providers such as Google Compute Engine and Apache CloudStack.
+
+## Stemcell
+* 버전별 OS 이미지 특정 IaaS 패키지용
+* vSphere, AWS, OpenStack, vCloud 인프라스트럭처에 공통인 이미지
+  *  vSphere 위에 Ubuntu Trusty와 CentOS 6.5
+* tarball로 배포 (*.tgz)
+
+## Release
+* versioned collection of configuration properties, configuration templates, start up scripts, source code, binary artifacts, and anything else required to build and deploy software in a reproducible way.
+* the layer placed on top of a stemcell.
+* For example, a Redis release might include start-up and shutdown scripts for redis-server, a tarball with Redis source code obtained from the Redis official website, and a few configuration properties allowing cluster operators to alter that Redis configuration.
+
+## Deployment
+* collection of VMs, built from a stemcell, that has been populated with specific releases and disks that keep persistent data. 
+* These resources are created based on a manifest file in the IaaS and managed by the BOSH Director, a centralized management server.
+
+## References
+* https://bosh.io/docs/#intro
