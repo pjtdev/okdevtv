@@ -24,5 +24,30 @@
 * collection of VMs, built from a stemcell, that has been populated with specific releases and disks that keep persistent data. 
 * These resources are created based on a manifest file in the IaaS and managed by the BOSH Director, a centralized management server.
 
+## bosh-init
+* tool for creating and updating the Director in an environment
+<img src="http://bosh.io/docs/images/bosh-architecture.png" alt="bosh-init">
+
+### Director
+* Task Queue
+* Workers
+* Cloud Provider Interface (CPI)
+
+### Health Monitor
+* Resurrector
+
+### DNS Server
+
+### Director's persisitent data
+* Database
+* Blobstore
+
+### Agent
+
+### Cross-component communication
+* Message Bus (NATS)
+* Registry
+
+
 ## References
 * https://bosh.io/docs/#intro
