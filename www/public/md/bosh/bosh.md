@@ -48,6 +48,12 @@
 * Message Bus (NATS)
 * Registry
 
+## bosh-lite
+* a vagrant VM that comes with pre-installed BOSH server (Director)
+* http://mariash.github.io/learn-bosh/#prepare
+
+## Vagrant
+* the command line utility for managing the lifecycle of virtual machines
 
 ## References
 * https://bosh.io/docs/#intro

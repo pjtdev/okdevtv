@@ -114,3 +114,6 @@ bin/yona
 nohup bin/yona &
 ```
 
+## 참고
+* gmail 보안 설정 조정법
+  * http://okky.kr/article/343036
