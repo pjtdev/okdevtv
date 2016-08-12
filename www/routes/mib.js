@@ -24,6 +24,7 @@ function setBody(data, path) {
 <html lang="ko">\
 <head>\
     <title>' + path[3] + '</title>\
+    <script src="/js/gwgpot.js"></script>\
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />\
     <meta property="og:title" content="' + path[3] + '" />\
     <meta property="og:url" content="http://okdevtv.com' + path.join('/') + '" />\
