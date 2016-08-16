@@ -1,6 +1,7 @@
 # Uptime
 * A remote monitoring application using Node.js, MongoDB, and Twitter Bootstrap.
 * https://github.com/fzaninotto/uptime
+<img src="https://camo.githubusercontent.com/4f3f0f0b79d15372f3a89e5f9085cade4bffb064/68747470733a2f2f7261772e6769746875622e636f6d2f667a616e696e6f74746f2f757074696d652f646f776e6c6f6164732f636865636b5f64657461696c732e706e67" />
 
 ## install
 
