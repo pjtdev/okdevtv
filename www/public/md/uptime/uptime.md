@@ -101,5 +101,11 @@ pm2 start app
 pm2 stop app
 ```
 
+* production mode start
+
+```
+NODE_ENV=production pm2 start app
+```
+
 ## ref
 * https://github.com/fzaninotto/uptime/issues/320#issuecomment-136410046
