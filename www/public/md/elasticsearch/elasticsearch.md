@@ -13,6 +13,8 @@
 * `bin/plugin install {org}/{user/component}/{version}`
 * head : `bin/plugin install mobz/elasticsearch-head`
   * http://localhost:9200/_plugin/head
+* hq : `bin/plugin install royrusso/elasticsearch-HQ`
+  * http://localhost:9200/_plugin/hq
 
 ## 데이터 구조 및 입출력
 * 데이터 구조
