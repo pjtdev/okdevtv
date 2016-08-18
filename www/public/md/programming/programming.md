@@ -78,3 +78,6 @@
 * 코드 한 줄로 몇 명을 행복하게 할 수 있을까
 
 ## 참고
+* xguru recommends
+  * http://xguru.net/1897
+  
