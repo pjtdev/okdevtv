@@ -42,6 +42,7 @@
 ### git 고급
 * git admin
 * gitlab
+* git hooks https://git-scm.com/book/ko/v2/Git맞춤-Git-Hooks
 * …
 
 ### tool
