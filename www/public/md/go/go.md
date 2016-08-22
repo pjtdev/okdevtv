@@ -10,7 +10,9 @@
 * `go env`
 
 ## hello world
+
 * hello.go
+
 ```
 package main
 
@@ -22,11 +24,13 @@ func main() {
 ```
 
 * 실행
+
 ```
 go run hello.go
 ```
 
 * build
+
 ```
 go build hello.go
 ./hello
