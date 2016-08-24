@@ -25,6 +25,11 @@
 
 
 ## letencrypt 설치
+* certbot 가이드 이용한 설치 가이드 추천
+  * https://certbot.eff.org/
+
+* 아래는 이전 방법
+
 ```
 su
 git clone https://github.com/certbot/certbot
