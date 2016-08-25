@@ -1,21 +1,18 @@
 # Brackets
 * https://brackets.io
-<h2>개요</h2>
-<ul>
-<li>Adobe의 오픈소스 웹 개발도구
+* Adobe의 오픈소스 웹 개발도구
+
     <img src="/images/brackets/brackets01.png" alt="Brackets.io 웹사이트">
-</li>
-<li>실시간 미리보기
-    <img src="/images/brackets/brackets11.png" alt="실시간 미리보기">
-</li>
-<li>코드 자동완성</li>
-<li>확장기능(플러그인)
-    <img src="/images/brackets/brackets12.png" alt="플러그인">
-</li>
-<li>컬러 테이블 픽커</li>
-<li>JavaScript 코드 검사</li>
-<li>F5 개발도구 재시작</li>
-</ul>
+* 실시간 미리보기
+
+<img src="/images/brackets/brackets11.png" alt="실시간 미리보기">
+* 코드 자동완성
+* 확장기능(플러그인)
+
+<img src="/images/brackets/brackets12.png" alt="플러그인">
+* 컬러 테이블 픽커
+* JavaScript 코드 검사
+* F5 개발도구 재시작
 
 <h2>설치</h2>
 <ul>
