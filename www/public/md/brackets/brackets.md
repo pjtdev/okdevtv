@@ -15,7 +15,7 @@
 
 * 컬러 테이블 픽커
 * JavaScript 코드 검사
-* F5 개발도구 재시작
+* F5 개발도구 재시작!
 
 ## 설치
 * http://brackets.io Downloads
