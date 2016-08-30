@@ -48,6 +48,7 @@
 * Brackets Additional Right Click Menu
 * Shizimily Multi-Encoding for Brackets
 * Minimap
+* Bracket Compare https://github.com/bomsy/brackets-compare
 
 
 ## Video
