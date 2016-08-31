@@ -51,6 +51,7 @@ create database yona DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_bin;
 ```
 sudo vi /etc/my.cnf.d/server.cnf
 ```
+    * ubuntu : `sudo vi /etc/mysql/my.cnf`
 
 ```
 [mysqld]
@@ -73,21 +74,16 @@ default-character-set=utf8mb4
 ```
 
 * JDK 1.8 설치
-
-```
-yum list | grep jdk
-sudo yum remove java-1.7.0-openjdk.x86_64
-sudo yum install java-1.8.0-openjdk-devel.x86_64
-```
+  * [install](/mib/java)
 
 ### Install Yona
 * Yona 설치
   
 ```
 mkdir local && cd local
-wget https://github.com/yona-projects/yona/releases/download/v1.0.2/yona-v1.0.2-bin.zip
-unzip yona-v1.0.2-bin.zip
-ln -s yona-1.0.2/ yona
+wget https://github.com/yona-projects/yona/releases/download/v1.0.4/yona-v1.0.4-bin.zip
+unzip yona-v1.0.4-bin.zip
+ln -s yona-1.0.4/ yona
 cd yona
 bin/yona # first for unarchive folders
 vi conf/application.conf
