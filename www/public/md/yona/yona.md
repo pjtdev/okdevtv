@@ -10,14 +10,13 @@
 
 ### Prerequisite
 * MariaDB 설치
-
+  * CentOS
 ```
 sudo yum update -y
 sudo vi /etc/yum.repos.d/MariaDB.repo
 ```
 
-* MariaDB.repo
-
+    * MariaDB.repo
 ```
 [mariadb]
 name = MariaDB
@@ -26,14 +25,16 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 
-* MariaDB config
-
+    * MariaDB config
 ```
 sudo yum install MariaDB-server MariaDB-client
 sudo service mysql start
 sudo mysql_secure_installation
 mysql -uroot -p
 ```
+
+  * Ubuntu https://downloads.mariadb.org/mariadb/repositories/#mirror=kaist&distro=Ubuntu
+
 
   * yona 계정, DB 생성
 
