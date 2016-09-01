@@ -21,3 +21,7 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
 ```
+
+## 참고
+* 2시간만에 자바를 쉽게 배우고 싶어요.
+  * http://www.slideshare.net/kenu/java-start01-in-2hours
