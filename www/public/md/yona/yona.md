@@ -111,6 +111,13 @@ bin/yona
 nohup bin/yona &
 ```
 
+## Yona in Windows
+* 환경변수
+```
+SET YONA_HOME=c:\yona\yona-1.0.4
+SET JAVA_OPTS=-Dyona.home=%YONA_HOME% -Dconfig.file=%YONA_HOME%\conf\application.conf -Dlogger.file=%YONA_HOME%\conf\application-logger.xml
+```
+
 ## 참고
 * gmail 보안 설정 조정법
   * http://okky.kr/article/343036
