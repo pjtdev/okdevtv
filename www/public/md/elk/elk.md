@@ -421,3 +421,6 @@ sudo vi /etc/nginx/nginx.conf
 
 * ELK Kibana 사용법
   * https://dl.dropboxusercontent.com/u/2385737/Kibana-basic.pdf
+  
+* okky.conf
+  * https://okdevtv.com/md/elk/okky.conf
