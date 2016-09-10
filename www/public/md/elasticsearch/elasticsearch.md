@@ -955,14 +955,14 @@ curl 'localhost:9200/books/_search?pretty' -d '
 curl 'localhost:9200/books/_search?pretty' -d '
 {
   "filter" : {
-    "and" : {
+    "and" : [{
       "range" : {
         "pages" : { "gte" : 50, "lt" : 150 }
       }
     },
     {
       "term" : { "title" : "the" }
-    }
+    }]
   }
 }'
 ```
