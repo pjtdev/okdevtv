@@ -1,0 +1,23 @@
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<style>
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+</style>
+<form action="">
+    <input id="card1" name="card1" maxlength="4" type="number">
+    <input id="card2" name="card2" maxlength="4" type="number">
+    <input id="card3" name="card3" maxlength="4" type="number">
+    <input id="card4" name="card4" maxlength="4" type="number">
+</form>
+<script>
+    $(function(){
+        $('input[name^=card]').on('keypress', function(e) {
+            var t = e.currentTarget;
+            console.log($(t).val());
+        });
+    });
+</script>
+<iframe src="http://52.79.194.183:5601/app/kibana#/dashboard/New-Dashboard?embed=true&_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now%2Fd,mode:quick,to:now%2Fd))&_a=(filters:!(),options:(darkTheme:!f),panels:!((col:1,id:Count,panelIndex:1,row:1,size_x:3,size_y:3,type:visualization),(col:4,id:searchUniqueIp,panelIndex:2,row:1,size_x:4,size_y:3,type:visualization),(col:8,id:req,panelIndex:3,row:1,size_x:5,size_y:3,type:visualization),(col:1,id:os,panelIndex:4,row:4,size_x:7,size_y:4,type:visualization)),query:(query_string:(analyze_wildcard:!t,query:'*')),title:'New%20Dashboard',uiState:(P-2:(spy:(mode:(fill:!f,name:!n)),vis:(legendOpen:!f))))" height="600" width="800"></iframe>
