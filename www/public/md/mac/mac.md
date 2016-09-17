@@ -30,3 +30,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 * `node --version`
 * `npm --version` 확인
 
+
+## rootless
+* Option + R boot, terminal
+* `csrutil disable --without debug`
+
