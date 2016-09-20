@@ -57,9 +57,9 @@ sudo apt-get install openjdk-8-jdk -y
 ```
 mkdir ~/local
 cd ~/local
-wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.5/elasticsearch-2.3.5.tar.gz
-tar xvfz elasticsearch-2.3.5.tar.gz
-ln -s elasticsearch-2.3.5 elasticsearch
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.0/elasticsearch-2.4.0.tar.gz
+tar xvfz elasticsearch-2.4.0.tar.gz
+ln -s elasticsearch-2.4.0 elasticsearch
 cd elasticsearch
 vi config/elasticsearch.yml
   # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
@@ -77,9 +77,9 @@ curl -i http://localhost:9200/
 
 ```
 cd ~/local
-wget https://download.elastic.co/kibana/kibana/kibana-4.5.4-linux-x64.tar.gz
-tar xvfz kibana-4.5.4-linux-x64.tar.gz
-ln -s kibana-4.5.4-linux-x64 kibana
+wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-linux-x86_64.tar.gz
+tar xvfz kibana-4.6.1-linux-x64.tar.gz
+ln -s kibana-4.6.1-linux-x64 kibana
 cd kibana
 ```
 
@@ -97,9 +97,9 @@ http://아이피:5601
 
 ```
 cd ~/local
-wget https://download.elastic.co/logstash/logstash/logstash-2.3.4.tar.gz
-tar xvfz logstash-2.3.4.tar.gz
-ln -s logstash-2.3.4 logstash
+wget https://download.elastic.co/logstash/logstash/logstash-2.4.0.tar.gz
+tar xvfz logstash-2.4.0.tar.gz
+ln -s logstash-2.4.0 logstash
 cd logstash
 ```
 
@@ -292,9 +292,8 @@ cd ~/local/logstash
 
 ```
 cd ~/local
-wget https://download.elastic.co/beats/filebeat/filebeat-1.2.3-x86_64.tar.gz
-tar xvfz filebeat-1.2.3-x86_64.tar.gz
-ln -s filebeat-1.2.3-x86_64 filebeat
+wget https://download.elastic.co/beats/filebeat/filebeat-1.3.1-x86_64.tar.gz
+ln -s filebeat-1.3.1-x86_64 filebeat
 cd filebeat
 # elasticsearch 부분 #으로 주석 처리
   # elasticsearch:
