@@ -25,7 +25,15 @@ sudo mysql_secure_installation
 * login
   * `mysql -uroot -p`
 
-# MariaDB on ubuntu
+
+## Timezone
+```
+sudo cp /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+sudo service mysql restart
+```
+
+
+## MariaDB on ubuntu
 * https://downloads.mariadb.org/mariadb/repositories/#mirror=kaist
 ```
 sudo apt-get install software-properties-common
