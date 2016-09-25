@@ -78,8 +78,8 @@ curl -i http://localhost:9200/
 ```
 cd ~/local
 wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-linux-x86_64.tar.gz
-tar xvfz kibana-4.6.1-linux-x64.tar.gz
-ln -s kibana-4.6.1-linux-x64 kibana
+tar xvfz kibana-4.6.1-linux-x86_64.tar.gz
+ln -s kibana-4.6.1-linux-x86_64 kibana
 cd kibana
 ```
 
