@@ -134,8 +134,8 @@ output {
 
 * logstash 실행 
 ```
-# debug
-bin/logstash -f logconf/nginx.conf --debug
+# test
+bin/logstash -f logconf/nginx.conf --configtest
 # run
 bin/logstash -f logconf/nginx.conf
 # background run
