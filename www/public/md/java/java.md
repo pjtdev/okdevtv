@@ -10,8 +10,8 @@
 * CentOS
 ```
 yum list | grep jdk
-sudo yum remove java-1.7.0-openjdk.x86_64
-sudo yum install java-1.8.0-openjdk-devel.x86_64
+sudo yum remove java-1.7.0-openjdk.x86_64 -y
+sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 ```
 
 * Ubuntu
