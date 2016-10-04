@@ -9,5 +9,7 @@
 * <img src="images/eclipseNeon01.png" alt="eclipse neon ide config">
 * <img src="images/eclipseNeon02.png" alt="eclipse neon ide config">
 
+* quick text search
+
 ## ref 
 * http://bit.ly/okeclipse
