@@ -28,8 +28,14 @@ gpgcheck=1
     * MariaDB config
 ```
 sudo yum install MariaDB-server MariaDB-client
+```
+
+```
 sudo service mysql start
 sudo mysql_secure_installation
+```
+
+```
 mysql -uroot -p
 ```
 
