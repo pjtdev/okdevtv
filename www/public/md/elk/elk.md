@@ -57,9 +57,9 @@ sudo apt-get install openjdk-8-jdk -y
 ```
 mkdir ~/local
 cd ~/local
-wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.0/elasticsearch-2.4.0.tar.gz
-tar xvfz elasticsearch-2.4.0.tar.gz
-ln -s elasticsearch-2.4.0 elasticsearch
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.1/elasticsearch-2.4.1.tar.gz
+tar xvfz elasticsearch-2.4.1.tar.gz
+ln -s elasticsearch-2.4.1 elasticsearch
 cd elasticsearch
 vi config/elasticsearch.yml
   # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
