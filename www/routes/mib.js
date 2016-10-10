@@ -53,9 +53,9 @@ function setBody(data, path) {
         ga('send', 'pageview');</script>\n\
 <div id=\"whatelse\"><a href=\"/md/list.html\">What Else?</a></div>\
 <script>\
-  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);\
-    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);\
-  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/57011/script.js');\
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);\n\
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);\n\
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/57011/script.js');\n\
 </script>\
 </body></html>";
     return html;
