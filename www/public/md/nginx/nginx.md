@@ -35,7 +35,7 @@ root     17956  9025  0 20:48 pts/0    00:00:00 grep --color=auto nginx
 [root@elk1 local]# 
 ```
 
-### Ubuntu 14.x ngnix 설치
+### Ubuntu 14.x nginx 설치
 ```
 sudo apt-get install nginx -y
   404  Not Found [IP: 54.179.105.228 80]
@@ -109,7 +109,7 @@ sudo service nginx restart
 ```
 
 ## centos6.* 경우
-* epel의 ngninx 버전이 1.0.*로 낮음
+* epel의 nginx 버전이 1.0.*로 낮음
 * ssl_stapling 옵션 지원 안됨.
 ```
 nginx           x86_64           1.0.15-12.el6           @epel           1.1 M

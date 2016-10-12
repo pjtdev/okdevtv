@@ -84,14 +84,6 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 ```
 
-## nginx update expiry
-```
-service nginx stop
-./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.com -d www.okdevtest.com
-service nginx start
-```
-* 무중단 갱신 가능 : http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=80590
-  * thanks to @shjxenoside
 
 ## HTTP to HTTPS redirect
 ```
@@ -124,6 +116,27 @@ pip install virtualenv
 * http vs https
 * http://www.wireshark.org
 
+
+## update alert email
+```
+Hello,
+
+Your certificate (or certificates) for the names listed below will expire in 20 days (on 31 Oct 16 03:55 +0000). Please make sure to renew your certificate before then, or visitors to your website will encounter errors.
+
+okdevtv.com
+www.okdevtv.com
+
+For any questions or support, please visit https://community.letsencrypt.org/. Unfortunately, we can't provide support by email.
+```
+
+## nginx update expiry
+```
+service nginx stop
+./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.com -d www.okdevtest.com
+service nginx start
+```
+* 무중단 갱신 가능 : http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=80590
+  * thanks to @shjxenoside
 
 ## 참고
 * SSL Test

@@ -235,7 +235,27 @@ curl 'localhost:9200/magazines/_search?pretty' -d '
 * 2.0에서 삭제됨 `unknown search element [facets]`
 * 카운트, 합계 등을 다루는 기술
 
-* 6장 index mapping
+
+* Term facet
+  * 검색 결과를 Term 별로 구분해서 표시
+  * 2.0 이상에서는 절대 따라하지 마시오. `unknown search element [facets]`
+```
+curl 'localhost:9200/hotels/_search?pretty' -d '
+{
+  "query" : {
+    "term" : { "name" : "seoul" }
+  },
+  "facets" : {
+    "term_service" : {
+      "field" : "service"
+    }
+  }
+}'
+```
+
+## 어그리게이션(aggregation)
+
+* index mapping
 ```
 curl -XPUT http://localhost:9200/hotels/ -d '
 {
@@ -259,26 +279,6 @@ curl -XPUT http://localhost:9200/hotels/ -d '
 
 * 매핑 적용한 후에 데이터 적재
   * `curl -XPOST localhost:9200/_bulk --data-binary @6_1_hotels.json`
-
-
-* Term facet
-  * 검색 결과를 Term 별로 구분해서 표시
-  * 2.0 이상에서는 절대 따라하지 마시오. `unknown search element [facets]`
-```
-curl 'localhost:9200/hotels/_search?pretty' -d '
-{
-  "query" : {
-    "term" : { "name" : "seoul" }
-  },
-  "facets" : {
-    "term_service" : {
-      "field" : "service"
-    }
-  }
-}'
-```
-
-## 어그리게이션(aggregation)
 
 * 최소값
 ```
