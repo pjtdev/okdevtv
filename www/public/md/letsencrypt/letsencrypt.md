@@ -141,6 +141,8 @@ service nginx start
 ## 참고
 * SSL Test
   * https://www.ssllabs.com/ssltest/analyze.html
+* for windows
+  * http://youtil.wo.tc/163
 * 설치 동영상
   * https://youtu.be/sWl8W0ILUmE
 * Let's Encrypt를 적용시켜 보았다
