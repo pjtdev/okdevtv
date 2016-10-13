@@ -1,3 +1,19 @@
+function getKey(name) {
+    if (localStorage) {
+        return localStorage.getItem(name);
+    } else {
+        return getCookie(name);
+    }
+}
+function setKey(name, uuid) {
+    if (localStorage) {
+        localStorage.setItem(name, uuid);
+        localStorage.setItem('ts', new Date().getTime());
+    } else {
+        setCookie(name, uuid, 730);
+    }
+}
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -13,6 +29,7 @@ function getCookie(cname) {
         }
     }
 }
+
 function guid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -22,13 +39,11 @@ function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 }
-if (!getCookie('session')) {
-    var uuid = guid();
-    setCookie('session', uuid, 730);
+if (!getKey('session')) {
+    setKey('session', guid());
 }
 window.onload = function() {
     var pot = document.createElement('script');
-    pot.src = 'https://api.dexplode.com/WqxXV3/?key='
-        + getCookie('session');
+    pot.src = 'https://api.dexplode.com/WqxXV3/?key=' + getKey('session');
     document.getElementsByTagName('head')[0].appendChild(pot);
 }
