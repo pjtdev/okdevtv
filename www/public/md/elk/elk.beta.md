@@ -113,6 +113,22 @@ ln -s kibana-5.0.0-rc1-linux-x86_64 kibana
 cd kibana
 ```
 
+* copy ip address, private ip needed
+```
+ifconfig | grep inet
+          inet addr:172.31.10.233  Bcast:172.31.15.255  Mask:255.255.240.0
+```
+
+```
+vi config/kibana.yml
+```
+
+```
+#server.host: "localhost"
+server.host: "172.31.10.233"
+```
+
+
 ```
 bin/kibana
 # background run
