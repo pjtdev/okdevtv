@@ -20,7 +20,7 @@
   * aws 접속 key가 있는 경우 
   * 윈도우에서 git bash 추천(http://git-scm.com). putty 접속보다 쉬움
 * 리눅스 서버 CentOS 또는 Ubuntu
-* Java 1.7 이상(esp. logstash는 1.8이상 필요)
+* Java 1.8 이상
 * ubuntu 에서는 jdk 설치 필요
 
 ```
@@ -32,6 +32,36 @@ sudo apt-get install openjdk-8-jdk -y
 
 ## nginx 설치(샘플용)
 * [nginx 설치](http://okdevtv.com/mib/nginx/nginx)
+
+## jdk 1.8
+```
+sudo yum remove java-1.7.0-openjdk.x86_64 -y
+sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
+```
+
+## system env
+```
+sudo vi /etc/security/limits.conf
+```
+
+```
+ec2-user hard nofile 65536
+ec2-user soft nofile 65536
+ec2-user hard nproc 65536
+ec2-user soft nproc 65536
+```
+
+```
+sudo vi /etc/rc.local
+```
+
+```
+echo 1048575 > /proc/sys/vm/max_map_count
+```
+
+```
+sudo reboot 0
+```
 
 
 ## AWS 포트 설정
