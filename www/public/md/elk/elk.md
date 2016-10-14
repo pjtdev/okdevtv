@@ -265,6 +265,12 @@ filter {
    }
 ```
 
+* to integer
+```
+    mutate {
+        convert => [ "bytes", "integer" ]
+    }
+```
 
 
 ### Kibana
