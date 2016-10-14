@@ -127,7 +127,6 @@ http://아이피:5601
 
 ```
 cd ~/local
-wget https://download.elastic.co/logstash/logstash/logstash-2.4.0.tar.gz
 wget https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0-rc1.tar.gz
 tar xvfz logstash-5.0.0-rc1.tar.gz
 ln -s logstash-5.0.0-rc1 logstash
