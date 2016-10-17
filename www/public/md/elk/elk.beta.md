@@ -33,6 +33,7 @@ sudo apt-get install openjdk-8-jdk -y
 ## nginx 설치(샘플용)
 * [nginx 설치](http://okdevtv.com/mib/nginx/nginx)
 
+<<<<<<< Updated upstream
 ## jdk 1.8
 ```
 sudo yum remove java-1.7.0-openjdk.x86_64 -y
@@ -63,6 +64,16 @@ echo 1048575 > /proc/sys/vm/max_map_count
 sudo reboot 0
 ```
 
+=======
+## JDK 1.8 설치
+[install](https://okdevtv.com/mib/java)
+
+## sys env
+```
+sudo sysctl -w fs.file-max=65536
+cat /proc/sys/fs/file-max
+```
+>>>>>>> Stashed changes
 
 ## AWS 포트 설정
 * EC2 Security Groups
