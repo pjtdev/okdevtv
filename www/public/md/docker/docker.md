@@ -37,7 +37,25 @@ Error response from daemon: No such container: nginx
 92d58318f84e
 ```
 
- 
+## 이미지 불러오기
+* `docker pull imagename`
+
+## 이미지 만들기
+* Dockerfile
+* `docker build`
+* `docker commit`
+
+## 이미지 업로드
+* `docker push`
+
+## 업로드 이미지 삭제
+
+## 네트워크
+* https://docs.docker.com/engine/tutorials/networkingcontainers/
+
+
+## 참고
+
 * Docker 창시자 발표 https://youtu.be/Q5POuMHxW-0
 
 ```
@@ -63,7 +81,6 @@ docker push shykes/broken-ubuntu
 https://index.docker.io
 ```
 
-## 참고
 * Getting Started for non-technical
   * https://docs.docker.com/mac/
   * https://docs.docker.com/docker-for-windows/
