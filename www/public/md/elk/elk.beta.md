@@ -69,7 +69,6 @@ sudo reboot 0
 sudo sysctl -w fs.file-max=65536
 cat /proc/sys/fs/file-max
 ```
->>>>>>> Stashed changes
 
 ## AWS 포트 설정
 * EC2 Security Groups
@@ -94,9 +93,9 @@ cat /proc/sys/fs/file-max
 ```
 mkdir ~/local
 cd ~/local
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0-rc1.tar.gz
-tar xvfz elasticsearch-5.0.0-rc1.tar.gz
-ln -s elasticsearch-5.0.0-rc1 elasticsearch
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0.tar.gz
+tar xvfz elasticsearch-5.0.0.tar.gz
+ln -s elasticsearch-5.0.0 elasticsearch
 cd elasticsearch
 vi config/elasticsearch.yml
   # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
@@ -114,9 +113,9 @@ curl -i http://localhost:9200/
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/kibana/kibana-5.0.0-rc1-linux-x86_64.tar.gz
-tar xvfz kibana-5.0.0-rc1-linux-x86_64.tar.gz
-ln -s kibana-5.0.0-rc1-linux-x86_64 kibana
+wget https://artifacts.elastic.co/downloads/kibana/kibana-5.0.0-linux-x86_64.tar.gz
+tar xvfz kibana-5.0.0-linux-x86_64.tar.gz
+ln -s kibana-5.0.0-linux-x86_64 kibana
 cd kibana
 ```
 
@@ -142,17 +141,16 @@ bin/kibana
 nohup bin/kibana &
 ```
 
-* 실행 확인
-http://아이피:5601
+* 실행 확인 http://아이피:5601
 
 
 ## Logstash 설치
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0-rc1.tar.gz
-tar xvfz logstash-5.0.0-rc1.tar.gz
-ln -s logstash-5.0.0-rc1 logstash
+wget https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0.tar.gz
+tar xvfz logstash-5.0.0.tar.gz
+ln -s logstash-5.0.0 logstash
 cd logstash
 ```
 
@@ -345,8 +343,9 @@ cd ~/local/logstash
 
 ```
 cd ~/local
-wget https://download.elastic.co/beats/filebeat/filebeat-1.3.1-x86_64.tar.gz
-ln -s filebeat-1.3.1-x86_64 filebeat
+wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.0-linux-x86_64.tar.gz
+tar xvfz filebeat-5.0.0-linux-x86_64.tar.gz
+ln -s filebeat-5.0.0-linux-x86_64 filebeat
 cd filebeat
 # elasticsearch 부분 #으로 주석 처리
   # elasticsearch:
