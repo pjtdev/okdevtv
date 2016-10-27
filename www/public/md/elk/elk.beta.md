@@ -186,7 +186,7 @@ output {
 * logstash 실행 
 ```
 # test
-bin/logstash -f logconf/nginx.conf --configtest
+bin/logstash -f logconf/nginx.conf -t
 # run
 bin/logstash -f logconf/nginx.conf
 # background run
