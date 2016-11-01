@@ -8,6 +8,11 @@ sudo yum install nginx -y
 sudo yum install php-fpm -y
 ```
 
+```
+sudo chown -R ec2-user:ec2-user /var/log/nginx /usr/share/nginx/html
+echo "<?php phpinfo(); ?>" > /usr/share/nginx/html/info.php
+```
+
 ## nginx config
 ```
 sudo vi /etc/nginx/nginx.conf
@@ -50,6 +55,7 @@ sudo service php-fpm restart
 sudo service nginx restart
 ```
 
+`open http://ipaddress/info.php`
 
 
 ## 참고
