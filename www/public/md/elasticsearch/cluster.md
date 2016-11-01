@@ -1,5 +1,6 @@
 # Elasticsearch Cluster
 
+## Config
 * config/elasticsearch.yml
 
   * master
@@ -22,3 +23,9 @@ discovery.zen.ping.unicast.hosts: ["127.0.0.1", "52.78.207.130"]
   * 9200
   * 9300
   * 9301
+
+
+## Performance
+* open files
+`max file descriptors [4096] for elasticsearch process likely too low, consider increasing to at least [65536]`
+
