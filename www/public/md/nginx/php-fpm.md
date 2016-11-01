@@ -1,5 +1,12 @@
 # PHP-FPM with nginx
 * PHP FastCGI Process Manager
+* on AWS
+
+## install
+```
+sudo yum install nginx -y
+sudo yum install php-fpm -y
+```
 
 ```
 sudo vi /etc/nginx/nginx.conf
@@ -40,3 +47,9 @@ group = nginx
 sudo service php-fpm restart
 sudo service nginx restart
 ```
+
+
+
+## 참고
+* NGINX-PHP-MySQL 설치(ubuntu)
+  * https://opentutorials.org/module/384/4332
