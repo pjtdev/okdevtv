@@ -29,7 +29,9 @@ CREATE TABLE user (
 
 
 ## Node + MariaDB test
+
 * Connection
+
 ```
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -51,6 +53,7 @@ connection.end();
 ```
 
 * Create (insert)
+
 ```
 connection.connect();
 
@@ -63,6 +66,7 @@ var query = connection.query('INSERT INTO user SET ?', post, function(err, resul
 console.log(query.sql);
 ```
 * Retrieve (select)
+
 ```
 connection.connect();
 
@@ -76,6 +80,7 @@ connection.end();
 ```
 
 * Update
+
 ```
 connection.connect();
 
@@ -88,6 +93,7 @@ var query = connection.query(
 ```
 
 * Delete
+
 ```
 var query = connection.query(
   'DELETE FROM user WHERE id = ?', 
