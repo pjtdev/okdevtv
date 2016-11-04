@@ -3,7 +3,7 @@
 
 ## JS Warm Up
 
-* JavaScript
+* JavaScript platform
 * [JSON](http://www.json.org)
 
 ## 설치
