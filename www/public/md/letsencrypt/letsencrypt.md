@@ -21,11 +21,26 @@
   * python 2.6은 안됨(?)
 
 ## nginx 설치
-* [nginx 설치](./nginx/nginx.md)
+* [nginx 설치](//okdevtv.com/mib/nginx)
 
 ## letencrypt 설치
 * certbot 가이드 이용한 설치 가이드 추천
   * https://certbot.eff.org/
+
+* AWS Linux일 경우
+  * from: https://coderwall.com/p/e7gzbq/https-with-certbot-for-nginx-on-amazon-linux
+
+```
+curl -O https://dl.eff.org/certbot-auto
+chmod +x certbot-auto
+sudo mv certbot-auto /usr/local/bin/certbot-auto
+sudo service nginx stop
+sudo su -
+```
+
+```
+certbot-auto certonly --standalone -d okdevtest.com --debug
+```
 
 * 아래는 이전 방법
 
@@ -53,7 +68,7 @@ systemctl stop nginx #centos7.x
 
 ## 인증서 확인
 ```
-# ls /etc/letsencrypt/live/okdevtest.com/
+# sudo ls /etc/letsencrypt/live/okdevtest.com/
 cert.pem  chain.pem  fullchain.pem  privkey.pem
 ```
 
@@ -76,7 +91,7 @@ vi /etc/nginx/conf.d/default.conf
 
 ## nginx 설정 테스트
 ```
-nginx -t
+sudo nginx -t
 
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
