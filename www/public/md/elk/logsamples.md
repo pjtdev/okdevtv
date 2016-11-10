@@ -26,6 +26,9 @@
 }
 ```
 
+## referrer
+211.249.40.15 - - [11/Nov/2016:06:49:14 +0900] "GET / HTTP/1.1" 200 9434 "http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=1040101&docId=263938221&qb=Q+yWuOyWtOyekOqyqeymnQ==&enc=utf8&section=kin&rank=22&search_sort=0&spq=1" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36" "-"
+
 ## encoding
 ```
 "BC\xc4\xab\xb5\xe5" 문자열 Logstash에서 어떻게 파싱할 수 있을까요?
