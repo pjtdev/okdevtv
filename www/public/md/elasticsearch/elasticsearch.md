@@ -687,7 +687,7 @@ curl 'localhost:9200/books/_search?pretty' -d '
 }'
 ```
 
-* minimum_should_match
+* minimum_should_match(deprecated)
 ```
 curl 'localhost:9200/books/_search?pretty' -d '
 {
@@ -806,7 +806,7 @@ curl 'localhost:9200/books/_search?pretty' -d '
 {
   "query" : {
     "query_string" : {
-      "query" : "pringce king",
+      "query" : "prince king",
       "default_field" : "plot",
       "default_operator" : "and"
     }
