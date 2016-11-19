@@ -643,6 +643,7 @@ curl 'localhost:9200/books/_search?pretty' -d '
     }
   }
 }
+'
 ```
 
 ```
@@ -654,6 +655,7 @@ curl 'localhost:9200/books/_search?pretty' -d '
     }
   }
 }
+'
 ```
 
 ### Query
