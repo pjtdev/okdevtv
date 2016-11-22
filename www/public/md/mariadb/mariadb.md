@@ -25,6 +25,10 @@ sudo mysql_secure_installation
 * login
   * `mysql -uroot -p`
 
+```
+GRANT ALL PRIVILEGES ON devdb.* TO devuser@localhost
+IDENTIFIED BY 'devpass' WITH GRANT OPTION;
+```
 
 ## Timezone
 ```
