@@ -92,9 +92,9 @@ sudo reboot 0
 ```
 mkdir ~/local
 cd ~/local
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.2.tar.gz
-tar xvfz elasticsearch-5.0.2.tar.gz
-ln -s elasticsearch-5.0.2 elasticsearch
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz
+tar xvfz elasticsearch-5.1.1.tar.gz
+ln -s elasticsearch-5.1.1 elasticsearch
 cd elasticsearch
 vi config/elasticsearch.yml
   # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
@@ -112,9 +112,9 @@ curl -i http://localhost:9200/
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/kibana/kibana-5.0.2-linux-x86_64.tar.gz
-tar xvfz kibana-5.0.2-linux-x86_64.tar.gz
-ln -s kibana-5.0.2-linux-x86_64 kibana
+wget https://artifacts.elastic.co/downloads/kibana/kibana-5.1.1-linux-x86_64.tar.gz
+tar xvfz kibana-5.1.1-linux-x86_64.tar.gz
+ln -s kibana-5.1.1-linux-x86_64 kibana
 cd kibana
 ```
 
@@ -147,9 +147,9 @@ nohup bin/kibana &
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/logstash/logstash-5.0.2.tar.gz
-tar xvfz logstash-5.0.2.tar.gz
-ln -s logstash-5.0.2 logstash
+wget https://artifacts.elastic.co/downloads/logstash/logstash-5.1.1.tar.gz
+tar xvfz logstash-5.1.1.tar.gz
+ln -s logstash-5.1.1 logstash
 cd logstash
 ```
 
@@ -349,9 +349,9 @@ cd ~/local/logstash
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.2-linux-x86_64.tar.gz
-tar xvfz filebeat-5.0.2-linux-x86_64.tar.gz
-ln -s filebeat-5.0.2-linux-x86_64 filebeat
+wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.1.1-linux-x86_64.tar.gz
+tar xvfz filebeat-5.1.1-linux-x86_64.tar.gz
+ln -s filebeat-5.1.1-linux-x86_64 filebeat
 cd filebeat
 # elasticsearch 부분 #으로 주석 처리
   # elasticsearch:
