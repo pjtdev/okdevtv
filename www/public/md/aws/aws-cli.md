@@ -42,6 +42,11 @@ aws ec2 run-instances --image-id ami-4d1fd123 --security-group-ids okdevtv-sg --
 ssh -i devenv-key.pem ec2-user@인스턴스아이피
 ```
 
+### ec2 file cp to s3
+```
+aws configure
+aws s3 cp file s3://bucketName/
+```
 
 
 ## 참고: 
@@ -49,3 +54,7 @@ ssh -i devenv-key.pem ec2-user@인스턴스아이피
   * http://docs.aws.amazon.com/cli/latest/userguide/tutorial-ec2-ubuntu.html
 * Finding a Linux AMI
   * http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html
+* AWS Command Line Interface
+  * https://aws.amazon.com/ko/cli/
+* S3 Reference
+  * http://docs.aws.amazon.com/cli/latest/reference/s3/

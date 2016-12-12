@@ -10,10 +10,26 @@
 * [설치 및 실행](http://okdevtv.com/mib/elk/elk)
 
 ## 플러그인 설치
+* 5.0부터 외부에 설치; 보안이슈로 인해 격리
+* config/elasticsearch.yml 에 다음 설정 추가 필요
+```
+http.cors.enabled: true
+http.cors.allow-origin: "*" 
+# "*"일 경우 모든 도메인 접속 가능하기 때문에, 보안 해제와 같음
+```
+* head :
+  * `git clone https://github.com/mobz/elasticsearch-head.git`
+  * `npm install locally -g`
+  * `nohup locally -p 9100 &`
+  * `http://localhost:9100/_plugin/head`
+
+### 2.x 버전
 * `bin/plugin install {org}/{user/component}/{version}`
-* head : `bin/plugin install mobz/elasticsearch-head`
+* head : 
+  * `bin/plugin install mobz/elasticsearch-head`
   * http://localhost:9200/_plugin/head
-* hq : `bin/plugin install royrusso/elasticsearch-HQ`
+* hq : 
+  * `bin/plugin install royrusso/elasticsearch-HQ`
   * http://localhost:9200/_plugin/hq
 
 ## 데이터 구조 및 입출력

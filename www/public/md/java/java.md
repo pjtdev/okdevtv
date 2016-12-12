@@ -14,7 +14,15 @@ sudo yum remove java-1.7.0-openjdk.x86_64 -y
 sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 ```
 
-* Ubuntu
+* Ubuntu openjdk
+```
+sudo add-apt-repository ppa:openjdk-r/ppa
+
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk -y
+```
+
+* Ubuntu oracle-jdk
 ```
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
