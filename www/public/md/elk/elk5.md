@@ -184,6 +184,58 @@ bin/logstash -f logconf/nginx.conf
 nohup bin/logstash -f logconf/nginx.conf &
 ```
 
+## Filebeat with logstash
+* (Optional)
+* logstash forwarder(deprecated) 의 경량(lightweight) 버전
+* logstash plugin 설치
+```
+cd ~/local/logstash
+./bin/logstash-plugin install logstash-input-beats
+```
+
+* filebeat 설치
+
+```
+cd ~/local
+wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.1.1-linux-x86_64.tar.gz
+tar xvfz filebeat-5.1.1-linux-x86_64.tar.gz
+ln -s filebeat-5.1.1-linux-x86_64 filebeat
+cd filebeat
+# elasticsearch 부분 #으로 주석 처리
+  # elasticsearch:
+    #hosts: ["localhost:9200"]
+# logstash 부분 # 주석 해제
+  logstash:
+    hosts: ["localhost:5044"]
+
+# filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
+```
+
+
+* logconf/nginx.conf 파일 변경
+
+```
+input {
+  beats {
+    port => 5044
+  }
+}
+```
+
+### 실행
+```
+./filebeat -e -c filebeat.yml
+```
+
+* start shell
+
+```
+echo "nohup ./filebeat -e -c filebeat.yml &" > start.sh
+chmod +x start.sh
+./start.sh
+```
+
+
 
 ## Kibana 통계
 
@@ -314,56 +366,8 @@ filter {
     }
 ```
 
-
-
-### Kibana
-* 질의어 문법(query syntax)
-  * Lucene 검색 엔진의 문법 그대로 사용(https://lucene.apache.org/core/2_9_4/queryparsersyntax.html)
-* `request: "uri"`
-* 제외 `-device : "Spider"`
-
-### elasticsearch
-* 데이터 지우기
-  * `curl -XDELETE http://localhost:9200/logstash*`
-
-
-
-## Filebeat with logstash
-* (Optional)
-* logstash forwarder(deprecated) 의 경량(lightweight) 버전
-* logstash plugin 설치
+* 하나 이상의 로그 포맷
 ```
-cd ~/local/logstash
-./bin/logstash-plugin install logstash-input-beats
-```
-
-* filebeat 설치
-
-```
-cd ~/local
-wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.1.1-linux-x86_64.tar.gz
-tar xvfz filebeat-5.1.1-linux-x86_64.tar.gz
-ln -s filebeat-5.1.1-linux-x86_64 filebeat
-cd filebeat
-# elasticsearch 부분 #으로 주석 처리
-  # elasticsearch:
-    #hosts: ["localhost:9200"]
-# logstash 부분 # 주석 해제
-  logstash:
-    hosts: ["localhost:5044"]
-
-# filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
-```
-
-
-* logconf/nginx.conf 파일 변경
-
-```
-input {
-  beats {
-    port => 5044
-  }
-}
 filter {
     grok {
         match => [
@@ -371,10 +375,11 @@ filter {
             "message", "%{COMMONAPACHELOG}"
         ]
     }
-    geoip {
-        source => "clientip"
-    }
 }
+```
+
+* elsasticsearch index 설정
+```
 output {
   elasticsearch {
     hosts => "localhost:9200"
@@ -385,23 +390,16 @@ output {
 }
 ```
 
+### Kibana
+* https://okdevtv.com/mib/elk/kibana
 
-```
-./filebeat -e -c filebeat.yml
-```
-
-* start shell
-
-```
-echo "nohup ./filebeat -e -c filebeat.yml &" > start.sh
-chmod +x start.sh
-./start.sh
-```
+### elasticsearch
+* 데이터 지우기
+  * `curl -XDELETE http://localhost:9200/logstash*`
 
 
-## ELK with PM2
-* 2G짜리 메모리의 인스턴스에서 ELK를 돌리면 OutOfMemory 때문에 종종 Elasticsearch 또는 Kibana가 죽습니다. 
-* 고육지책으로 Kibana는 node 기반이기 때문에 pm2로 Kibana가 죽으면 자동으로 살리는 방법입니다.
+
+## Kibana with PM2
 
 * download from http://nodejs.org and install node.js
 ```
@@ -412,7 +410,7 @@ pm2 start bin/cli
 * check kibana status with `pm2 list`
 * pm2 logs path is placed in ~/.pm2/logs
 
-## kibana 인증 with nginx
+## Kibana 인증 with nginx
 ```
 sudo vi /etc/nginx/nginx.conf
 ```

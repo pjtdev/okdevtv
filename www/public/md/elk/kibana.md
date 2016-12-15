@@ -31,3 +31,8 @@
 
 ## Reporting
 
+
+## 참고
+* 질의어 문법(query syntax)
+  * Lucene 검색 엔진의 문법
+  * https://lucene.apache.org/core/2_9_4/queryparsersyntax.html
