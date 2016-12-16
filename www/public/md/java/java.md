@@ -15,6 +15,7 @@ sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 ```
 
 * Ubuntu openjdk
+
 ```
 sudo add-apt-repository ppa:openjdk-r/ppa
 
@@ -29,6 +30,7 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
 ```
+
 
 ## 참고
 * 2시간만에 자바를 쉽게 배우고 싶어요.
