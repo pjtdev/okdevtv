@@ -1,6 +1,8 @@
 # curl
+* https://curl.haxx.se/
 * call url
 * RESTful API 작업에 유용
+* Windows에서는 git bash( https://git-scm.com )로 이용 가능
 
 ## method 지정
 * GET, POST, PUT, DELETE
