@@ -1,5 +1,6 @@
 $(function () {
-    $("#form").on("submit", function () {
+    $("#form").on("submit", function (e) {
+        e.preventDefault();
         sendMessage();
         return false;
     });
@@ -8,7 +9,7 @@ $(function () {
 function sendMessage() {
     if ($("#name").val() && $("#message").val()) {
         $.ajax({
-            url: "http://okdevtv.com:3000/register/",
+            url: "/register/",
             data: {
                 category: 'kenu.heo@gmail.com',
                 name: $("#name").val(),

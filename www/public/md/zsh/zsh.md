@@ -15,6 +15,17 @@
 * 정상적으로 설치되었다면 cmd+N 으로 zsh로 실행됨
 * 만약 그대로라면 `chsh -s /usr/local/bin/zsh` 명령으로 shell 변경 가능
 
+## 설치(Remote CentOS)
+```
+su
+yum install zsh
+exit
+
+curl -OL https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh
+bash install.sh
+```
+
+
 ## 참고
 * http://sourabhbajaj.com/mac-setup/iTerm/zsh.html
 * 터미널 초보의 필수품인 Oh My ZSH!를 사용하자
