@@ -264,6 +264,7 @@
 
 			form input[type="text"],
 			form input[type="password"],
+			form input[type="email"],
 			form select,
 			form textarea {
 				display: block;
@@ -303,6 +304,7 @@
 
 			form input[type="text"],
 			form input[type="password"],
+			form input[type="email"],
 			form select {
 				line-height: 1em;
 			}
