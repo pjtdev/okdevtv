@@ -10,6 +10,8 @@
 |Go to file(Open Resource) | Ctrl + Shift + N | Ctrl + Shift + R|  |
 |Find in Path (Search Project)| Ctrl + Shift + F |Ctrl + H |  |
 |Rename | Shift + F6|Ctrl + Alt + R | F2 or Ctrl + R, R |
+|Extract Variable | Ctrl + Alt + V |  |  |
+|Extract Method | Ctrl + Alt + M |  |  |
 |Quick Documentation | Ctrl + Q | F2 |  |
 |검색(형 기반의 전역 검색)<br>Go to class|Ctrl + N | Ctrl + Shift + T |  Ctrl + , |
 |Go to symbol | Ctrl + Alt + Shift + N | - | |
