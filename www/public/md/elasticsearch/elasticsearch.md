@@ -2314,31 +2314,67 @@ curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Arou
 
 
 ### 한글 형태소 분석기
-* 2.x 에 맞춰진 것 찾지 못함
+* 은전한닢 
+
+* install
+```
+# elasticsearch 5.0.0 이상
+./bin/elasticsearch-plugin install https://oss.sonatype.org/service/local/repositories/releases/content/org/bitbucket/eunjeon/elasticsearch-analysis-seunjeon/5.1.1.1/elasticsearch-analysis-seunjeon-5.1.1.1.zip
+
+# elasticsearch 2.4.1 이하
+./bin/elasticsearch-plugin install org.bitbucket.eunjeon/elasticsearch-analysis-seunjeon/2.4.0.1
+```
 
 ```
-bin/plugin -install chanil1218/elasticsearch-analysis-korean/1.3.0
-```
+#!/usr/bin/env bash
 
-```
-curl -XPUT localhost:9200/books -d '
-{
-  "settings":{
+ES='http://localhost:9200'
+ESIDX='seunjeon-idx'
+
+curl -XDELETE "${ES}/${ESIDX}?pretty"
+sleep 1
+curl -XPUT "${ES}/${ESIDX}/?pretty" -d '{
+  "settings" : {
     "index":{
       "analysis":{
         "analyzer":{
-          "korean_analyzer":{
-            "type":"kr_analyzer"
+          "korean":{
+            "type":"custom",
+            "tokenizer":"seunjeon_default_tokenizer"
+          }
+        },
+        "tokenizer": {
+          "seunjeon_default_tokenizer": {
+            "type": "seunjeon_tokenizer",
+            "index_eojeol": false,
+            "user_words": ["낄끼+빠빠,-100", "c\\+\\+", "어그로", "버카충", "abc마트"]
           }
         }
       }
     }
   }
 }'
+
+sleep 1
+
+echo "# 삼성/N 전자/N"
+curl -XGET "${ES}/${ESIDX}/_analyze?analyzer=korean&pretty" -d '삼성전자'
+
+echo "# 빠르/V 지/V"
+curl -XGET "${ES}/${ESIDX}/_analyze?analyzer=korean&pretty" -d '빨라짐'
+
+echo "# 슬프/V"
+curl -XGET "${ES}/${ESIDX}/_analyze?analyzer=korean&pretty" -d '슬픈'
+
+echo "# 새롭/V 사전/N 생성/N"
+curl -XGET "${ES}/${ESIDX}/_analyze?analyzer=korean&pretty" -d '새로운사전생성'
+
+echo "# 낄끼/N 빠빠/N c++/N"
+curl -XGET "${ES}/${ESIDX}/_analyze?analyzer=korean&pretty" -d '낄끼빠빠 c++'
 ```
 
 ```
-curl -XPOST 'localhost:9200/books/_analyze?analyzer=korean_analyzer&pretty' -d '동해물과 백두산이 마르고 닳도록'
+curl -XPOST 'localhost:9200/${ES}/_analyze?analyzer=korean&pretty' -d '동해물과 백두산이 마르고 닳도록'
 ```
 
 
@@ -2390,4 +2426,9 @@ bin/plugin install file:/path/to/master.zip
 * http://elastic.co
 
 * 은전한닢+elasticsearch
+  * https://bitbucket.org/eunjeon/seunjeon/raw/master/elasticsearch/
   * http://blog.lyuwonkyung.com/elasticsearch/
+
+* 엘라스틱서치 기초 사용법 by 박연오
+  * http://bakyeono.net/post/2016-06-03-start-elasticsearch.html
+
