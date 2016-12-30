@@ -14,3 +14,12 @@ pip install --upgrade $TF_BINARY_URL
 deactivate
 ```
 
+* win
+  * install pip-Win https://sites.google.com/site/pydatalog/python/pip-for-windows
+```
+pip install --upgrade virtualenv
+virtualenv --system-site-packages tensorflow
+tensorflow\Scripts\activate
+pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py2-none-any.whl
+
+```
