@@ -28,5 +28,13 @@ sonarRunner {
 * `./gradlew sonarRunner`
 * `open http://localhost:9000`
 
+## SonarQube Scanner
+* Download http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+
+
+## javascript
+* SonarJS
+
+
 ## ref
 * http://galmaegi74.tistory.com/9
