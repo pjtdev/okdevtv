@@ -21,5 +21,5 @@ pip install --upgrade virtualenv
 virtualenv --system-site-packages tensorflow
 tensorflow\Scripts\activate
 pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py2-none-any.whl
-
+deactivate
 ```
