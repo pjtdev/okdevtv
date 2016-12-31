@@ -2,7 +2,7 @@ $(function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
         var data = $(e.currentTarget).serialize();
-        $.post('/api/sendTip', {
+        $.post('/apis/tip', {
                 'data': data
             })
             .done(function (res) {
