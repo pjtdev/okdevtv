@@ -35,9 +35,14 @@ that run across distributed devices.
 * 모듈 248,062 total packages(2016/03/04)
 * 성능 개선
   * [linkedin 사례](http://highscalability.com/blog/2012/10/4/linkedin-moved-from-rails-to-node-27-servers-cut-and-up-to-2.html)
-  * 서버 감축 Ruby + Mongrel 30대 -> node.js 3대
-  * Frontend, Backend 개발자 소통 원활
-  * 잡다한 작업 감소해서 로직에 집중
+    * 서버 감축 Ruby + Mongrel 30대 -> node.js 3대
+    * Frontend, Backend 개발자 소통 원활
+    * 잡다한 작업 감소해서 로직에 집중
+  * [paypal 사례](https://www.paypal-engineering.com/2013/11/22/node-js-at-paypal/)
+    * Java를 Node.js로 대치
+    * 더 적은 인원으로 개발 2배 정도 빨라짐
+    * 코드량 33%, 파일 40% 감소
+    * 성능 개선됨 (15-user: 11.3 vs 21.6 pages/sec)
 * C/C++ Addon
   * https://nodejs.org/api/addons.html
 
@@ -46,6 +51,7 @@ that run across distributed devices.
   * CPU과다 사용시 이슈
 * 예외처리 실수하면 서버 다운 (pm2로 자동 재시작 가능)
 * Callback Hell (Async로 커버 가능)
+  * http://callbackhell.com
 
 
 ## 비동기 프로그래밍
