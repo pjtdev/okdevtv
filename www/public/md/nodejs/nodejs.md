@@ -122,14 +122,9 @@ from: http://www.nodebeginner.org/index-kr.html#how-to-not-do-it
 * http://npmjs.org
 * package.json
 
-
-## expressjs 웹 프레임워크
-* http://expressjs.com/
-* npm install -g express-generator
-* express myapp
-
 ## socket.io 모듈
 * socket.io
+  * [채팅 튜토리얼](https://okdevtv.com/kr/socket.io-chat-kr.html)
 * 52라인으로 웹채팅 가능
 * index.html
 
@@ -207,6 +202,13 @@ http.listen(3000, function(){
   }
 }
 ```
+
+## expressjs 웹 프레임워크
+* http://expressjs.com/
+* npm install -g express-generator
+* express myapp
+
+
 
 ## node.js PaaS 활용 - heroku
 * node.js 지원하는 PaaS
