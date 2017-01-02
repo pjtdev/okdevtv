@@ -173,6 +173,7 @@ from: http://www.nodebeginner.org/index-kr.html#how-to-not-do-it
 ```
 
 * index.js
+
 ```
 var app = require('express')();
 var http = require('http').Server(app);
@@ -194,6 +195,7 @@ http.listen(3000, function(){
 ```
 
 * package.json
+
 ```
 {
   "name": "socket-chat-example",
