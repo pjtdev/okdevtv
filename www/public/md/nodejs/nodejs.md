@@ -207,8 +207,55 @@ http.listen(3000, function(){
 * http://expressjs.com/
 * npm install -g express-generator
 * express myapp
+* node.js의 기본 API인 http를 확장
 
+* 기본 http
 
+```
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
+
+* express.js
+  * with package.json `npm init`
+  * `npm install express --save`
+  * create `exp.js` file
+
+```
+var express = require('express')
+var app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
+```
+
+  * 실행 `node exp.js`
+
+* express-generator
+  * `npm install express-generator -g`
+  * express.js의 scafold 코드 생성
+  * `express myweb`
+  * `cd myweb && npm install`
+  * run `npm start` 
+    * or `node bin/www` 
+  
 
 ## node.js PaaS 활용 - heroku
 * node.js 지원하는 PaaS
