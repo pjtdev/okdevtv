@@ -102,7 +102,12 @@ from [blog.udemy.com/learn-node-js/](https://lh4.googleusercontent.com/pwtI1uBbT
 
 ### 안티 패턴
 ```
-“헤이, probablyExpensiveFunction(), 니 일을 해줘. 하지만 나 Single Node.js 쓰레드는 네가 끝낼 때까지 여기서 기다리지 않을거야. 네 아래에 있는 코드 라인을 계속 실행할거야. 그러니 여기 이 callbackFunction()을 가져가서 네가 너의 비싼 일을 모두 끝냈을 때 호출해 주겠니? 고마워!”
+“헤이, probablyExpensiveFunction(), 니 일을 해줘. 
+하지만 나 Single Node.js 쓰레드는 네가 끝낼 때까지 여기서 기다리지 않을거야. 
+네 아래에 있는 코드 라인을 계속 실행할거야. 
+그러니 여기 이 callbackFunction()을 가져가서 
+네가 너의 비싼 일을 모두 끝냈을 때 호출해 주겠니? 
+고마워!”
 ```
 from: http://www.nodebeginner.org/index-kr.html#how-to-not-do-it
 
