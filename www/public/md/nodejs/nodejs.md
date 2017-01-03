@@ -248,14 +248,55 @@ app.listen(3000, function () {
 
   * 실행 `node exp.js`
 
-* express-generator
+### express-generator
   * `npm install express-generator -g`
   * express.js의 scafold 코드 생성
   * `express myweb`
   * `cd myweb && npm install`
   * run `npm start` 
     * or `node bin/www` 
+    * or `DEBUG=myweb:* && node bin/www` 
   
+### basic routing
+* `app.METHOD(PATH, HANDLER)`
+  * app is an instance of express.
+  * **METHOD** is an HTTP request method, in lowercase.
+  * PATH is a path on the server.
+  * HANDLER is the function executed when the route is matched.
+
+* get
+```
+app.get('/', function (req, res) {
+    res.send('Hello World!')
+})
+```
+  * `curl 'localhost:3000'`
+  * `curl -XGET 'localhost:3000'`
+
+
+* post
+```
+app.post('/', function (req, res) {
+    res.send('Got a POST request')
+})
+```
+  * `curl -XPOST 'localhost:3000'`
+
+* put
+```
+app.put('/user', function (req, res) {
+    res.send('Got a PUT request at /user')
+})
+```
+  * `curl -XPUT 'localhost:3000'`
+
+* delete
+```
+app.delete('/user', function (req, res) {
+    res.send('Got a DELETE request at /user')
+})
+```
+  * `curl -XDELETE 'localhost:3000'`
 
 ## node.js PaaS 활용 - heroku
 * node.js 지원하는 PaaS
