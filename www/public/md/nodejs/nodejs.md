@@ -298,6 +298,23 @@ app.delete('/user', function (req, res) {
 ```
   * `curl -XDELETE 'localhost:3000'`
 
+## Routing
+* http://expressjs.com/en/guide/routing.html
+
+### methods
+get, post, put, head, delete, options, trace, 
+copy, lock, mkcol, move, purge, propfind, proppatch, 
+unlock, report, mkactivity, checkout, merge, m-search, 
+notify, subscribe, unsubscribe, patch, search, connect.
+
+* all
+```
+app.all('/secret', function (req, res, next) {
+  console.log('Accessing the secret section ...')
+  next() // pass control to the next handler
+})
+```
+
 ## node.js PaaS 활용 - heroku
 * node.js 지원하는 PaaS
   * 무료사용 가능
@@ -439,6 +456,18 @@ $ npm install
   * https://github.com/Unitech/PM2
 
 
+## 영상
+1. 개요, 설치  https://www.youtube.com/watch?v=Z8cOppJwOeU 
+2. socket.io, express.js https://www.youtube.com/watch?v=YWaoLdoqSWE 
+3. express.js basic routing https://www.youtube.com/watch?v=KOtEZ0j0cic 
+4. express.js routing https://youtube.com/kenuheo/live 
+5. node.js + mariadb
+6. express.js + ejs
+7. ...
+8. ...
+9. ...
+10. ...
+...
 
 
 ## 참고
