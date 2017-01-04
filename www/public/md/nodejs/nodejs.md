@@ -255,7 +255,7 @@ app.listen(3000, function () {
   * `cd myweb && npm install`
   * run `npm start` 
     * or `node bin/www` 
-    * or `DEBUG=myweb:* && node bin/www` 
+    * or `DEBUG=myweb:* node bin/www` 
   
 ### basic routing
 * `app.METHOD(PATH, HANDLER)`
