@@ -10,12 +10,12 @@ dl.forEach(function (line, i) {
     var options = {
         host: 'localhost',
         port: 9200,
-        path: '/dmcs/record',
+        path: '/cs/record',
         method: 'POST'
     };
 
     sleep(16, function () {
-        if (i % 1 === 0) {
+        if (i > 1) {
             var obj = getJson(line);
             list.push(obj);
             var req = http.request(options, function (res) {
