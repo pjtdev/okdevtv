@@ -23,7 +23,8 @@ CREATE TABLE user (
     id     INT NOT NULL auto_increment PRIMARY KEY, 
     name   VARCHAR(255) NOT NULL, 
     email  VARCHAR(255) NOT NULL, 
-    passwd VARCHAR(255) NOT NULL image VARCHAR(255) 
+    passwd VARCHAR(255) NOT NULL,
+    image VARCHAR(255) 
 );
 ```
 
@@ -38,7 +39,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'devuser',
   password : 'okpassokpass',
-  database : 'okdevtv'
+  database : 'okdevdb'
 });
 
 connection.connect();
@@ -59,9 +60,9 @@ connection.connect();
 
 var post  = {name : 'kenu', email: 'kenu.heo@gmail.com', passwd: 'okpassokpass'};
 var query = connection.query('INSERT INTO user SET ?', post, function(err, result) {
-  console.log(result);
-  connection.end();
+    console.log(result);
 });
+connection.end();
 
 console.log(query.sql);
 ```
@@ -88,8 +89,8 @@ var query = connection.query(
   'UPDATE user SET name = ? WHERE id = ?', 
   ['kenu.heo', 1 ], function(err, result) {
   console.log(result);
-  connection.end();
 });
+connection.end();
 ```
 
 * Delete
@@ -99,10 +100,11 @@ var query = connection.query(
   'DELETE FROM user WHERE id = ?', 
   [ 1 ], function(err, result) {
   console.log(result);
-  connection.end();
 });
+connection.end();
 ```
 
 ## ref
 * node-mysql
   * https://github.com/mysqljs/mysql
+* https://mariadb.org
