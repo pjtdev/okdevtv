@@ -329,41 +329,8 @@ app.get('/users/:userId/books/:bookId', function (req, res) {
 })
 ```
 
-## node.js PaaS 활용 - heroku
-* node.js 지원하는 PaaS
-  * 무료사용 가능
-* https://www.heroku.com/
-* http://okdevtv.com/tip/nodehosting.html
-
-
 ## MairaDB 설치
-* [설치링크](/mib/mariadb)
-
-## DB schema와 계정, 테이블 설정
-* **root** mysql 로그인
-```
-mysql -u root -p
-```
-
-* 계정 생성, DB schema, table 생성 후 레코드 추가
-
-```
-GRANT ALL PRIVILEGES ON *.* TO javauser@'%'
-  IDENTIFIED BY 'javadude' WITH GRANT OPTION;
-
-create database javatest;
-use javatest;
-create table testdata (
-   id int not null auto_increment primary key,
-   foo varchar(25),
-   bar int);
-insert into testdata values(null, 'hello', 12345);
-
-```
-
-```
-mysql -ujavatest -p -h104.236.46.34
-```
+* [설치링크](https://okdevtv.com/mib/nodejs/node-mariadb)
 
 ## MongoDB + node.js
 * http://okdevtv.com/mongodb_nodejs.html
@@ -401,6 +368,14 @@ if (cluster.isMaster) {
 
 ### node.js clustering with PM2
 * https://keymetrics.io/2015/03/26/pm2-clustering-made-easy/
+
+
+## node.js PaaS 활용 - heroku
+* node.js 지원하는 PaaS
+  * 무료사용 가능
+* https://www.heroku.com/
+* http://okdevtv.com/tip/nodehosting.html
+
 
 
 ## 디버깅
