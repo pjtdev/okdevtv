@@ -7,6 +7,9 @@
 ## File opened count
 * `lsof | wc -l`
 
+## Port check
+* `lsof -i tcp:3000`
+
 ## LC_CTYPE warning
 * /etc/environment
 ```
