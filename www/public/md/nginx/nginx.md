@@ -84,6 +84,7 @@ echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
 ```
 sudo yum install httpd-tools
 sudo htpasswd -c /etc/nginx/htpasswd.users kibanaadmin
+sudo htpasswd /etc/nginx/htpasswd.users kenuheo
 sudo vi /etc/nginx/nginx.conf
 ```
 
@@ -107,6 +108,21 @@ sudo vi /etc/nginx/nginx.conf
 ```
 sudo service nginx restart
 ```
+## proxy
+```
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/htpasswd.users;
+
+        location / {
+                proxy_pass http://localhost:5601;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+```
+
 
 ## centos6.* 경우
 * epel의 nginx 버전이 1.0.*로 낮음
