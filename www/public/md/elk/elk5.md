@@ -23,20 +23,27 @@
 * Java 1.8 이상
 
 ## nginx 설치(샘플용)
-* [nginx 설치](http://okdevtv.com/mib/nginx/nginx)
+```
+sudo yum install nginx -y
+sudo service nginx start
+curl -i http://localhost
+sudo chown -R ec2-user:ec2-user /var/log/nginx /usr/share/nginx/html
+echo "<h1>Hello World</h1>" > /usr/share/nginx/html/hello.html
+```
+* more [nginx 설치](https://okdevtv.com/mib/nginx/nginx)
 
 ## jdk 1.8
 ```
 sudo yum remove java-1.7.0-openjdk.x86_64 -y
 sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 ```
-[install](https://okdevtv.com/mib/java)
+* more [install](https://okdevtv.com/mib/java)
 
 ## system env
 ```
 sudo vi /etc/security/limits.conf
 ```
-
+* 
 ```
 ec2-user hard nofile 65536
 ec2-user soft nofile 65536
@@ -47,7 +54,7 @@ ec2-user soft nproc 65536
 ```
 sudo vi /etc/rc.local
 ```
-
+* 
 ```
 echo 1048575 > /proc/sys/vm/max_map_count
 ```
@@ -65,8 +72,7 @@ sudo reboot 0
 * EC2 Security Groups
 * 외부 접근 포트 추가(inbound)
   * http(80)
-  * elasticsearch(9200)
-  * kibana(5601)
+  * kibana(5601); nginx proxying 후 제거
 
 
 ## 설치
@@ -78,18 +84,24 @@ sudo reboot 0
 * Elasticsearch와 Kibana는 권장 버전을 맞춰야 함
 * 설치 위치 /opt/ 또는 ~/local/ 권장
 
+* copy internal ip address, private ip needed
+```
+ifconfig | grep inet
+          inet addr:172.31.8.113  Bcast:172.31.15.255  Mask:255.255.240.0
+# copy 172.31.8.113
+```
 
 ## Elasticsearch 설치
 
 ```
 mkdir ~/local
 cd ~/local
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz
-tar xvfz elasticsearch-5.1.1.tar.gz
-ln -s elasticsearch-5.1.1 elasticsearch
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.2.tar.gz
+tar xvfz elasticsearch-5.1.2.tar.gz
+ln -s elasticsearch-5.1.2 elasticsearch
 cd elasticsearch
 vi config/elasticsearch.yml
-  # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 0.0.0.0`으로 변경
+  # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 172.31.8.113`으로 변경
   # 모든 IP에서 접근 가능
 bin/elasticsearch -d
   # 데몬(백그라운드)로 실행. 옵션 -d를 빼면 터미널 접속해 있는 동안만 실행
@@ -97,23 +109,17 @@ bin/elasticsearch -d
 
 * 실행 확인
 ```
-curl -i http://localhost:9200/
+curl -i http://172.31.8.113:9200/
 ```
 
 ## Kibana 설치
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/kibana/kibana-5.1.1-linux-x86_64.tar.gz
-tar xvfz kibana-5.1.1-linux-x86_64.tar.gz
-ln -s kibana-5.1.1-linux-x86_64 kibana
+wget https://artifacts.elastic.co/downloads/kibana/kibana-5.1.2-linux-x86_64.tar.gz
+tar xvfz kibana-5.1.2-linux-x86_64.tar.gz
+ln -s kibana-5.1.2-linux-x86_64 kibana
 cd kibana
-```
-
-* copy ip address, private ip needed
-```
-ifconfig | grep inet
-          inet addr:172.31.10.233  Bcast:172.31.15.255  Mask:255.255.240.0
 ```
 
 ```
@@ -122,7 +128,10 @@ vi config/kibana.yml
 
 ```
 #server.host: "localhost"
-server.host: "172.31.10.233"
+server.host: "172.31.8.113"
+
+#elasticsearch.url: "http://localhost:9200"
+elasticsearch.url: "http://172.31.8.113:9200"
 ```
 
 
@@ -132,16 +141,16 @@ bin/kibana
 nohup bin/kibana &
 ```
 
-* 실행 확인 http://아이피:5601
+* 실행 확인 http://172.31.8.113:5601
 
 
 ## Logstash 설치
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/logstash/logstash-5.1.1.tar.gz
-tar xvfz logstash-5.1.1.tar.gz
-ln -s logstash-5.1.1 logstash
+wget https://artifacts.elastic.co/downloads/logstash/logstash-5.1.2.tar.gz
+tar xvfz logstash-5.1.2.tar.gz
+ln -s logstash-5.1.2 logstash
 cd logstash
 ```
 
@@ -151,8 +160,7 @@ cd logstash
 mkdir logconf
 vi logconf/nginx.conf
 ```
-
-logconf/nginx.conf
+* 
 ```
 input {
     file {
@@ -170,7 +178,6 @@ filter {
 }
 output {
     elasticsearch {}
-    stdout {}
 }
 ```
 
@@ -197,16 +204,16 @@ cd ~/local/logstash
 
 ```
 cd ~/local
-wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.1.1-linux-x86_64.tar.gz
-tar xvfz filebeat-5.1.1-linux-x86_64.tar.gz
-ln -s filebeat-5.1.1-linux-x86_64 filebeat
+wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.1.2-linux-x86_64.tar.gz
+tar xvfz filebeat-5.1.2-linux-x86_64.tar.gz
+ln -s filebeat-5.1.2-linux-x86_64 filebeat
 cd filebeat
 # elasticsearch 부분 #으로 주석 처리
   # elasticsearch:
     #hosts: ["localhost:9200"]
 # logstash 부분 # 주석 해제
   logstash:
-    hosts: ["localhost:5044"]
+    hosts: ["172.31.8.113:5044"]
 
 # filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
 ```
@@ -331,7 +338,7 @@ filter {
 * 이미지 제거
 ```
 filter {
-    if [message] =~ "^#|\.(css|js|ico|png|xml|jpg|JPG|gif|jpeg|eot\?) " {
+    if [message] =~ "^#|\.(css|js|ico|png|xml|jpg|JPG|gif|jpeg|eot|htc\?) " {
         drop {}
     }
 }
@@ -382,7 +389,7 @@ filter {
 ```
 output {
   elasticsearch {
-    hosts => "localhost:9200"
+    hosts => "172.31.8.113:9200"
     manage_template => false
     index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
     document_type => "%{[@metadata][type]}"
@@ -395,9 +402,40 @@ output {
 
 ### elasticsearch
 * 데이터 지우기
-  * `curl -XDELETE http://localhost:9200/logstash*`
+  * `curl -XDELETE http://172.31.8.113:9200/logstash*`
 
 
+
+## Kibana 인증 with nginx
+### htpasswd 설치
+```
+sudo yum install httpd-tools
+sudo htpasswd -c /etc/nginx/htpasswd.users kibanaadmin
+sudo htpasswd /etc/nginx/htpasswd.users kenuheo # 사용자 추가
+sudo vi /etc/nginx/nginx.conf
+```
+
+### nginx 설정 추가
+```
+sudo vi /etc/nginx/nginx.conf
+```
+* `server_name:` 아래 kibana 프록시 설정
+```
+        auth_basic "Restricted Access";
+        auth_basic_user_file /etc/nginx/htpasswd.users;
+
+        location / {
+                proxy_pass http://172.31.8.113:5601;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+```
+* nginx 재시작
+  * `sudo service nginx restart`
+* 5601 포트는 막고 80으로만 접속
 
 ## Kibana with PM2
 
@@ -410,27 +448,7 @@ pm2 start bin/cli
 * check kibana status with `pm2 list`
 * pm2 logs path is placed in ~/.pm2/logs
 
-## Kibana 인증 with nginx
-```
-sudo vi /etc/nginx/nginx.conf
-```
-* `server_name:` 아래 kibana 프록시 설정
-```
-        auth_basic "Restricted Access";
-        auth_basic_user_file /etc/nginx/htpasswd.users;
 
-        location / {
-                proxy_pass http://localhost:5601;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection 'upgrade';
-                proxy_set_header Host $host;
-                proxy_cache_bypass $http_upgrade;
-        }
-```
-* nginx 재시작
-  * `sudo service nginx restart`
-* 5601 포트는 막고 80으로만 접속
 
 ## 참고
 * Logstash grok patterns
