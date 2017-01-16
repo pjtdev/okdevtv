@@ -340,34 +340,40 @@ app.get('/users/:userId/books/:bookId', function (req, res) {
 ## node cluster 시작하기
 * native cluster api
   * https://nodejs.org/api/cluster.html
-  * 0.12.7 Unstable
 
 ```
-var cluster = require('cluster');
-var http = require('http');
-var numCPUs = require('os').cpus().length;
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
   // Fork workers.
-  for (var i = 0; i < numCPUs; i++) {
+  for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }
 
-  cluster.on('exit', function(worker, code, signal) {
-    console.log('worker ' + worker.process.pid + ' died');
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
   });
 } else {
   // Workers can share any TCP connection
-  // In this case its a HTTP server
-  http.createServer(function(req, res) {
+  // In this case it is an HTTP server
+  http.createServer((req, res) => {
     res.writeHead(200);
-    res.end("hello world\n");
+    res.end('hello world\n');
   }).listen(8000);
+
+  console.log(`Worker ${process.pid} started`);
 }
 ```
 
 ### node.js clustering with PM2
 * https://keymetrics.io/2015/03/26/pm2-clustering-made-easy/
+
+## JavaScript Code Quality
+* SonarQube
 
 
 ## node.js PaaS 활용 - heroku
