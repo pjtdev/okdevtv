@@ -33,9 +33,10 @@ sonarRunner {
 * add sonar-scanner/bin directory to $PATH
 * check `sonar-scanner` cmd
 
-## javascript
+## JavaScript
 * SonarJS plugin (default installed)
 * In project root directory, `sonar-project.properties`
+
 ```
 # must be unique in a given SonarQube instance
 sonar.projectKey=my:project
