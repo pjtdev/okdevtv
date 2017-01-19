@@ -211,10 +211,10 @@ tar xvfz filebeat-5.1.2-linux-x86_64.tar.gz
 ln -s filebeat-5.1.2-linux-x86_64 filebeat
 cd filebeat
 # elasticsearch 부분 #으로 주석 처리
-  # elasticsearch:
+  # output.elasticsearch:
     #hosts: ["localhost:9200"]
 # logstash 부분 # 주석 해제
-  logstash:
+  output.logstash:
     hosts: ["172.31.8.113:5044"]
 
 # filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
@@ -414,7 +414,6 @@ output {
 sudo yum install httpd-tools
 sudo htpasswd -c /etc/nginx/htpasswd.users kibanaadmin
 sudo htpasswd /etc/nginx/htpasswd.users kenuheo # 사용자 추가
-sudo vi /etc/nginx/nginx.conf
 ```
 
 ### nginx 설정 추가
