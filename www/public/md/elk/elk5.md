@@ -177,7 +177,9 @@ filter {
     }
 }
 output {
-    elasticsearch {}
+    elasticsearch {
+        hosts => "172.31.8.113:9200"
+    }
 }
 ```
 
