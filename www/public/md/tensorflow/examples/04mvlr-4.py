@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-xy = np.loadtxt('05train.txt', unpack=True, dtype='float32')
+xy = np.loadtxt('04train.txt', unpack=True, dtype='float32')
 x_data = xy[0:-1]
 y_data = xy[-1]
 
