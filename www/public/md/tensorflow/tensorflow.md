@@ -65,3 +65,5 @@ for step in range(201):
 ## ref
 * 모두를 위한 머신러닝/딥러닝 강의
   * http://hunkim.github.io/ml/
+* TensorFlow Tutorials
+  * https://github.com/golbin/TensorFlow-Tutorials
