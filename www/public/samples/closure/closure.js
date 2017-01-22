@@ -1,10 +1,12 @@
-var Proto = function() {};
+var Proto = function() {
+    // This is intentional
+};
 Proto.prototype.count = 0;
 Proto.prototype.log = function() {
-    console.log(++this.count);
+    return ++this.count;
 }
 Proto.log2 = function() {
-    console.log('h:' + this.count);
+    return 'h:' + this.count;
 }
 
 

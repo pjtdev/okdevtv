@@ -19,8 +19,8 @@ dl.forEach(function (line, i) {
             var obj = getJson(line);
             list.push(obj);
             var req = http.request(options, function (res) {
-                res.on('data', function (chunk) {
-                    console.log('BODY: ' + chunk);
+                res.on('data', function () {
+                    // This is intentional
                 });
             });
             req.write(JSON.stringify(obj));
@@ -28,7 +28,6 @@ dl.forEach(function (line, i) {
         }
     });
 });
-console.log(list);
 
 function getJson(line) {
     var scheme = [
@@ -51,7 +50,7 @@ function getJson(line) {
     var l = line.replace(/\r/g, "");
     var arr = l.split(',');
     var t = {};
-    for (idx in arr) {
+    for (var idx in arr) {
         t[scheme[idx]] = arr[idx];
     }
     return t;
@@ -59,7 +58,8 @@ function getJson(line) {
 
 function sleep(time, callback) {
     var stop = new Date().getTime();
-    while (new Date().getTime() < stop + time) {;
+    while (new Date().getTime() < stop + time) {
+        // This is intentional
     }
     callback();
 }

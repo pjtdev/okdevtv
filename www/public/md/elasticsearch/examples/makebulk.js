@@ -10,14 +10,12 @@ for (var idx in dl) {
             continue;
         }
         fs.appendFile('myfile.txt', row, (err) => {
-            if (err) {
-                if (err.code === "EEXIST") {
-                    console.error('myfile already exists');
-                    return;
-                }
-                else {
-                    throw err;
-                }
+            if (err && err.code === "EEXIST") {
+                console.error('myfile already exists');
+                return;
+            }
+            else {
+                throw err;
             }
         });
     }

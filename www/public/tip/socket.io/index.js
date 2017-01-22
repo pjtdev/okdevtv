@@ -13,5 +13,5 @@ io.on('connection', function (socket) {
 });
 
 http.listen(7080, function () {
-    console.log('listening on *:7080');
+    return ('listening on *:7080');
 });

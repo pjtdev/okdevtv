@@ -3,7 +3,6 @@ var app = express();
 var MongoClient = require('mongodb').MongoClient;
 
 app.get('/register', function (req, res) {
-    console.log(req.method);
     res.set('Content-Type', 'application/json');
     if (!req.param('message')) {
         res.send('{"success" : false}');
@@ -31,22 +30,22 @@ app.get('/list', function (req, res) {
 });
 
 var server = app.listen(3000, function () {
-    console.log('Listening on port %d', server.address().port);
+    return ('Listening on port ' + server.address().port);
 });
 
 function save(msg) {
     MongoClient.connect("mongodb://localhost/test",
         function (err, db) {
             if (err) {
-                console.log('err:' + err + '\ndb:' + db.collection("test"));
+                throw err;
             }
             try {
                 db.collection("test").insert(msg, function (e, d) {
-                    console.log(d);
                     db.close();
+                    return (d);
                 });
             } catch (e) {
-                console.log(e);
+                throw e;
             }
         });
 }
@@ -56,8 +55,7 @@ function list(req, res) {
     MongoClient.connect("mongodb://localhost/test",
         function(err, db) {
             if (err) {
-                console.log('err:' + err );
-                return;
+                throw err;
             }
             db.collection("test").find().sort({_id: -1}).toArray(function (err, items) {
             var callback = req.param("callback");
