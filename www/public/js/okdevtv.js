@@ -7,8 +7,7 @@ $(function () {
             })
             .done(function (res) {
             console.log(res);
-            })
-            .fail(function (err) {});
+            });
     });
 });
 

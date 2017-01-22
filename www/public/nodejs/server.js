@@ -63,7 +63,9 @@ function list(req, res) {
             var callback = req.param("callback");
             res.set('Content-Type', 'application/json');
             for (var i in items) {
-                listData.push(items[i]);
+                if (items.hasOwnProperty(i)) {
+                    listData.push(items[i]);
+                }
             }
             if (callback) {
                 res.send(callback + '({"success": true, "list": ' + JSON.stringify(listData) + '})');

@@ -1,3 +1,6 @@
+var mdFile = 'intellij/intellij-shortcuts.md';
+var imageBase = '';
+
 function change(mdfile) {
     mdFile = mdfile;
     loadMarkdown(mdfile);
@@ -51,12 +54,9 @@ $(function () {
     change(mdfile);
 });
 
-var mdFile = 'intellij/intellij-shortcuts.md';
-var imageBase = '';
-
 function getMdFile() {
     var href = location.href;
-    if (href.indexOf('#') > 0) {
+    if (href.indexOf('#') > -1) {
         var hash = href.substring(href.indexOf('#') + 1);
         mdFile = hash;
     }
