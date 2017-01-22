@@ -1,3 +1,4 @@
+
 target
 build
 Thumbs.db
@@ -8,3 +9,4 @@ node_modules
 classes
 class
 .DS_Store
+.sonar
