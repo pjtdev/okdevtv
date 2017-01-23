@@ -15,7 +15,16 @@
 * 정상적으로 설치되었다면 cmd+N 으로 zsh로 실행됨
 * 만약 그대로라면 `chsh -s /usr/local/bin/zsh` 명령으로 shell 변경 가능
 
-## 설치(Remote CentOS)
+## 설치
+
+### AWS ec2-user
+```
+sudo yum update -y
+sudo yum install git zsh -y
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sudo sh
+```
+
+### Remote CentOS
 ```
 su
 yum install zsh
@@ -30,3 +39,5 @@ bash install.sh
 * http://sourabhbajaj.com/mac-setup/iTerm/zsh.html
 * 터미널 초보의 필수품인 Oh My ZSH!를 사용하자
   * https://nolboo.github.io/blog/2015/08/21/oh-my-zsh/
+* Install Oh My Zsh on Ubuntu EC2
+  * https://paikialog.wordpress.com/2012/02/29/install-oh-my-zsh-on-ubuntu-ec2/
