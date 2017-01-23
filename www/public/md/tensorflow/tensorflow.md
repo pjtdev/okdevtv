@@ -62,9 +62,35 @@ for step in range(201):
 ```
 * code from : https://www.tensorflow.org/get_started/
 
+## Linear Regression
+
+## Logistic Regression
+### Sigmoid
+
+### Rectifier Linear Unit
+* ReLU
+
+## CNN
+* Convolutional Neural Network
+* 이미지를 작게 쪼개어서 분석하는 기법
+
+## RNN
+* Recurrent Neural Networks
+* 레이어간 영향을 주는 NN
+
+### LSTM
+* Long Short Term Memory
+
+### GRU
+
+
 ## ref
 * 모두를 위한 머신러닝/딥러닝 강의
   * http://hunkim.github.io/ml/
 * TensorFlow Tutorials
   * https://github.com/golbin/TensorFlow-Tutorials
 * https://github.com/aymericdamien/TensorFlow-Examples
+* https://github.com/TensorFlowKR/awesome_tensorflow_implementations
+* Char RNN : https://github.com/sherjilozair/char-rnn-tensorflow
+* Word RNN : https://github.com/hunkim/word-rnn-tensorflow
+* 신춘문예 2017 후보 시봇 http://bot.wpoem.com/
