@@ -22,7 +22,7 @@ discovery.zen.ping.unicast.hosts: ["127.0.0.1", "52.78.207.130"]
 ```
 
 * Security Group
-  * 9200
+  * **Don't use 0.0.0.0/32**
   * 9300
   * 9301
 
