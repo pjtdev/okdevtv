@@ -48,6 +48,10 @@ aws configure
 aws s3 cp file s3://bucketName/
 ```
 
+### s3 create-bucket
+```
+aws s3api create-bucket --bucket okdevtv2017 --region us-east-1
+```
 
 ## 참고: 
 * Deploying a Development Environment in Amazon EC2 Using the AWS Command Line Interface
