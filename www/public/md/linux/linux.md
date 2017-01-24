@@ -17,6 +17,12 @@ LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
 ```
 
+## date
+```
+date '+%Y%m%d %H%M%S' # today
+date -v-3d '+%Y%m%d %H%M%S' # 1 days before
+```
+
 ## Timezone
 * ~/.bash_profile
 ```
