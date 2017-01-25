@@ -8,8 +8,15 @@
 ```
 <img src="images/timelion-01-offset.webp" alt="offset">
 
+* 수식
 ```
 .es(*).divide(.es(offset=-2h))
+```
+
+## World Bank Open Database
+* 기간을 조정 : 2000~2016
+```
+.wbi(KR)
 ```
 
 ## ref
