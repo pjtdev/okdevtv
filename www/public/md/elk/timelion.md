@@ -13,6 +13,11 @@
 .es(*).divide(.es(offset=-2h))
 ```
 
+* bars
+```
+.es(), .es().bars().pointw()
+```
+
 ## World Bank Open Database
 * 기간을 조정 : 2000~2016
 ```
