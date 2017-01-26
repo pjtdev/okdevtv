@@ -9,4 +9,5 @@ new Promise( /* executor */ function(resolve, reject) { ... } );
 ```
 
 ## ref 
+* http://exploringjs.com/es6/ch_promises.html
 * http://programmingsummaries.tistory.com/325
