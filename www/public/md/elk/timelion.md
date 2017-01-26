@@ -21,3 +21,7 @@
 
 ## ref
 * https://www.elastic.co/kr/blog/timelion-timeline
+* Functions
+  * https://github.com/elastic/timelion/blob/master/FUNCTIONS.md
+* If else
+  * https://www.elastic.co/blog/timeseries-if-then-else-with-timelion
