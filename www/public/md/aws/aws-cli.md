@@ -9,10 +9,10 @@ sudo pip install awscli
 
 ```
 www@ubuntu:~$ aws configure
-AWS Access Key ID [None]: AKIAJC6TNQOO7RIPQ3Q
+AWS Access Key ID [None]: AAAAA5QSQWJ7UXXXXXLGA
 AWS Secret Access Key [None]: n9zWro6z1thxEwenIRg0lw539d1iVU6+se7jnv1
 Default region name [None]: ap-northeast-2
-Default output format [None]: 
+Default output format [None]: json
 
 aws ec2 describe-instances
 ```
@@ -37,6 +37,15 @@ aws ec2 describe-images --owners self amazon --filter "Name=root-device-type,Val
 aws ec2 run-instances --image-id ami-4d1fd123 --security-group-ids okdevtv-sg --count 1 --instance-type t2.micro --key-name devenv-key --query 'Instances[0].InstanceId'
 ```
 
+### s3 create-bucket
+```
+aws s3api create-bucket --bucket okdevtv2017 --region us-east-1
+
+aws s3api list-buckets
+
+aws s3 cp access*.gz s3://okkylogs2017/
+```
+
 ### 인스턴스 접속
 ```
 ssh -i devenv-key.pem ec2-user@인스턴스아이피
@@ -46,11 +55,6 @@ ssh -i devenv-key.pem ec2-user@인스턴스아이피
 ```
 aws configure
 aws s3 cp file s3://bucketName/
-```
-
-### s3 create-bucket
-```
-aws s3api create-bucket --bucket okdevtv2017 --region us-east-1
 ```
 
 ## 참고: 

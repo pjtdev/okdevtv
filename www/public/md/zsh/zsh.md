@@ -17,13 +17,6 @@
 
 ## 설치
 
-### AWS ec2-user
-```
-sudo yum update -y
-sudo yum install git zsh -y
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sudo sh
-```
-
 ### Remote CentOS
 ```
 su
