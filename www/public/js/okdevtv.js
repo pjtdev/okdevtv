@@ -1,5 +1,5 @@
 $(function () {
-    $('form').on('submit', function (e) {
+    $('#form').on('submit', function (e) {
         e.preventDefault();
         var data = $(e.currentTarget).serialize();
         $.post('/apis/tip', {
