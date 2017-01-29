@@ -90,7 +90,7 @@ db.query("select * from T",
 
 ### 이벤트 루프
 
-![event loop](images/event-loop.png)
+<img src="images/event-loop.png" alt="event loop" style="width: 80%"/>
 
 from [blog.udemy.com/learn-node-js/](https://lh4.googleusercontent.com/pwtI1uBbT5Gthva6sGtKu_L3Ih3w2oxt-LA28mEamjrz6dKl87NFKiTxgzlHfGhIuFF107PxLFeWMdc8z3dchWtpqpcaqE4D4nrcSx3UQmfEDmJTL_LzNKQVjg)
 
