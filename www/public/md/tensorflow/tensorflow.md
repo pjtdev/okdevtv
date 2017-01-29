@@ -94,3 +94,5 @@ for step in range(201):
 * Char RNN : https://github.com/sherjilozair/char-rnn-tensorflow
 * Word RNN : https://github.com/hunkim/word-rnn-tensorflow
 * 신춘문예 2017 후보 시봇 http://bot.wpoem.com/
+* 솔라리스의 인공지능 연구실
+  * http://solarisailab.com/
