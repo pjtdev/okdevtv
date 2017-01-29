@@ -480,14 +480,15 @@ $ npm install
 1. 개요, 설치  https://www.youtube.com/watch?v=Z8cOppJwOeU 
 2. socket.io, express.js https://www.youtube.com/watch?v=YWaoLdoqSWE 
 3. express.js basic routing https://www.youtube.com/watch?v=KOtEZ0j0cic 
-4. express.js routing https://youtube.com/kenuheo/live 
-5. node.js + mariadb
-6. express.js + ejs
-7. ...
-8. ...
-9. ...
-10. ...
-...
+4. express.js api https://www.youtube.com/watch?v=-nHp0D4n4Do
+5. express.js resources https://www.youtube.com/watch?v=4bIIX07vN-8
+6. mariadb 연결(Windows) https://www.youtube.com/watch?v=VTBACySodEc
+7. node cluster https://www.youtube.com/watch?v=2v7oRhit8lQ
+8. node debugging https://www.youtube.com/watch?v=TaMYKdcBIGA
+9. Code Quality https://www.youtube.com/watch?v=1931C8MAvdM
+10. jade 2 ejs template https://www.youtube.com/watch?v=IeOoN1LZ4f0
+11. Express + MariaDB(mysql) Web App https://www.youtube.com/watch?v=UocHh8604Lc
+12. Async, Nested SQL https://www.youtube.com/watch?v=PJ7fQnDLmWg
 
 
 ## 참고
