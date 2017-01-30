@@ -32,6 +32,11 @@ cwebp -q 80 -resize 440 276 filename.png -o filename.webp
 brew cask install webpquicklook
 ```
 
+## limit
+* only in Chrome and Android, not Safari, Firefox and IE  
+<img src="images/caniuse.png" alt="webp limited" style="width: 80%"/>
+* check : http://caniuse.com/#feat=webp
+
 ## ref
 * https://developers.google.com/speed/webp/docs/cwebp
 * quick look plugins
