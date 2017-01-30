@@ -67,6 +67,11 @@ for step in range(201):
 ## Logistic Regression
 ### Sigmoid
 
+## NCE loss
+* noise-contrastive estimation loss
+* 텐서플로우(TensorFlow)를 이용해 자연어를 처리하기(NLP) – Word Embedding(Word2vec)
+  * http://solarisailab.com/archives/374
+
 ### Rectifier Linear Unit
 * ReLU
 
@@ -83,6 +88,10 @@ for step in range(201):
 
 ### GRU
 
+## term
+* Max is just: what's the maximum of a function?
+* Argmax is just: what's the input that gives us that maximum?
+  * from : http://www.aiqus.com/forum/questions/26495/what-is-the-difference-between-argmax-and-max
 
 ## tasks
 * 선형 회귀
