@@ -30,6 +30,17 @@ date -v-3d '+%Y%m%d %H%M%S' # 1 days before
 TZ='Asia/Seoul'; export TZ
 ```
 
+## sudo
+```
+# vi /etc/sudoers
+```
+
+```
+## Allows people in group wheel to run all commands
+# %wheel        ALL=(ALL)       ALL
+%dev    ALL=(ALL)       ALL
+```
+
 ## Ref
 * vi 에디터에서 utf8, euc-kr 전환하기
   * http://egloos.zum.com/indirock/v/3791689
