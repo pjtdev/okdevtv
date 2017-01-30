@@ -15,14 +15,14 @@ deactivate
 ```
 
 * win
-  * install pip-Win https://sites.google.com/site/pydatalog/python/pip-for-windows
 ```
 pip install --upgrade virtualenv
 virtualenv --system-site-packages tensorflow
 tensorflow\Scripts\activate
-pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py2-none-any.whl
+pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.1-cp35-cp35m-win_amd64.whl
 deactivate
 ```
+* https://www.microsoft.com/ko-KR/download/details.aspx?id=53587
 
 ## first example
 ```
@@ -82,6 +82,16 @@ for step in range(201):
 * Long Short Term Memory
 
 ### GRU
+
+
+## tasks
+* 선형 회귀
+  * 합격 여부 예측
+* RNN
+  * Chatbot
+* CNN
+  * 비슷한 이미지 찾기
+
 
 
 ## ref

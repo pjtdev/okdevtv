@@ -410,12 +410,17 @@ setTimeout(() => {
 console.log('hello');
 ```
 
-* node-inspector
+* node-inspector (X)
   * https://github.com/node-inspector/node-inspector#node-inspector
   * 크롬브라우저를 독립적으로 띄워서 크롬 인스펙터 UI로 디버깅 가능
   * http://okjsp.tistory.com/1165644244
   * `npm install -g node-inspector`
   * `node-debug app.js`
+
+## email
+* node-emailer
+* gmail smtp 설정 필요 
+  * https://www.google.com/settings/security/lesssecureapps
 
 ## Test Frameworks
 * QUnit
@@ -489,7 +494,7 @@ $ npm install
 10. jade 2 ejs template https://www.youtube.com/watch?v=IeOoN1LZ4f0
 11. Express + MariaDB(mysql) Web App https://www.youtube.com/watch?v=UocHh8604Lc
 12. Async, Nested SQL https://www.youtube.com/watch?v=PJ7fQnDLmWg
-
+13. email 
 
 ## 참고
 * node.js
