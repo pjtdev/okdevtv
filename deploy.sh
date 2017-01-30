@@ -1,4 +1,5 @@
 #!/bin/sh
+source /home/dev/.zshrc
 
 git pull;
 
