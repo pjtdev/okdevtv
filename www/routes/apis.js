@@ -1,14 +1,18 @@
 var express = require('express');
 var router = express.Router();
-/* GET articles listing. */
-router.get('/', function (req, res) {
-    res.json({
-        "apis": []
-    });
+var tip = require('../lib/tip');
+
+/* GET tip listing. */
+router.get('/tips', function (req, res) {
+    tip.list(res);
 });
+
+/* POST save tip */
 router.post('/tip', function (req, res) {
+    tip.save(res, req.body);
     res.json({
         "data": req.body
     });
-})
+});
+
 module.exports = router;

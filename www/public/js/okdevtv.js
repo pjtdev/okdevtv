@@ -2,33 +2,37 @@ $(function () {
     $('#form').on('submit', function (e) {
         e.preventDefault();
         var data = $(e.currentTarget).serialize();
-        $.post('/apis/tip', {
-            'data': data
-        }).done(function () {
-            // This is intentional
-        });
+        $.ajax('/apis/tip', {
+                method: 'post',
+                data: data,
+                dataType: 'json' // data type
+            })
+            .done(function (res) {
+                console.log(res);
+                alert('감사합니다.');
+                $('form#form')[0].reset();
+            });
     });
 });
 
 function sendMessage() {
     if ($("#name").val() && $("#message").val()) {
         $.ajax({
-            url: "/register/"
-            , data: {
-                category: 'kenu.heo@gmail.com'
-                , name: $("#name").val()
-                , email: $("#email").val()
-                , message: $("#message").val()
-            }
-            , dataType: "jsonp"
-            , type: "POST"
+            url: "/register/",
+            data: {
+                category: 'kenu.heo@gmail.com',
+                name: $("#name").val(),
+                email: $("#email").val(),
+                message: $("#message").val()
+            },
+            dataType: "jsonp",
+            type: "POST"
         }).done(function (r) {
             $("#result").html("sent:" + r);
         });
         // clear form
         $("#form").find("input[type=text], textarea").val("");
-    }
-    else {
+    } else {
         if (!($("#name").val())) {
             $("#name").focus();
             return;
@@ -42,8 +46,8 @@ function sendMessage() {
 
 function getList() {
     $.ajax({
-        url: "//okdevtv.com/list"
-        , dataType: "jsonp"
+        url: "//okdevtv.com/list",
+        dataType: "jsonp"
     }).done(function (data) {
         var list = data.list;
         for (var i in list) {

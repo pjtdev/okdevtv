@@ -21,4 +21,6 @@ curl -O http://downloadlink
 * `-H` or `--header`
 ```
 curl --header 'headername: value' http://okdevtv.com
+
+curl -XPOST 'localhost:3000/apis/tip' -H "Content-Type: application/json" -d '{"name": "kenu", "email": "test@test.com"}'
 ```
