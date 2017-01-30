@@ -8,9 +8,14 @@ sudo chown -R $(whoami) /usr/local
 ## Settings
 ```
 mysql -u root -p
+```
+
+```
 GRANT ALL PRIVILEGES ON okdevdb.* TO devuser@localhost
 IDENTIFIED BY 'okpassokpass' WITH GRANT OPTION;
-create database okdevdb
+
+create database okdevdb;
+
 ctrl-D
 ```
 
