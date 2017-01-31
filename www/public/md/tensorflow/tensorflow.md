@@ -115,3 +115,5 @@ for step in range(201):
 * 신춘문예 2017 후보 시봇 http://bot.wpoem.com/
 * 솔라리스의 인공지능 연구실
   * http://solarisailab.com/
+* 내가 찾은 Deep Learning 공부 최단경로(?)
+  * http://blog.naver.com/chesterroh/220920668374
