@@ -63,6 +63,7 @@ for step in range(201):
 * code from : https://www.tensorflow.org/get_started/
 
 ## Linear Regression
+<img src="images/Linear_regression.png" style="width: 80%; max-width: 500px;"/>
 
 ## Logistic Regression
 ### Sigmoid
