@@ -68,6 +68,8 @@ for step in range(201):
 <img src="images/Linear_regression.png" style="width: 80%; max-width: 500px;"/>
 
 ## Logistic Regression
+<img src="images/Logistic-curve.png" style="width: 80%; max-width: 500px;"/>
+
 ### Sigmoid
 
 ## NCE loss
