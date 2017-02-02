@@ -91,6 +91,9 @@ for step in range(201):
 
 ### GRU
 
+## GAN
+
+
 ## term
 * Max is just: what's the maximum of a function?
 * Argmax is just: what's the input that gives us that maximum?
