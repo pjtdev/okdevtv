@@ -117,14 +117,13 @@ for step in range(201):
 ## ref
 * 모두를 위한 머신러닝/딥러닝 강의
   * http://hunkim.github.io/ml/
-* TensorFlow Tutorials
+  * https://github.com/aymericdamien/TensorFlow-Examples
+* TensorFlow Tutorials by 골빈해커
   * https://github.com/golbin/TensorFlow-Tutorials
-* https://github.com/aymericdamien/TensorFlow-Examples
-* https://github.com/TensorFlowKR/awesome_tensorflow_implementations
-* Char RNN : https://github.com/sherjilozair/char-rnn-tensorflow
-* Word RNN : https://github.com/hunkim/word-rnn-tensorflow
-* 신춘문예 2017 후보 시봇 http://bot.wpoem.com/
 * 솔라리스의 인공지능 연구실
   * http://solarisailab.com/
 * 내가 찾은 Deep Learning 공부 최단경로(?)
   * http://blog.naver.com/chesterroh/220920668374
+* https://github.com/TensorFlowKR/awesome_tensorflow_implementations
+* Char RNN : https://github.com/sherjilozair/char-rnn-tensorflow
+* Word RNN : https://github.com/hunkim/word-rnn-tensorflow
