@@ -84,12 +84,6 @@ sudo reboot 0
 * Elasticsearch와 Kibana는 권장 버전을 맞춰야 함
 * 설치 위치 /opt/ 또는 ~/local/ 권장
 
-* copy internal ip address, private ip needed
-```
-ifconfig | grep inet
-          inet addr:172.31.8.113  Bcast:172.31.15.255  Mask:255.255.240.0
-# copy 172.31.8.113
-```
 
 ## Elasticsearch 설치
 
@@ -100,16 +94,13 @@ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.ta
 tar xvfz elasticsearch-5.2.0.tar.gz
 ln -s elasticsearch-5.2.0 elasticsearch
 cd elasticsearch
-vi config/elasticsearch.yml
-  # `# network.host: 192.168.0.1`의 주석을 풀고 `network.host: 172.31.8.113`으로 변경
-  # 모든 IP에서 접근 가능
 bin/elasticsearch -d
   # 데몬(백그라운드)로 실행. 옵션 -d를 빼면 터미널 접속해 있는 동안만 실행
 ```
 
 * 실행 확인
 ```
-curl -i http://172.31.8.113:9200/
+curl -i http://localhost:9200/
 ```
 
 ## Kibana 설치
@@ -123,25 +114,12 @@ cd kibana
 ```
 
 ```
-vi config/kibana.yml
-```
-
-```
-#server.host: "localhost"
-server.host: "172.31.8.113"
-
-#elasticsearch.url: "http://localhost:9200"
-elasticsearch.url: "http://172.31.8.113:9200"
-```
-
-
-```
 bin/kibana
 # background run
 nohup bin/kibana &
 ```
 
-* 실행 확인 http://172.31.8.113:5601
+* 실행 확인 http://localhost:5601
 
 
 ## Logstash 설치
@@ -177,9 +155,7 @@ filter {
     }
 }
 output {
-    elasticsearch {
-        hosts => "172.31.8.113:9200"
-    }
+    elasticsearch {}
 }
 ```
 
@@ -215,7 +191,7 @@ cd filebeat
     #hosts: ["localhost:9200"]
 # logstash 부분 # 주석 해제
   output.logstash:
-    hosts: ["172.31.8.113:5044"]
+    hosts: ["localhost:5044"]
 
 # filebeat.yml 내용 중 로그 위치 변경 `/var/log/nginx/*.log`
 ```
@@ -391,7 +367,7 @@ filter {
 ```
 output {
   elasticsearch {
-    hosts => "172.31.8.113:9200"
+    hosts => "localhost:9200"
     manage_template => false
     index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
     document_type => "%{[@metadata][type]}"
@@ -404,14 +380,14 @@ output {
 
 ### elasticsearch
 * 데이터 지우기
-  * `curl -XDELETE http://172.31.8.113:9200/logstash*`
+  * `curl -XDELETE http://localhost:9200/logstash*`
 
 
 
 ## Kibana 인증 with nginx
 ### htpasswd 설치
 ```
-sudo yum install httpd-tools
+sudo yum install httpd-tools -y
 sudo htpasswd -c /etc/nginx/htpasswd.users kibanaadmin
 sudo htpasswd /etc/nginx/htpasswd.users kenuheo # 사용자 추가
 ```
@@ -426,7 +402,7 @@ sudo vi /etc/nginx/nginx.conf
         auth_basic_user_file /etc/nginx/htpasswd.users;
 
         location / {
-                proxy_pass http://172.31.8.113:5601;
+                proxy_pass http://localhost:5601;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';
