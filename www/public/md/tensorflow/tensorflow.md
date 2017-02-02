@@ -3,6 +3,7 @@
 * https://www.tensorflow.org/
 
 ## install
+* https://www.tensorflow.org/get_started/os_setup
 * mac
   * virtualenv 사용
 ```
@@ -14,7 +15,7 @@ pip install --upgrade $TF_BINARY_URL
 deactivate
 ```
 
-* win
+  * win
 ```
 pip install --upgrade virtualenv
 virtualenv --system-site-packages tensorflow
@@ -22,7 +23,8 @@ tensorflow\Scripts\activate
 pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.1-cp35-cp35m-win_amd64.whl
 deactivate
 ```
-* https://www.microsoft.com/ko-KR/download/details.aspx?id=53587
+  * https://www.microsoft.com/ko-KR/download/details.aspx?id=53587
+  * Microsoft Visual C++ 2015 재배포 가능 패키지(x86) 14.0.23504 필요
 
 ## first example
 ```
@@ -102,6 +104,14 @@ for step in range(201):
 * CNN
   * 비슷한 이미지 찾기
 
+
+## 서적
+* 텐서플로 첫걸음
+  * http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=89824250
+* 텐서플로 입문
+  * http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=94238233
+* 어서와! 머신러닝은 처음이지? (R)
+  * http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=99084501
 
 
 ## ref
