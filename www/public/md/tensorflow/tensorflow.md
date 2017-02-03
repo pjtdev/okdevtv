@@ -95,6 +95,35 @@ for step in range(201):
 
 ## GAN
 
+## TensorFlow Term
+* rank : dimension of tensor
+* shape : rows and columns of tensor
+* type : data type of tensor
+
+```
+import numpy as np
+tensor_1d = np.array([1.3, 1, 4.0, 23.99])
+
+print tensor_1d
+
+print tensor_1d[0]
+
+tensor_1d.ndim
+
+tensor_1d.shape
+
+tensor_1d.type
+
+import tensorflow as tf
+tf_tensor = tf.convert_to_tensor(tensor_1d, dtype=tf.float64)
+```
+
+```
+tensor_2d = np.array([(1,2,3,4), (5,6,7,8), (9,10,11,12), (13,14,15,16)])
+print tensor_2d
+
+tensor_2d[0:2,0:2]
+```
 
 ## term
 * Max is just: what's the maximum of a function?
