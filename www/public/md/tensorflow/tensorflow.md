@@ -125,9 +125,16 @@ print tensor_2d
 tensor_2d[0:2,0:2]
 ```
 
+### Random functions
+* random_uniform() : Uniform Distribution Funtion
+  * random_uniform(shape, minval, maxval, dtype, seed, name)
+  * Uniform Distribution : 주어진 범위 내의 모든 수가 동일한 분포를 갖는 형태
+* random_normal() : Normal Distribution Function
+  * random_normal(shape, mean, stddev, name)
+
 ## term
-* Max is just: what's the maximum of a function?
-* Argmax is just: what's the input that gives us that maximum?
+* Max: what's the maximum of a function?
+* Argmax: what's the input that gives us that maximum?
   * from : http://www.aiqus.com/forum/questions/26495/what-is-the-difference-between-argmax-and-max
 
 ## tasks
