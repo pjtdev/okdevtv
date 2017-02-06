@@ -34,7 +34,11 @@
   * 주석달린 태그
   * http://git-scm.com/book/ko/Git의-기초-태그
 * 리셋하기
+  * git reset --hard a189fce
 * 미뤄두기
+  * git stash
+  * git stash list
+  * git stash pop
 * 머지
 * rebase
 * 커밋 롤백하기
