@@ -154,6 +154,19 @@ tensor_2d[0:2,0:2]
 * 어서와! 머신러닝은 처음이지? (R)
   * http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=99084501
 
+## tensorboard
+* TensorFlow 시각화 기능
+### code
+* `name="a"`
+* `merged = tf.merge_all_summaries()`
+* `writer = tf.train.SummaryWriter("/tmp/tensorflowlog", session.graph)`
+
+### tensorboard 실행
+```
+tensorboard --logdir=/temp/tensorflowlogs
+```
+* http://localhost:6006/
+
 
 ## ref
 * 모두를 위한 머신러닝/딥러닝 강의
