@@ -67,6 +67,11 @@ for step in range(201):
 ## Linear Regression
 <img src="images/Linear_regression.png" style="width: 80%; max-width: 500px;"/>
 
+### Gradient Descent Method
+* 경사하강법
+* `tf.train.GradientDescentOptimizer()`
+* <img src="images/Gradient_descent.png" style="width: 80%; max-width: 500px;"/>
+
 ## Logistic Regression
 <img src="images/Logistic-curve.png" style="width: 80%; max-width: 500px;"/>
 
