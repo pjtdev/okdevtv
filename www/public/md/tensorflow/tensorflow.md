@@ -25,6 +25,7 @@ deactivate
 ```
   * https://www.microsoft.com/ko-KR/download/details.aspx?id=53587
   * Microsoft Visual C++ 2015 재배포 가능 패키지(x86) 14.0.23504 필요
+  * [matplotlib install for windows](//okdevtv.com/mib/tensorflow/matplotlib)
 
 ## first example
 ```
@@ -162,6 +163,7 @@ tensor_2d[0:2,0:2]
 
 ## tensorboard
 * TensorFlow 시각화 기능
+
 ### code
 * `name="a"`
 * `merged = tf.merge_all_summaries()`
@@ -172,7 +174,6 @@ tensor_2d[0:2,0:2]
 tensorboard --logdir=/temp/tensorflowlogs
 ```
 * http://localhost:6006/
-
 
 ## ref
 * 모두를 위한 머신러닝/딥러닝 강의
