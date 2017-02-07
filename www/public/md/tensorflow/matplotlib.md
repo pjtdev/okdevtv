@@ -13,5 +13,15 @@
 * comment out and insert code
 * `direc = direc.split('\0', 1)[0]`
 
+### test
+```
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4])
+plt.ylabel('some numbers')
+plt.show()
+```
+* check image
+<img src="images/matplotlib-basic.png" style="width: 80%; max-width: 500px;">
+
 ## ref
   * http://stackoverflow.com/questions/34004063/error-on-import-matplotlib-pyplot-on-anaconda3-for-windows-10-home-64-bit-pc
