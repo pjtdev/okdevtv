@@ -20,7 +20,7 @@ plt.plot([1,2,3,4])
 plt.ylabel('some numbers')
 plt.show()
 ```
-* check image
+* check image  
 <img src="images/matplotlib-basic.png" style="width: 80%; max-width: 500px;">
 
 ## ref
