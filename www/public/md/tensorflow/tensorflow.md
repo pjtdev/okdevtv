@@ -76,8 +76,11 @@ for step in range(201):
 
 ## Logistic Regression
 <img src="images/Logistic-curve.png" style="width: 80%; max-width: 500px;"/>
+* 0 or 1
+* True of False
 
 ### Sigmoid
+* https://www.desmos.com/calculator/vvl1zn7wfn
 
 ## NCE loss
 * noise-contrastive estimation loss
