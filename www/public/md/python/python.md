@@ -14,6 +14,7 @@
 * `pip --help`
 * `pip list`
 * `pip install virtualenv`
+* `pip uninstall virtualenv`
 
 ## virtualenv
 * closed env
@@ -24,3 +25,11 @@
 ```
 backend: TkAgg
 ```
+
+## ref
+* 생활코딩 Python & Ruby
+  * https://opentutorials.org/course/1750
+* Tutoiral Point Python
+  * https://www.tutorialspoint.com/python/
+* Python 10 tasks
+  * [10 things possible with Python](https://okdevtv.com/mib/python/10)
