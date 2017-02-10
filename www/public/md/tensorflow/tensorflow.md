@@ -76,7 +76,7 @@ for step in range(201):
 
 ## Logistic Regression
 * <img src="images/logistic-equation.png" />
-<img src="images/Logistic-curve.png" style="width: 80%; max-width: 500px;"/>
+* <img src="images/Logistic-curve.png" style="width: 80%; max-width: 500px;"/>
 * 0 or 1
 * True of False
 
