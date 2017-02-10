@@ -18,6 +18,22 @@
 
 ## virtualenv
 * closed env
+* `virtualenv venv`
+* `source venv/bin/activate`
+* `deactivate`
+
+### python3 (mac)
+* install brew
+  * https://brew.sh
+* install python3
+```
+brew install python3
+virtualenv -p python3 venv3
+source venv3/bin/activate
+
+python -V
+deactivate
+```
 
 ## mac
 * `Python is not installed as a framework` issue?
