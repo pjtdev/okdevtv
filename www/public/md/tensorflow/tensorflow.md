@@ -147,6 +147,18 @@ tensor_2d[0:2,0:2]
 * Max: what's the maximum of a function?
 * Argmax: what's the input that gives us that maximum?
   * from : http://www.aiqus.com/forum/questions/26495/what-is-the-difference-between-argmax-and-max
+* Epoch : learning cycle
+* Perceptron : neural network model, feedforward network
+  * single-layer perceptron
+  * multilayer perceptrons
+    * backpropagation
+
+*  
+<img src="images/Perceptron_1.png" />
+  * image from : http://www.saedsayad.com/artificial_neural_network_bkp.htm
+*  
+<img src="images/mlp.png" />
+  * image from : http://blog.refu.co/?p=931
 
 ## tasks
 * 선형 회귀
