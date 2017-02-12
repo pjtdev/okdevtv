@@ -185,6 +185,8 @@ tensorboard --logdir=/temp/tensorflowlogs
   * https://github.com/aymericdamien/TensorFlow-Examples
 * 시즌2 모두를 위한 딥러닝 - Deep Reinforcement Learning
   * https://www.inflearn.com/course/reinforcement-learning/
+* Practical Deep Learning For Coders
+  * http://course.fast.ai/index.html
 * TensorFlow Tutorials by 골빈해커
   * https://github.com/golbin/TensorFlow-Tutorials
 * 솔라리스의 인공지능 연구실
