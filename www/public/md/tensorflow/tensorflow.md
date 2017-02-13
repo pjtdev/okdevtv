@@ -160,6 +160,9 @@ tensor_2d[0:2,0:2]
 <img src="images/mlp.png" />
   * image from : http://blog.refu.co/?p=931
 
+* softmax 
+* cross_entropy
+
 ## tasks
 * 선형 회귀
   * 합격 여부 예측
