@@ -41,6 +41,16 @@ TZ='Asia/Seoul'; export TZ
 %dev    ALL=(ALL)       ALL
 ```
 
+## Basic command
+|basic command	| mac	| windows |
+|----|----|----|
+|change directory	| cd	| cd|
+|list files	|ls	|dir|
+|list files info	|ls -l	|dir|
+|view file content	|cat filename	|type filename|
+|open site	|open http://www.naver.com	|explorer http://www.naver.com|
+|edit file	|nano filename	|notepad filename|
+
 ## Ref
 * vi 에디터에서 utf8, euc-kr 전환하기
   * http://egloos.zum.com/indirock/v/3791689

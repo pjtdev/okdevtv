@@ -3,6 +3,13 @@
 * 1991 Guido Van Rossum
 * hacker's favorite language
 
+## basic
+|python 실행	|python|
+|----|----|
+|python 종료	|ctrl + D or `exit()`|
+|python file 실행	|`python sample.py`|
+|python 버전 확인	|`python -V`|
+
 ## pip
 * `curl -O https://bootstrap.pypa.io/get-pip.py`
 * `sudo python get-pip.py`
