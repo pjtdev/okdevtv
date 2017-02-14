@@ -2318,13 +2318,25 @@ curl -XPOST 'localhost:9200/books/_analyze?analyzer=my_analyzer&pretty' -d 'Arou
 
 * install
 
+* url
 ```
-# elasticsearch 5.0.0 이상
+# elasticsearch 5.1.1
 ./bin/elasticsearch-plugin install https://oss.sonatype.org/service/local/repositories/releases/content/org/bitbucket/eunjeon/elasticsearch-analysis-seunjeon/5.1.1.1/elasticsearch-analysis-seunjeon-5.1.1.1.zip
+```
+* file
+```
+wget https://oss.sonatype.org/service/local/repositories/releases/content/org/bitbucket/eunjeon/elasticsearch-analysis-seunjeon/5.1.1.1/elasticsearch-analysis-seunjeon-5.1.1.1.zip
+./bin/elasticsearch-plugin install file:///home/ec2-user/local/elasticsearch/elasticsearch-analysis-seunjeon-5.1.1.1.zip
+```
 
+
+* old
+```
 # elasticsearch 2.4.1 이하
 ./bin/elasticsearch-plugin install org.bitbucket.eunjeon/elasticsearch-analysis-seunjeon/2.4.0.1
 ```
+
+
 
 ```
 #!/usr/bin/env bash
