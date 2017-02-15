@@ -16,3 +16,4 @@ bin/zeppelin-daemon.sh stop
 
 ## Quick Start
 * https://zeppelin.apache.org/docs/0.7.0/quickstart/tutorial.html
+  * http://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank.zip
