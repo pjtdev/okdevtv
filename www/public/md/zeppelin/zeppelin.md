@@ -13,3 +13,6 @@ bin/zeppelin-daemon.sh stop
 ```
 
 * http://localhost:8080/
+
+## Quick Start
+* https://zeppelin.apache.org/docs/0.7.0/quickstart/tutorial.html
