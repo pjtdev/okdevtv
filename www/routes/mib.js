@@ -21,7 +21,7 @@ function setBody(data, path) {
     var folder = '/md/' + path[2] + '/';
     var html = data.replace(/img src="images/g, 'img src="' + folder + 'images');
     var htmlTag = '<!DOCTYPE html>' +
-'<html lang="ko"><head><title>' + path[3] + '</title><script src="/js/gwgpot.js"></script>' +
+'<html lang="ko"><head><title>' + path[3] + '</title>' +
 '<meta http-equiv="content-type" content="text/html; charset=utf-8" />' +
     '<meta property="og:title" content="' + path[3] + '" />' +
     '<meta property="og:url" content="http://okdevtv.com' + path.join('/') + '" />' +
