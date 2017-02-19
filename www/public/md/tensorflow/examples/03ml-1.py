@@ -1,3 +1,4 @@
+from __future__ import print_function
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
@@ -9,7 +10,7 @@ m = n_samples = len(X)
 W = tf.placeholder(tf.float32)
 
 # Construct a linear model
-hypothesis = tf.mul(X, W)
+hypothesis = tf.multiply(X, W)
 
 # Cost function
 cost = tf.reduce_sum(tf.pow(hypothesis - Y, 2)) / (m)

@@ -1,3 +1,4 @@
+from __future__ import print_function
 import tensorflow as tf
 
 x_data = [1., 2., 3.]
@@ -16,7 +17,7 @@ hypothesis = W * X
 cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
 # Minimize
-descent = W - tf.mul(0.1, tf.reduce_mean(tf.mul((tf.mul(W, X) - Y), X)))
+descent = W - tf.multiply(0.1, tf.reduce_mean(tf.multiply((tf.multiply(W, X) - Y), X)))
 update = W.assign(descent)
 
 # Initializing the variables
@@ -29,5 +30,5 @@ sess.run(init)
 # Fit the line
 for step in xrange(100):
     sess.run(update, feed_dict = {X:x_data, Y:y_data})
-    print step, sess.run(cost, feed_dict = {X:x_data, Y:y_data}), sess.run(W)
+    print(step, sess.run(cost, feed_dict = {X:x_data, Y:y_data}), sess.run(W))
 
