@@ -2,30 +2,56 @@
 * ML Library
 * https://www.tensorflow.org/
 
-## install
-* https://www.tensorflow.org/get_started/os_setup
+## Prerequisite
+* python https://okdevtv.com/mib/python
+  * windows : 3.5.3 (not 3.6.0)
+
+## install v0.12.1
+* https://www.tensorflow.org/install
 * mac
   * virtualenv 사용
+
 ```
 sudo pip install --upgrade virtualenv
 virtualenv --system-site-packages ~/tensorflow
 source ~/tensorflow/bin/activate
-TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py2-none-any.whl
+TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py2-none-any.whl
 pip install --upgrade $TF_BINARY_URL
+```
+  * exit virtualenv mode
+```
 deactivate
 ```
 
-  * win
+* win
+  * Python 3.5.3
+  * https://www.microsoft.com/ko-KR/download/details.aspx?id=53587
+    * Microsoft Visual C++ 2015 재배포 가능 패키지(x86) 14.0.23504 필요
+
 ```
 pip install --upgrade virtualenv
 virtualenv --system-site-packages -p python.exe tensorflow
 tensorflow\Scripts\activate
 pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.1-cp35-cp35m-win_amd64.whl
+```
+
+  * exit virtualenv mode
+```
 deactivate
 ```
-  * https://www.microsoft.com/ko-KR/download/details.aspx?id=53587
-  * Microsoft Visual C++ 2015 재배포 가능 패키지(x86) 14.0.23504 필요
   * [matplotlib install for windows](//okdevtv.com/mib/tensorflow/matplotlib)
+
+
+## install v1.0.0
+* warning: most samples are not updated.
+```
+sudo pip install --upgrade virtualenv
+virtualenv --system-site-packages ~/tensorflow
+source ~/tensorflow/bin/activate
+pip install --upgrade tensorflow
+deactivate
+```
+
 
 ## first example
 ```
