@@ -40,6 +40,12 @@ sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 * more [install](https://okdevtv.com/mib/java)
 
 ## system env
+* chech env
+```
+ulimit -a
+```
+
+### set
 ```
 sudo vi /etc/security/limits.conf
 ```
@@ -72,7 +78,6 @@ sudo reboot 0
 * EC2 Security Groups
 * 외부 접근 포트 추가(inbound)
   * http(80)
-  * kibana(5601); nginx proxying 후 제거
 
 
 ## 설치
@@ -82,7 +87,7 @@ sudo reboot 0
 
 * 버전을 맞춰서 작업하는 것이 좋지만, 최신 버전으로 작업해도 동작함(2016/04/03 현재)
 * Elasticsearch와 Kibana는 권장 버전을 맞춰야 함
-* 설치 위치 /opt/ 또는 ~/local/ 권장
+* 설치 위치  ~/local/ 또는 /opt/ 권장
 
 
 ## Elasticsearch 설치
@@ -119,7 +124,7 @@ bin/kibana
 nohup bin/kibana &
 ```
 
-* 실행 확인 http://localhost:5601
+* `curl localhost:5601`
 
 
 ## Logstash 설치
