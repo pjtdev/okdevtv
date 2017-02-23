@@ -59,6 +59,9 @@ backend: TkAgg
 * 문자열 위치
 * 문자열 추출
 
+## list(array)
+* 배열
+
 ## ref
 * 생활코딩 Python & Ruby
   * https://opentutorials.org/course/1750
