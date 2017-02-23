@@ -49,6 +49,16 @@ deactivate
 backend: TkAgg
 ```
 
+## 파일
+* 파일 열어서 한 줄씩 출력하기
+* 결과 파일 생성하기
+* 참고: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+
+## 문자열(String)
+* 문자열 포함
+* 문자열 위치
+* 문자열 추출
+
 ## ref
 * 생활코딩 Python & Ruby
   * https://opentutorials.org/course/1750
