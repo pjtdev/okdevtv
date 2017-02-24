@@ -237,3 +237,4 @@ tensorboard --logdir=/temp/tensorflowlogs
 * https://github.com/TensorFlowKR/awesome_tensorflow_implementations
 * Char RNN : https://github.com/sherjilozair/char-rnn-tensorflow
 * Word RNN : https://github.com/hunkim/word-rnn-tensorflow
+* http://karpathy.github.io/2015/05/21/rnn-effectiveness/
