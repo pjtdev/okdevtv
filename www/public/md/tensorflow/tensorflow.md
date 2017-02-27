@@ -113,6 +113,11 @@ for step in range(201):
 * the perceptron is an algorithm for learning a binary classifier
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/04228fc42b76b9ebcb067208e6129c3ccb735903" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:28.374ex; height:6.176ex;" alt="f(x)={\begin{cases}1&amp;{\text{if }}w\cdot x+b>0\\0&amp;{\text{otherwise}}\end{cases}}">
 
+## Cross Entropy
+* The cross-entropy measure has been used as an alternative to squared error.
+* Cross-entropy can be used as an error measure when a network's outputs can be thought of as representing independent hypotheses
+  * http://www.cse.unsw.edu.au/~billw/cs9444/crossentropy.html
+
 ## NCE loss
 * noise-contrastive estimation loss
 * 텐서플로우(TensorFlow)를 이용해 자연어를 처리하기(NLP) – Word Embedding(Word2vec)
