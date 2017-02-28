@@ -32,7 +32,9 @@
 ### python3 (mac)
 * install brew
   * https://brew.sh
+
 * install python3
+
 ```
 brew install python3
 virtualenv -p python3 venv3
