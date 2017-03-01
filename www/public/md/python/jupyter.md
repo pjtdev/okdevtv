@@ -1,0 +1,2 @@
+# jupyter
+* `pip install jupyter`
