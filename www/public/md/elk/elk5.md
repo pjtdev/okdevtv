@@ -380,6 +380,16 @@ output {
 }
 ```
 
+* replace
+```
+    mutate {
+        gsub => [ 'message', '\\x22', '']
+        gsub => [ 'message', '"@fields": {', '']
+        gsub => [ 'message', '} }', '}']
+        gsub => [ 'message', '@', '']
+    }
+```
+
 ### Kibana
 * https://okdevtv.com/mib/elk/kibana
 
