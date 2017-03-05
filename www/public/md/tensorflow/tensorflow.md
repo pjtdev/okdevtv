@@ -39,7 +39,7 @@ pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tens
 ```
 deactivate
 ```
-  * [matplotlib install for windows](//okdevtv.com/mib/tensorflow/matplotlib)
+  * [matplotlib install for windows](//okdevtv.com/mib/python/matplotlib)
 
 
 ## install v1.0.0
