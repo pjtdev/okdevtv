@@ -113,6 +113,11 @@ for step in range(201):
 * the perceptron is an algorithm for learning a binary classifier
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/04228fc42b76b9ebcb067208e6129c3ccb735903" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:28.374ex; height:6.176ex;" alt="f(x)={\begin{cases}1&amp;{\text{if }}w\cdot x+b>0\\0&amp;{\text{otherwise}}\end{cases}}">
 
+## softmax 
+  * http://pythonkim.tistory.com/19
+  * "softmax는 데이터를 2개 이상의 그룹으로 나누기 위해 binary classification을 확장한 모델이다."
+  * "통계에서 가장 큰 값을 찾는 개념을 hardmax라고 부른다. softmax는 새로운 조건으로 가장 큰 값을 찾는 개념을 말한다. 일반적으로는 큰 숫자를 찾는 것이 hardmax에 해당하고, 숫자를 거꾸로 뒤집었을 경우에 대해 가장 큰 숫자를 찾는다면 softmax에 해당한다. 여기서는 우리가 알고 있는 큰 숫자를 찾는 것이 아니라는 뜻으로 쓰인다."
+
 ## Cross Entropy
 * The cross-entropy measure has been used as an alternative to squared error.
 * Cross-entropy can be used as an error measure when a network's outputs can be thought of as representing independent hypotheses
@@ -196,9 +201,6 @@ tensor_2d[0:2,0:2]
 <img src="images/mlp.png" />
   * image from : http://blog.refu.co/?p=931
 
-* softmax 
-* cross_entropy
-
 ## tasks
 * 선형 회귀
   * 합격 여부 예측
@@ -236,6 +238,8 @@ tensorboard --logdir=/temp/tensorflowlogs
   * https://github.com/aymericdamien/TensorFlow-Examples
 * 시즌2 모두를 위한 딥러닝 - Deep Reinforcement Learning
   * https://www.inflearn.com/course/reinforcement-learning/
+* 머신러닝_김성훈교수님 노트 by 파이쿵
+  * http://pythonkim.tistory.com/category/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EA%B9%80%EC%84%B1%ED%9B%88%EA%B5%90%EC%88%98%EB%8B%98
 * Practical Deep Learning For Coders
   * http://course.fast.ai/index.html
 * TensorFlow Tutorials by 골빈해커
