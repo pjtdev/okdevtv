@@ -1,6 +1,10 @@
 # matplotlib for windows
+* http://matplotlib.org/
 * `pip install matplotlib`
 * `import matplotlib.pyplot as plt`
+
+## Tutorials
+* http://matplotlib.org/users/pyplot_tutorial.html
 
 ### error
 * `ValueError: _getfullpathname: embedded null character`  
