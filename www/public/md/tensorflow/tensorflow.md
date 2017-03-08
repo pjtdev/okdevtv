@@ -200,6 +200,8 @@ tensor_2d[0:2,0:2]
 *  
 <img src="images/mlp.png" />
   * image from : http://blog.refu.co/?p=931
+* one-hot : 벡터에서 하나만 1이고 나머지는 0으로 채워진 경우 [0,0,0,1,0,0,0,0,0,0] == 3
+
 
 ## tasks
 * 선형 회귀
@@ -244,6 +246,8 @@ tensorboard --logdir=/temp/tensorflowlogs
   * http://course.fast.ai/index.html
 * TensorFlow Tutorials by 골빈해커
   * https://github.com/golbin/TensorFlow-Tutorials
+* CodeOnWeb tensorflow
+  * https://codeonweb.com/entry/12045839-0aa9-4bad-8c7e-336b89401e10
 * 솔라리스의 인공지능 연구실
   * http://solarisailab.com/
 * 내가 찾은 Deep Learning 공부 최단경로(?)
