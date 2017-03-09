@@ -134,6 +134,23 @@ for step in range(201):
 ## CNN
 * Convolutional Neural Network
 * 이미지를 작게 쪼개어서 분석하는 기법
+* Convolutional Layer + Pooling Layer
+* 참고: http://sanghyukchun.github.io/75/
+* sparse weight, tied weight, equivariant representation
+
+### Convolutional Layer
+* 합성곱
+  * <img src="http://sanghyukchun.github.io/images/post/75-7.jpg">
+* CNN Architecture
+  * Convolutional Layers
+  * Sub-sample Layers
+  * <img src="http://masters.donntu.org/2012/fknt/umiarov/diss/images/image3_en.png">
+
+### Pooling Layer
+* 더 dimension이 낮은 feature map을 얻기 위하여 Subsampling
+* convolution layer의 feature map을 조금 더 줄여주는 역할
+  * <img src="http://inspirehep.net/record/1252539/files/CNN.png">
+
 
 ## RNN
 * Recurrent Neural Networks
