@@ -134,6 +134,23 @@ for step in range(201):
 ## CNN
 * Convolutional Neural Network
 * 이미지를 작게 쪼개어서 분석하는 기법
+* Convolutional Layer + Pooling Layer
+* 참고: http://sanghyukchun.github.io/75/
+* sparse weight, tied weight, equivariant representation
+
+### Convolutional Layer
+* 합성곱
+  * <img src="http://sanghyukchun.github.io/images/post/75-7.jpg">
+* CNN Architecture
+  * Convolutional Layers
+  * Sub-sample Layers
+  * <img src="http://masters.donntu.org/2012/fknt/umiarov/diss/images/image3_en.png">
+
+### Pooling Layer
+* 더 dimension이 낮은 feature map을 얻기 위하여 Subsampling
+* convolution layer의 feature map을 조금 더 줄여주는 역할
+  * <img src="http://inspirehep.net/record/1252539/files/CNN.png">
+
 
 ## RNN
 * Recurrent Neural Networks
@@ -200,6 +217,8 @@ tensor_2d[0:2,0:2]
 *  
 <img src="images/mlp.png" />
   * image from : http://blog.refu.co/?p=931
+* one-hot : 벡터에서 하나만 1이고 나머지는 0으로 채워진 경우 [0,0,0,1,0,0,0,0,0,0] == 3
+
 
 ## tasks
 * 선형 회귀
@@ -244,6 +263,8 @@ tensorboard --logdir=/temp/tensorflowlogs
   * http://course.fast.ai/index.html
 * TensorFlow Tutorials by 골빈해커
   * https://github.com/golbin/TensorFlow-Tutorials
+* CodeOnWeb tensorflow
+  * https://codeonweb.com/entry/12045839-0aa9-4bad-8c7e-336b89401e10
 * 솔라리스의 인공지능 연구실
   * http://solarisailab.com/
 * 내가 찾은 Deep Learning 공부 최단경로(?)
