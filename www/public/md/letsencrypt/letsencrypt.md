@@ -14,7 +14,7 @@
 
 
 ## 필요사항
-* 도메인 (예 okdevtest.com)
+* 도메인 (예 okdevtest.net)
 * 서버 (예 digitalocean.com 임대)
   * http://80port.com 도메인 서비스 추천
   * CentOS 7.1(python 2.7 built-in)로 예제 실행
@@ -39,7 +39,15 @@ sudo su -
 ```
 
 ```
-certbot-auto certonly --standalone -d okdevtest.com --debug
+certbot-auto certonly --standalone -d okdevtest.net --debug
+```
+
+## dhparams.pem
+```
+cd /etc/letsencrypt/archive/okdevtest.net
+openssl dhparam -out dhparams.pem 2048
+cd /etc/letsencrypt/live/okdevtest.net
+ln -s ../../archive/okdevtest.net/dhparams.pem dhparams.pem
 ```
 
 * 아래는 이전 방법
@@ -61,14 +69,14 @@ systemctl stop nginx #centos7.x
 ```
 ./letsencrypt-auto certonly \
   -a standalone \
-  -d okdevtest.com \
-  -d www.okdevtest.com
+  -d okdevtest.net \
+  -d www.okdevtest.net
 ```
 * tld : top level domain; .com, .net, .co.kr, .pe.kr, .kr, ...
 
 ## 인증서 확인
 ```
-# sudo ls /etc/letsencrypt/live/okdevtest.com/
+# sudo ls /etc/letsencrypt/live/okdevtest.net/
 cert.pem  chain.pem  fullchain.pem  privkey.pem
 ```
 
@@ -82,11 +90,15 @@ vi /etc/nginx/conf.d/default.conf
 * `listen 80;` 라인 밑에 추가
 ```
         listen 443 ssl;
-        ssl_certificate /etc/letsencrypt/live/okdevtest.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/okdevtest.com/privkey.pem;
+        ssl_certificate /etc/letsencrypt/live/okdevtest.net/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/okdevtest.net/privkey.pem;
         ssl_stapling on;
         ssl_stapling_verify on;
-        ssl_trusted_certificate /etc/letsencrypt/live/okdevtest.com/fullchain.pem;
+
+        ssl_trusted_certificate /etc/letsencrypt/live/okdevtest.net/fullchain.pem;
+        ssl_prefer_server_ciphers on;
+
+        ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
 ```
 
 ## nginx 설정 테스트
@@ -123,7 +135,7 @@ cd /opt/letsencrypt/
 yum install epel-release
 yum install -y python-pip
 pip install virtualenv
-./letsencrypt-auto --apache -d www.okdevtest.com
+./letsencrypt-auto --apache -d www.okdevtest.net
 ```
 
 
@@ -147,7 +159,7 @@ For any questions or support, please visit https://community.letsencrypt.org/. U
 ## nginx update expiry
 ```
 service nginx stop
-./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.com -d www.okdevtest.com
+./letsencrypt-auto certonly --renew-by-default -a standalone -d okdevtest.net -d www.okdevtest.net
 service nginx start
 ```
 * 무중단 갱신 가능 : http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=80590
