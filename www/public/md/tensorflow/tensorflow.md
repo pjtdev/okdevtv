@@ -273,3 +273,5 @@ tensorboard --logdir=/temp/tensorflowlogs
 * Char RNN : https://github.com/sherjilozair/char-rnn-tensorflow
 * Word RNN : https://github.com/hunkim/word-rnn-tensorflow
 * http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+* Fundamental of Reinforcement Learning
+  * https://dnddnjs.gitbooks.io/rl/content/
