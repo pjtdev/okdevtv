@@ -17,6 +17,11 @@ LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
 ```
 
+## change file encoding
+```
+iconv -f euc-kr -t utf-8 kimchi.txt > kimchi_utf8.txt
+```
+
 ## date
 ```
 date '+%Y%m%d %H%M%S' # today
