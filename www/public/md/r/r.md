@@ -16,3 +16,8 @@
   * `library(extrafont)`
   * `font_import()`
 
+## package install
+```
+update.packages()
+install.packages('zoo')
+```
