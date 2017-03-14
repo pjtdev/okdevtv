@@ -25,6 +25,7 @@ ReactDOM.render(<HelloMessage name="John" />, mountNode);
   * `mixins` – 객체 배열, 현재 컴포넌트 기능 확장에 사용됨
 
 * stateful
+
 ```
 var Timer = React.createClass({
   getInitialState: function() {
