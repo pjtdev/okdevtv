@@ -52,4 +52,6 @@ ReactDOM.render(<Timer />, mountNode);
 
 
 ## 참고
+* inflearn react 강좌
+  * https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/
 * https://scotch.io/tutorials/learning-react-getting-started-and-concepts
