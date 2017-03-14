@@ -19,7 +19,6 @@ django-admin startproject mysite
 ## virtualenv 환경
 ```
 sudo pip install virtualenv
-sudo pip install virtualenvwrapper
 virtualenv -p python3 .venv  # 환경 생성
 source .venv/bin/activate  # 환경 진입
 ```
