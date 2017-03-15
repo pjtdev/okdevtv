@@ -158,7 +158,7 @@ nohup bin/logstash -f logconf/nginx.conf &
 
 ## part 2
 
-### Logstash
+### Logstash config
 * 필드 추가
 ```
 field{
@@ -272,6 +272,46 @@ filter {
         convert => [ "bytes", "integer" ]
     }
 ```
+
+### geo_point
+* elasticsearch mappings
+```
+curl -XPUT http://localhost:9200/my_index/ -d '
+{
+  "mappings" : {
+    "logs" : {
+      "properties" : {
+        "location" : { "type" : "geo_point"}
+      }
+    }
+  }
+}'
+```
+* logstash conf
+```
+filter {
+    csv {
+        columns => ["lv","region_addr",
+        "latitude","longitude","cnt"]
+    }
+    mutate {
+        convert => {"longitude" => "float"}
+        convert => {"latitude" => "float"}
+        add_field => ["location", "%{longitude}"]
+        add_field => ["location", "%{latitude}"]
+    }
+    mutate {
+        convert => [ "location", "float" ]
+    }
+}
+```
+* sample log
+```
+lv,region_addr,latitude,longitude,cnt
+1,강원,37.88532579,127.729829,7
+
+```
+
 
 
 ### Kibana
