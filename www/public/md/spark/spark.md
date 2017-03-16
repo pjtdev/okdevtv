@@ -4,6 +4,7 @@
 
 ## Getting Started
 * `bin/pyspark`
+
 ```
 textFile = sc.textFile("README.md")
 textFile.count()
