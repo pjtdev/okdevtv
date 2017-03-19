@@ -14,7 +14,9 @@ stamen
 stamen = folium.Map(location=[45.5236, -122.6750], tiles='Stamen Toner', zoom_start=13)
 stamen
 
-
+map_1 = folium.Map(location=[45.372, -121.6972], tiles='Stamen Terrain', zoom_start=12)
+folium.Marker([45.3288, -121.6625], popup='Mt. Hood Meadows').add_to(map_1)
+map_1
 ```
 
 ## ref: 
