@@ -64,6 +64,10 @@ backend: TkAgg
 ## list(array)
 * 배열
 
+
+## scipy on windows
+* Unofficial Windows Binaries for Python Extension Packages
+  * http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
 ## ref
 * 생활코딩 Python & Ruby
   * https://opentutorials.org/course/1750
