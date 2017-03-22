@@ -19,6 +19,15 @@ folium.Marker([45.3288, -121.6625], popup='Mt. Hood Meadows').add_to(map_1)
 map_1
 ```
 
+## cluster
+```
+map = folium.Map(location=[51.8860942,0.8336077], zoom_start=10, control_scale=True)
+marker_cluster = folium.MarkerCluster("Public cluster").add_to(map)
+folium.Marker([51.8860942,0.8336077], popup='popup').add_to(marker_cluster)
+folium.Marker([51.8530942,0.8235077], popup='popup').add_to(marker_cluster)
+folium.Marker([51.8641942,0.8438077], popup='popup').add_to(marker_cluster)
+```
+
 ## ref: 
 * 지리적 정보를 시각화할 때 괜찮은 Python 지도 모듈 Folium
   * http://pinkwink.kr/971
