@@ -50,30 +50,6 @@ cd /etc/letsencrypt/live/okdevtest.net
 ln -s ../../archive/okdevtest.net/dhparams.pem dhparams.pem
 ```
 
-* 아래는 이전 방법
-
-```
-su
-git clone https://github.com/certbot/certbot
-cd certbot
-./certbot-auto --help
-```
-
-
-```
-service nginx stop #centos6.x
-systemctl stop nginx #centos7.x
-```
-
-
-```
-./letsencrypt-auto certonly \
-  -a standalone \
-  -d okdevtest.net \
-  -d www.okdevtest.net
-```
-* tld : top level domain; .com, .net, .co.kr, .pe.kr, .kr, ...
-
 ## 인증서 확인
 ```
 # sudo ls /etc/letsencrypt/live/okdevtest.net/
@@ -87,7 +63,9 @@ vi /etc/nginx/nginx.conf
 #또는
 vi /etc/nginx/conf.d/default.conf
 ```
+
 * nginx.conf 교체, **domain 변경 필요**
+
 ```
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/

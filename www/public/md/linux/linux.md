@@ -22,6 +22,14 @@ LC_ALL=en_US.utf-8
 iconv -f euc-kr -t utf-8 kimchi.txt > kimchi_utf8.txt
 ```
 
+### multi files
+
+```
+mkdir utf8
+for file in *.csv; do
+    iconv -f euc-kr -t utf-8 "$file" > "utf8/${file%.csv}.utf8.csv"
+done
+```
 ## date
 ```
 date '+%Y%m%d %H%M%S' # today
