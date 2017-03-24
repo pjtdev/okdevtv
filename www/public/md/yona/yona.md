@@ -87,9 +87,9 @@ default-character-set=utf8mb4
   
 ```
 mkdir local && cd local
-wget https://github.com/yona-projects/yona/releases/download/v1.3.3/yona-v1.3.3-bin.zip
-unzip yona-v1.3.3-bin.zip
-ln -s yona-1.3.3/ yona
+wget https://github.com/yona-projects/yona/releases/download/v1.4.1/yona-v1.4.1-bin.zip
+unzip yona-v1.4.1-bin.zip
+ln -s yona-1.4.1/ yona
 cd yona
 bin/yona # first for unarchive folders
 vi conf/application.conf
@@ -125,7 +125,7 @@ nohup bin/yona &
 ## Yona in Windows
 * 환경변수
 ```
-SET YONA_HOME=c:\yona\yona-1.3.3
+SET YONA_HOME=c:\yona\yona-1.4.1
 SET JAVA_OPTS=-Dyona.home=%YONA_HOME% -Dconfig.file=%YONA_HOME%\conf\application.conf -Dlogger.file=%YONA_HOME%\conf\application-logger.xml
 ```
 
