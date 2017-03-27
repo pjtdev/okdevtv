@@ -5,12 +5,11 @@
 
 ## 요구사항
 * [python](https://python.org)
-
+* pip
+* virtualenv
 
 ## 설치
 ```
-sudo pip install --upgrade pip
-sudo ln -s /usr/local/bin/pip /usr/bin/pip
 sudo pip install django
 
 django-admin startproject mysite
@@ -18,13 +17,14 @@ django-admin startproject mysite
 
 ## virtualenv 환경
 ```
-sudo pip install virtualenv
-virtualenv -p python3 .venv  # 환경 생성
+virtualenv .venv  # 환경 생성
 source .venv/bin/activate  # 환경 진입
 ```
 
 ## 참고
 * django 
   * https://www.djangoproject.com/
+* django girls tutorial
+  * https://tutorial.djangogirls.org/ko/
 * django unittest
   * https://docs.djangoproject.com/ja/1.9/topics/testing/overview/
