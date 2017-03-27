@@ -4,7 +4,7 @@
 * Git 서비스 가입하기
   * GitHub
   * BitBucket
-  * nforge
+  * Gitlab
 * 사용자 등록
   * git config --global user.name kenu
   * git config --global user.email kenu.heo@gmail.com
