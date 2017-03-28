@@ -8,6 +8,15 @@
 * pip
 * virtualenv
 
+## virtualenv 환경
+```
+virtualenv .venv  # 환경 생성
+source .venv/bin/activate  # 환경 진입
+```
+or
+```
+python3 -m venv myvenv
+```
 ## django 설치
 ```
 sudo pip install django
@@ -19,15 +28,6 @@ django-admin startproject mysite
 pip install django==1.8
 ```
 
-## virtualenv 환경
-```
-virtualenv .venv  # 환경 생성
-source .venv/bin/activate  # 환경 진입
-```
-or
-```
-python3 -m venv myvenv
-```
 
 ## setup
 ```
@@ -71,11 +71,12 @@ python manage.py startapp blog
 ```
 
 ## define model
+
 * `blog/models.py`
+
 ```
     from django.db import models
     from django.utils import timezone
-
 
     class Post(models.Model):
         author = models.ForeignKey('auth.User')
@@ -101,6 +102,7 @@ python manage.py migrate blog
 
 ## django admin
 * `blog/admin.py`
+
 ```
 from django.contrib import admin
 from .models import Post
