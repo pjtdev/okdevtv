@@ -130,5 +130,7 @@ SET JAVA_OPTS=-Dyona.home=%YONA_HOME% -Dconfig.file=%YONA_HOME%\conf\application
 ```
 
 ## 참고
+* yona-1.4.1 설치 영상
+  * https://youtu.be/B3Q2FVXZWBM
 * gmail 보안 설정 조정법
   * http://okky.kr/article/343036
