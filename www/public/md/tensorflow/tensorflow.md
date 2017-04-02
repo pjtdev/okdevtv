@@ -155,9 +155,24 @@ for step in range(201):
 ## RNN
 * Recurrent Neural Networks
 * 레이어간 영향을 주는 NN
+* speech recognition, language modeling, translation, image captioning…
+* loop rnn
+  * <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-rolled.png" style="width: 100px;">
+* unrolled
+  * <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" style="width: 650px;">
+* image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
 
 ### LSTM
 * Long Short Term Memory
+* Long Short Term Memory networks – usually just called “LSTMs” – are a special kind of RNN, capable of learning long-term dependencies.
+* Hochreiter & Schmidhuber (1997) 
+  * http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf
+* <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png">
+
+## NLU
+* https://github.com/tensorflow/models/tree/master/syntaxnet
+* natural language understanding (NLU)
 
 ### GRU
 
@@ -250,6 +265,48 @@ tensor_2d[0:2,0:2]
 tensorboard --logdir=/temp/tensorflowlogs
 ```
 * http://localhost:6006/
+
+## GPU
+* https://www.tensorflow.org/tutorials/using_gpu
+* CUDA needed
+* device log
+```
+# Creates a graph.
+a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print sess.run(c)
+```
+
+* output
+```
+Device mapping:
+/job:localhost/replica:0/task:0/gpu:0 -> device: 0, name: Tesla K40c, pci bus
+id: 0000:05:00.0
+b: /job:localhost/replica:0/task:0/gpu:0
+a: /job:localhost/replica:0/task:0/gpu:0
+MatMul: /job:localhost/replica:0/task:0/gpu:0
+[[ 22.  28.]
+ [ 49.  64.]]
+```
+
+* set gpu
+```
+# Creates a graph.
+with tf.device('/gpu:0'):
+    a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+    b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+    c = tf.matmul(a, b)
+
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print sess.run(c)
+```
+
 
 ## ref
 * 모두를 위한 머신러닝/딥러닝 강의
