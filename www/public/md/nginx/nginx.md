@@ -110,18 +110,26 @@ sudo service nginx restart
 ```
 ## proxy
 ```
-        auth_basic "Restricted Access";
-        auth_basic_user_file /etc/nginx/htpasswd.users;
-
-        location / {
-                proxy_pass http://localhost:5601;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection 'upgrade';
-                proxy_set_header Host $host;
-                proxy_cache_bypass $http_upgrade;
-        }
+    auth_basic "Restricted Access";
+    auth_basic_user_file /etc/nginx/htpasswd.users;
+    location / {
+        proxy_pass http://localhost:5601;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header        X-Real-Ip       $remote_addr;
+        proxy_set_header        X-Fowarded-For  $remote_addr;
+        proxy_cache_bypass $http_upgrade;
+    }
 ```
+
+## client ip forward to WAS
+```
+        proxy_set_header        X-Real-Ip       $remote_addr;
+        proxy_set_header        X-Fowarded-For  $remote_addr;
+```
+
 
 ## proxy 안되는 경우
 * /var/log/nginx/error.log 파일 확인
