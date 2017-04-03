@@ -268,6 +268,9 @@ tensorboard --logdir=/temp/tensorflowlogs
 
 ## GPU
 * https://www.tensorflow.org/tutorials/using_gpu
+* 1) TensorFlow only supports GPUs on Linux. It may be possible to get it using a Mac one, but I haven't heard any reports of it.
+  2) CUDA is only for NVidia GPUs
+  * by nicki https://www.reddit.com/r/MachineLearning/comments/4nk45n/has_anyone_used_a_mac_gpu_with_tensorflow/
 * CUDA needed
 * device log
 ```
