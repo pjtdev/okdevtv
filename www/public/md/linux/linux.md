@@ -54,6 +54,12 @@ TZ='Asia/Seoul'; export TZ
 %dev    ALL=(ALL)       ALL
 ```
 
+## VGA 확인
+```
+sudo yum install pciutils
+lspci | grep -i vga
+```
+
 ## Basic command
 |basic command	| mac	| windows |
 |----|----|----|
