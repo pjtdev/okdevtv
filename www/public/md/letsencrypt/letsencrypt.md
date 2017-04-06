@@ -246,6 +246,12 @@ service nginx start
 * 무중단 갱신 가능 : http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=80590
   * thanks to @shjxenoside
 
+## when stuck
+```
+unset PYTHON_INSTALL_LAYOUT
+/root/.local/share/letsencrypt/bin/pip install --upgrade certbot
+```
+
 ## 참고
 * SSL Test
   * https://www.ssllabs.com/ssltest/analyze.html
