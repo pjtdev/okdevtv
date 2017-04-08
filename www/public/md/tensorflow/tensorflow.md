@@ -296,7 +296,14 @@ MatMul: /job:localhost/replica:0/task:0/gpu:0
  [ 49.  64.]]
 ```
 
+## VGA 확인
+```
+sudo yum install pciutils
+lspci | grep -i vga
+```
+
 * set gpu
+
 ```
 # Creates a graph.
 with tf.device('/gpu:0'):
