@@ -4,6 +4,7 @@
 
 * http://aws.amazon.com
 
+* [prices](https://okdevtv.com/mib/aws/price)
 ## History
 * S3 (Simple Storage Services)
 * EC2 (Elastic Cloud Compute)
