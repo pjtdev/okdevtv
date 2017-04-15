@@ -8,6 +8,12 @@
   * `guu` or `guL`
   * 1 char `gul`
 
+* search
+  * `/keyword`
+* no highlight
+  * `:noh`
+
+
 ## ref
 * Switching case of characters
   * http://vim.wikia.com/wiki/VimTip49
