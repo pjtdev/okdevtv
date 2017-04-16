@@ -34,14 +34,20 @@ df -h
 sudo chown ubuntu:ubuntu -R /mnt
 cd /mnt
 # https://developer.nvidia.com/cuda-downloads
-wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-sudo apt update
-sudo apt install cuda -y
+# downloads Legacy CUDA Toolkit cuda_8.0.44_linux.run
+chmod +x cuda_8.0.44_linux.run
+mkdir /mnt/installers
+sudo ./cuda_8.0.44_linux.run -extract=/mnt/installers
+cd /mnt/installers
+sudo ./NVIDIA-Linux-x86_64-367.48.run 
+modprobe nvidia
+sudo ./cuda-linux64-rel-8.0.44-21122537.run 
+sudo ./cuda-samples-linux-8.0.44-21122537.run 
 ```
 
 * vi ~/.profile
 ```
+export CUDA_HOME=/usr/local/cuda-8.0
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 ```
