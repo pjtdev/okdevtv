@@ -1,24 +1,12 @@
 # tensorflow ubuntu gpu
 * on aws ubuntu g2.2xlarge
+* k520, 8.0.44_367
 
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y build-essential cmake git unzip pkg-config libopenblas-dev liblapack-dev
 sudo apt-get install -y linux-image-generic linux-image-extra-virtual linux-source linux-headers-generic
-```
-
-## cuda
-
-```
-df -h
-sudo chown ubuntu:ubuntu -R /mnt
-cd /mnt
-# https://developer.nvidia.com/cuda-downloads
-wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-sudo apt update
-sudo apt install cuda -y
 ```
 
 ```
@@ -37,6 +25,19 @@ alias lbm-nouveau off
 echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
 sudo update-initramfs -u
 sudo reboot 
+```
+
+## cuda
+
+```
+df -h
+sudo chown ubuntu:ubuntu -R /mnt
+cd /mnt
+# https://developer.nvidia.com/cuda-downloads
+wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
+sudo apt update
+sudo apt install cuda -y
 ```
 
 * vi ~/.profile
@@ -77,8 +78,41 @@ pip install --upgrade tensorflow-gpu
 
 ### devices
 ```
-
+from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
 ```
+
+### sample
+```
+import tensorflow as tf
+# Creates a graph.
+a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print(sess.run(c))
+```
+
+* output
+```
+Device mapping:
+/job:localhost/replica:0/task:0/gpu:0 -> device: 0, name: Tesla K40c, pci bus
+id: 0000:05:00.0
+b: /job:localhost/replica:0/task:0/gpu:0
+a: /job:localhost/replica:0/task:0/gpu:0
+MatMul: /job:localhost/replica:0/task:0/gpu:0
+[[ 22.  28.]
+ [ 49.  64.]]
+```
+
+## VGA 확인
+```
+sudo yum install pciutils
+lspci | grep -i vga
+```
+
 
 ## ref
 * http://www.pyimagesearch.com/2016/07/04/how-to-install-cuda-toolkit-and-cudnn-for-deep-learning/
