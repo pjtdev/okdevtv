@@ -68,8 +68,8 @@ sudo apt install libcupti-dev -y
 ```
 sudo apt install python3-pip --upgrade
 pip3 install virtualenv --upgrade
-virtualenv ~/local/tf
-source ~/local/tf/bin/activate
+virtualenv /mnt/tf
+source /mnt/tf/bin/activate
 pip install --upgrade tensorflow-gpu
 ```
 
