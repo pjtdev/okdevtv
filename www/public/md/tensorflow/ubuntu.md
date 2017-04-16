@@ -51,6 +51,7 @@ nvcc --version
 ```
 
 * https://developer.nvidia.com/rdp/cudnn-download
+* Download cuDNN v5 (May 27, 2016), for CUDA 8.0
 ```
 tar xvfz cudnn-8.0-linux-x64-v6.0.tgz
 cd cuda
@@ -71,6 +72,12 @@ pip3 install virtualenv --upgrade
 virtualenv /mnt/tf
 source /mnt/tf/bin/activate
 pip install --upgrade tensorflow-gpu
+```
+
+
+### devices
+```
+
 ```
 
 ## ref
