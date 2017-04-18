@@ -40,7 +40,7 @@ sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 * more [install](https://okdevtv.com/mib/java)
 
 ## system env
-* chech env
+* check env
 ```
 ulimit -a
 ```
