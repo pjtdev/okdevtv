@@ -327,6 +327,16 @@ filter {
 }
 ```
 
+* 문자열 체크
+```
+if [agent] =~ "Mediapartners" {
+    drop {}
+}
+if [device] == "Spider" {
+    drop {}
+}
+```
+
 * useragent 파싱
 ```
     useragent {
