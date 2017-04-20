@@ -2,6 +2,13 @@
 * on aws ubuntu g2.2xlarge
 * k520, 8.0.44_367
 
+## VGA 확인
+```
+sudo yum install pciutils
+lspci | grep -i vga
+```
+
+## env setup
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -113,11 +120,6 @@ MatMul: /job:localhost/replica:0/task:0/gpu:0
  [ 49.  64.]]
 ```
 
-## VGA 확인
-```
-sudo yum install pciutils
-lspci | grep -i vga
-```
 
 
 ## ref
