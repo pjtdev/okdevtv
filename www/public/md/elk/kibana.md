@@ -32,6 +32,9 @@
 ### empty field "-" 제외
 * -referrer.keyword : "-"
 
+## Console
+* `GET .kibana/_search`
+
 ## Reporting
 
 
